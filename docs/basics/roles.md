@@ -15,42 +15,22 @@ After choosing the validators, the RON holders can follow the steps in [Stake RO
 
 ## Validator
 
-A validator is someone who runs a *validator node* on the Ronin chain to validate transactions and generate blocks.
+A validator is an individual or institution that has the following responsibilities:
+
+* Generate blocks: a validator runs the validator node to confirm transactions and generate blocks.
+* Act as a chain governor: Governing Validators can propose and vote for changes, such as adding or removing Governing Validators, upgrading smart contracts, and changing thresholds.
 
 ### Validator categories
 
 There are three categories of validators:
 
-* **Validator Candidate.** After registering as a validator on Ronin, you'll become a Validator Candidate and have a chance to be selected as a Standard Validator on the next day.
+* **Validator Candidate.** After registering as a validator on Ronin, you'll become a Validator Candidate and have a chance to be selected as a Standard Validator on the next day. To become a Validator Candidate, an individual or institution has to stake 250,000 RON. For instructions on becoming a candidate, see [Register as a validator](./../validators/onboarding/become-validator.mdx).
 * **Standard Validator.** Every day, 10 Validator Candidates with the highest amount staked are selected as Standard Validators. The system records your total staking amount at 00:00 UTC every day for the selection process.
 * **Governing Validator.** The validators chosen by the community and Sky Mavis to ensure network security. Governing Validators are validators by default, and they account for more than half of the total validator pool.
-
-### Become a validator
-
-For instructions on becoming a validator, see [Register as a validator](./../validators/onboarding/become-validator.mdx).
-
-### Requirements
-
-To become a Validator Candidate, an individual or institution is required to stake 250,000 RON.
 
 ### Validator selection
 
 The validators are selected using Delegated Proof of Stake (DPoS). Beside the 12 Governing Validators, top 10 Validator Candidates with the highest staked amount are selected as Standard Validators.
-
-### Validator responsibilities
-
-Validators are in charge of the following:
-
-* Generating blocks.
-* Governing the chain (Governing Validators only).
-
-#### Block generation
-
-Validators, elected by token holders, run nodes to generate blocks according to a fixed schedule. Each validator is responsible for validating transactions and generating a block during their designated slot. If a validator fails to produce a block, the next validator in the schedule will produce the following block. This process helps maintain the integrity and continuity of the blockchain
-
-#### Chain governance
-
-Governing Validators propose and vote for changes, such as adding or removing Governing Validators, upgrading smart contracts, and changing thresholds.
 
 ### Slashing penalties for validators
 
@@ -58,26 +38,14 @@ Validators who fail to fulfill their responsibilities are subject to [slashing](
 
 ## Bridge operator
 
-A bridge operator is someone who runs a *bridge node* to listen for and approve any deposit and withdrawal events on Ronin Bridge, and govern the bridge with the other bridge operators through a governance process.
+A bridge operator is an individual or institution that has the following responsibilties:
+
+* Act as a bridge governor: create proposals for any changes in the bridge, such as adding or removing bridge operators, mapping new tokens, deploying new contract logic, and more. All bridge operators have the same voting power. A proposal is executed if it gets approved by 70% of the operators.
+* Run the bridge node: an open-source service that acknowledges deposit and withdrawal events between the Ronin and Ethereum chains.
 
 ### Bridge operator selection
 
 The initial set of bridge operators was defined according to [REP-0002](https://github.com/axieinfinity/REPs/blob/main/REP-0002/REP-0002.md#bridge-operator-selection). Subsequently, new operators are added and existing ones removed through proposals that receive approval from the incumbent operators.
-
-### Bridge operator responsibilities
-
-Bridge operators are in charge of the following:
-
-* Listen for deposit and withdrawal events on the bridge.
-* Managing the set of bridge operators and updating token withdrawal thresholds through governance.
-
-#### Acknowledging events
-
-Bridge operators run a bridge node for acknowledging any withdrawal and deposit events between the Ronin and Ethereum chains.
-
-#### Bridge governance
-
-Bridge operators propose and vote on changes to Ronin Bridge through a governance process. All bridge operators have the same voting power. Any operator can create a proposal to add a new operator, remove an existing operator, map a new token, or pause the bridge. A proposal is executed if it gets approved by 70% of the operators.
 
 ### Slashing penalties for bridge operators
 

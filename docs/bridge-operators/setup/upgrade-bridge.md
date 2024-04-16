@@ -5,7 +5,7 @@ title: Upgrade bridge software
 
 ## Overview
 
-This page describes how to get the latest version of the software for your bridge node.
+This page describes how to get the latest version of the software for the bridge node.
 
 Upgrades are usually backwards-compatible and can contain performance
 improvements, bug fixes or new features. It's recommended that every node is

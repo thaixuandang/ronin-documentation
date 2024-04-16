@@ -7,9 +7,9 @@ tags:
 
 ## Overview
 
-This guide demonstrates how to run a bridge node on the Ronin mainnet using Docker.
+This guide demonstrates how to run the bridge node on the Ronin mainnet using Docker.
 
-To be eligible for running a bridge node, you need to go through a governance process that requires approval of at least 70% of the current bridge operators.
+To be eligible for running the bridge node, you need to go through a governance process that requires approval of at least 70% of the current bridge operators.
 Only the bridge operators selected by Sky Mavis and community can run bridge nodes.
 
 ## Prerequisites
