@@ -5,7 +5,7 @@ title: Upgrade validator version
 
 ## Overview
 
-This page describes how to get the latest version of the Ronin node's software.
+This page describes how to get the latest version of the software for the validator node.
 
 Upgrades are usually backwards-compatible and can contain performance
 improvements, bug fixes or new features. It's recommended that every node is
