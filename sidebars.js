@@ -147,8 +147,6 @@ const sidebars = {
             id: 'apps/katana/overview', 
           },
           items: [
-            // Get started
-            'apps/katana/guides/get-started',
             // Swap
             'apps/katana/guides/swap',
             // Pool

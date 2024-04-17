@@ -14,22 +14,23 @@ import swapCompleted from '../assets/katana-swap-completed.png'
 
 ## Overview
 
-Swapping is the action of trading one of your tokens for another token via a Decentralized Exchange (DEX). DEXs are apps that allow people to exchange between any two assets by using smart contracts, without the need of a traditional bank or other trusted third party.
-
-Katana DEX is an Automated Market Maker (AMM). This means it's always ready to buy and sell any tokens immediately.
+You can swap tokens on Katana to trade one token for another. Swapping is a decentralized process that doesn't require a traditional bank or other trusted third party. This is made possible by using smart contracts to facilitate the exchange. As an automated market maker (AMM), Katana is always ready to buy and sell any tokens immediately.
 
 :::info Desktop and mobile users
-Katana Swap is no longer available to the users of the Ronin Wallet mobile app. Instead, mobile users can use the Wallet Swap feature.
+The swap interface is different for desktop and mobile users:
 
-* Desktop users: use [Katana Swap](https://app.roninchain.com/swap) on the web.
-* Mobile users: use Swap in Ronin Wallet > DAPPS.
+* Desktop users: use the Swap feature in the Ronin web app.
+* Mobile users: use the Swap feature in the Ronin Wallet mobile app.
 :::
 
-## Swap tokens
+## Prerequisites
 
-### Desktop users
+To swap tokens on Katana, you need to have tokens in your Ronin Wallet. You can acquire tokens by depositing from Ethereum using [Ronin Bridge](https://app.roninchain.com/bridge), buying tokens through the [Purchase](https://purchase.roninchain.com) website, or receiving tokens from other users.
+For more information, see [Acquire RON](../../../basics/acquire-ron.mdx).
 
-1. Open [Katana](https://app.roninchain.com/swap). You can see the **Swap** tab selected by default.
+## Swap tokens on Katana
+
+1. Open [Katana](https://app.roninchain.com/swap) and connect your Ronin Wallet. The **Swap** page is selected by default.
 2. Choose the tokens you want to swap from and to.
     
     You can click either of the token selection boxes to reveal the full list of supported tokens.
@@ -48,9 +49,7 @@ Katana Swap is no longer available to the users of the Ronin Wallet mobile app. 
         * **Minimum receive**: the lowest amount of tokens you can receive based on slippage tolerance. This is the worst-case scenario. Anything less than this value results in a failed transaction.
         * **Liquidity provider fee**: the fees allocated to LP provider (0.3% of the transaction value).
         * **Route**: the trading route taken for your order. It can be a direct "token A to token B" route, or there might be a bridge token in the middle, such as "token A through token B to token C." Direct route might not always be the cheapest.
-7. Click **Confirm Swap** to start the swap.
-    
-   Confirm the transaction in your Ronin Wallet.
+7. Click **Confirm Swap** to start the swap, then confirm the transaction in your Ronin Wallet.
 
 A **Swap submitted** pop-up indicates that your transaction is submitted to the blockchain. You can close this pop-up or click **View on explorer** to view the transaction details in the Ronin Chain Explorer.
 
@@ -58,9 +57,13 @@ After a few seconds, your transaction is confirmed. You can see a banner appear 
 
 Congratulations. You just swapped your tokens on the Katana DEX.
 
-### Mobile users
+## Swap tokens in Ronin Wallet
 
-1. Open Ronin Wallet and tap **DAPPS > Swap**.
+:::info Swap fee
+When you swap tokens in the Ronin Wallet mobile app, each swap transaction incurs a fee of 0.5% of the transaction value.
+:::
+
+1. In the Ronin Wallet app, tap **DAPPS > Swap**.
 2. Choose the tokens you want to swap from and to.
 3. Enter the amount to swap.
 4. When you are ready to swap, tap **Swap**.
@@ -68,7 +71,7 @@ Congratulations. You just swapped your tokens on the Katana DEX.
 6. On the **Confirm Swap** screen, review the details of your swap:
     1. The tokens to swap: ensure that the amounts are correct.
     2. Detailed swap information:
-        * **Rate**: The exchange rate between the tokens.
+        * **Rate**: the exchange rate between the tokens.
         * **Price impact**: estimation of the slippage to expect based on your order size and market movements. This gives you an idea of how much you can receive.
         * **Max. slippage**: the highest percent of price movement of the transaction. Anything greater than this value results in a failed transaction.
         * **Minimum receive**: the lowest amount of tokens you can receive based on slippage tolerance. This is the worst-case scenario. Anything less than this value results in a failed transaction.
