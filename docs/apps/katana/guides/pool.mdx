@@ -12,7 +12,7 @@ transactions.
 
 By engaging as a Liquidity Provider (LP), you will deposit pairs
 of tokens into a smart contract, effectively increasing the pool's liquidity.
-For instance, if you decide to support the ETH-AXS pool, you'll need to
+For instance, if you decide to support the ETH-RON pool, you'll need to
 contribute an equivalent value of both tokens. In recognition of your
 contribution, you receive LP tokens, which represent your share in the pool.
 These tokens not only signify your stake but also entitle you to a portion
@@ -27,16 +27,103 @@ fluctuations in the value of the deposited tokens.
 
 Before you can provide liquidity, you need to deposit assets to Ronin. 
 You can do this through Binance,
-by depositing from Ethereum using the [Ronin Bridge](https://app.roninchain.com/bridge),
+by depositing from Ethereum using [Ronin Bridge](https://app.roninchain.com/bridge),
 or buying tokens through the [Purchase](https://purchase.roninchain.com) website.
 
 For more information, see [Deposit ERC20 tokens through Ronin Bridge](../../ronin-bridge/guides/deposit-token.md) and [Acquire RON](../../../basics/acquire-ron.mdx).
 
 ## Add a liquidity pair
 
-1. Open [Katana](https://katana.roninchain.com/swap) and connect your Ronin Wallet.
-2. Select the **Pool** tab and click **Add liquidity.** This takes you to the **Add Liquidity** page. It's similar to the **Swap** page, except you see a plus sign (+) between the two tokens instead of an arrow down sign (↓). This symbolizes that you add both tokens to a pool.
-3. Click **Select token.**
-4. Choose the token you want to provide liquidity for.
+1. Open [Katana](https://app.roninchain.com/swap) and connect your Ronin Wallet.
+2. Select the **Liquidity pool** page. This page displays a list of available pools.
+    
+    -list-
+3. Search for the pool you want to contribute to. For example, if you want to provide liquidity for the ETH-RON pool, search for "RON".
+    
+    -search-
+4. Select the pool. This opens the **Add liquidity** panel. This panel is similar to the **Swap** panel, except you see a plus sign (+) between the two tokens instead of an arrows sign (⇅). This symbolizes that you will be adding both tokens into a pool.
+    
+    -add-liquidity-
+  
+    Here you can see the detailed information about the pool:
+    * **Fee earned**: the percentage of the trading fee you will earn.
+    * **Total value locked**: the total value of the pool, including the volume, fees, and transactions for the last 24 hours. 
+    * Charts showing the pool's performance over time: volume, total value locked, and fees.
+5. Enter the amount of tokens you want to contribute. Katana automatically calculates the equivalent amount of the other token based on the current exchange rate. You can also click **MAX** to deposit the maximum amount of tokens you have in your wallet. If everything checks out, click **Add**.
 
-## Check your earned fees
+    -enter-amount-
+
+    :::info
+    You may need to approve the token if you're interacting with it for the first time. Click **Approve**, then confirm the transaction in your Ronin Wallet.
+    :::
+
+6. Review the details of your liquidity contribution:
+    * The amount of LP tokens you will get in return.
+    * The amount of tokens you are contributing.
+    * The share of the pool you will receive.
+
+    Click **Confirm add liquidity**, then confirm the transaction in your Ronin Wallet.
+
+    -confirm-add-liquidity-
+
+When the transaction is completed, you'll see a confirmation pop-up. You can click **View on Explorer** to see the detailed information on the transaction on Ronin Chain Explorer.
+
+-success-
+
+The **My position** panel on the **Liquidity pool** page now displays the following information:
+
+* Your LP token amount
+* Your tokens amount in the pool
+
+Congratulations, you are now a Liquidity Provider on Katana. You can now earn fees from the pool's transactions. If the pool supports farming, you can also stake your LP tokens to farm RON. For more information, see [Farm](#farm).
+
+## View all your liquidity and earned fees
+
+To see all the pools you contributed to and the fees earned, go to the **Liquidity pool** page, then select **My positions**.
+
+-my-positions-
+
+Here you can see the following information:
+
+* The pools you contributed to
+* The APR (Annual Percentage Rate) for each pool
+* The fees you earned from each pool
+* Your position in each pool
+
+Select each pool to see more detailed information, such as the amount of LP tokens and the pool's performance over time.
+
+## Remove a liquidity pair
+
+To remove your liquidity from a pool, follow these steps:
+
+1. Go to the **My positions** page, then select the pool you want to withdraw from:
+
+    -my-positions-
+
+2. Click **Remove liquidity**.
+
+    -remove-liquidity-
+
+    You may need to approve the tokens if you interact with it for the first time. Click **Approve**, then confirm the transaction in your Ronin Wallet.
+
+3. Enter the amount of LP tokens you want to withdraw and burn. You can also click **MAX** to withdraw all your LP tokens. Depending on the amount, you can see how much you're getting when removing liquidity.
+
+    -enter-amount-
+
+4. Review the details of your withdrawal, then click **Remove**.
+
+    -remove-lp-
+
+5. To confirm the withdrawal, click **Confirm remove liquidity**, then confirm the transaction in your Ronin Wallet.
+
+    -confirm-remove-liquidity-
+
+When the transaction is completed, you'll see a confirmation pop-up. You can click **View on Explorer** to see the detailed information on the transaction on Ronin Chain Explorer.
+
+-success-
+
+You'll also see that the **My position** panel is now updated to your latest position within the pool.
+
+-my-position-post-withdrawal-
+
+You have now removed your liquidity by removing your LP tokens, and have gotten your tokens with the accrued fees, proportionate to your shares. Thank you for your service.
