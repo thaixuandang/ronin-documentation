@@ -15,18 +15,24 @@ The required private keys include a BLS key and an ECDSA key. The keys are named
 * The BLS key is used for producing finality votes. Validators who produce finality votes receive a reward.
 * The ECDSA key is used for signing blocks.
 
+## Prerequisites
+
+Go (version 1.20 or later). Follow the
+[installation instructions](https://go.dev/doc/install)
+on the official website.
+
 ## Generate a BLS key
 
-You can generate a BLS key pair using the Ronin CLI or your node's Docker image.
+You can generate a BLS key pair using the Ronin CLI (command-line interface) or your node's Docker image.
 
 ### Generate using the CLI
 
 1. Build Ronin from the source code:
 
    ```bash
-   $ git clone https://github.com/axieinfinity/ronin
-   $ cd ronin
-   $ make ronin
+   git clone https://github.com/axieinfinity/ronin
+   cd ronin
+   make ronin
    ```
 
 2. Add `./build/bin/ronin` to the `$PATH` environment variable. You can do this by adding the following line to your `$HOME/.profile` or `/etc/profile` (for a system-wide installation):
@@ -41,14 +47,14 @@ You can generate a BLS key pair using the Ronin CLI or your node's Docker image.
    export PATH=$PATH:./build/bin/ronin
    ```
 
-   **Note:** Make sure to close and reopen the terminal after adding the path.
+   **Note**: Make sure to close and reopen the terminal after adding the path.
 
 3. Generate a BLS key pair:
 
    ```bash
-   $ mkdir bls_keystore
-   $ echo "input_your_password" > bls_password
-   $ ronin account generatebls --secret
+   mkdir bls_keystore
+   echo "input_your_password" > bls_password
+   ronin account generatebls --secret
    ```
 
    The output is the following:
@@ -97,7 +103,7 @@ In the `.env` file of your node's Docker image, configure the following:
 If you want to view the BLS private key, do the following:
 
 1. Set `BLS_SHOW_PRIVATE_KEY=true`, run `docker-compose up -d`
-2. Run `docker-compose logs node`, which returns `BLS secret key #0: {your_private_key}`. **Note:** This command just shows the private key without running the node.
+2. Run `docker-compose logs node`, which returns `BLS secret key #0: {your_private_key}`. **Note**: This command just shows the private key without running the node.
 3. Set `BLS_SHOW_PRIVATE_KEY` to `false`, and then run `docker-compose up -d` to start the node.
 
 ## Generate an ECDSA key
@@ -106,22 +112,14 @@ You can generate an ECDSA key pair using the Ronin command-line tool (CLI) or th
 
 ### Generate an ECDSA key using the CLI
 
-#### Prerequisites
-
-Go (version 1.20 or later). Follow the
-[installation instructions](https://go.dev/doc/install)
-on the official website.
-
-#### Steps
-
 1. Compile the `ethkey` tool from the Ronin source code by running the following commands:
 
    ```bash
-   $ git clone https://github.com/axieinfinity/ronin
-   $ cd ronin
-   $ go get ./...
-   $ go build ./cmd/ethkey/
-   $ ls -l ethkey
+   git clone https://github.com/axieinfinity/ronin
+   cd ronin
+   go get ./...
+   go build ./cmd/ethkey/
+   ls -l ethkey
    ```
 
    The output is similar to the following:
