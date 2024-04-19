@@ -1,0 +1,21 @@
+name: Check for spelling errors
+on:
+  pull_request:
+    branches:
+      - "main"
+    paths:
+      - "**.md"
+      - "**.mdx"
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Codespell
+        uses: codespell-project/actions-codespell@master
+        with:
+          path: docs
+          skip: '*.svg'
+          ignore_words_list: 'wron,ehr,siz,ot,ihs,2st,appy'
