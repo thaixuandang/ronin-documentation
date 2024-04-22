@@ -6,8 +6,6 @@ title: Katana
 
 import katana from './assets/katana.png'
 import approveTokens from './assets/katana-approve-tokens.png'
-import connectWallet from './assets/katana-connect-wallet.png'
-import connectWalletTerms from './assets/katana-connect-wallet-terms.png'
 import startingPage from './assets/katana-starting.png'
 import walletBalance from './assets/katana-wallet-balance.png'
 import walletOptions from './assets/katana-wallet-options.png'
@@ -16,27 +14,23 @@ import walletOptions from './assets/katana-wallet-options.png'
 
 Katana ([katana.roninchain.com](https://app.roninchain.com/swap)) is a decentralized exchange (DEX) for trading tokens within the Ronin ecosystem. 
 
-Here's what you can do on Katana:
+## Key features
 
-* Swap: Trade between pairs of various ERC20 tokens.
-* Liquidity pool: Provide liquidity for ERC20 tokens and earn market-making fees.
-* Farm: Stake liquidity pool (LP) tokens to earn RON rewards.
+* [Swap](./guides/swap.mdx): easily swap between pairs of various ERC 20 tokens, including wrapping RON to wRON to make offers on Mavis Market and participate in Ronin token launches.
+* [Pool](./guides/pool.mdx): provide liquidity for ERC 20 tokens and earn market-making fees.
+* [Farm](./guides/farm.mdx): stake liquidity pool (LP) tokens to earn RON rewards.
 
 ## Feature availability
 
+The following table shows the availability of features in Katana web and Ronin Wallet mobile app and browser extension.
+
 |Feature|Katana web|Ronin Wallet|
 |---|---|---|
-|Swap|✅ (Katana Swap)|✅ (Wallet Swap\*)|
-|Liquidity pool|✅|❌|
+|Swap|✅|✅\*|
+|Pool|✅|❌|
 |Farm|✅|❌|
 
 \*Each swap transaction in the Ronin Wallet mobile app and browser extension incurs a development fee of 0.5% of the transaction value.
-
-## User guides
-
-* [Swap](./guides/swap.mdx)
-* [Pool](./guides/pool.mdx)
-* [Farm](./guides/farm.mdx)
 
 ## Basics
 
@@ -57,9 +51,20 @@ Click the options in the top right-hand corner to view more details:
 
 ### Approve tokens
 
-When the Katana smart contract first interacts with a token in your wallet, it asks for your permission. You're prompted once for each token, and these prompts appear visibly before you can continue with your desired actions. 
+When a smart contract first interacts with a token in your wallet, it asks for your permission. You're prompted once for each token, and these prompts appear visibly before you can continue with your desired actions. 
 
 For example, to stake an SLP/WRON token pair, you need to approve it first. Click **Approve SLP/WRON**, then confirm the transaction in your Ronin Wallet.
 
 <img src={approveTokens} width={1000} />
 
+### Customize transaction settings
+
+When transacting on Katana, you can fine-tune transaction settings. To access the settings, click the cog icon on the transaction panel on the **Swap** or **Liquidity pool** pages.
+
+![Transaction settings](./assets/katana-txn-settings.png)
+
+Here's what you can adjust:
+
+1. **Max slippage**: set a custom maximum percentage difference between the expected price and the price at the time of the transaction.
+2. **Transaction deadline**: set a custom time limit for the transaction to be completed.
+3. **Expert mode**: enable high price-impact swaps and remove the confirmation step.

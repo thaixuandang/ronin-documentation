@@ -17,7 +17,7 @@ The interface for the swap feature differs between Katana web and Ronin Wallet:
 
 ### Swap fees
 
-When you swap tokens, you incur the following fees:
+When swapping tokens, you incur the following fees:
 
 |Fee|Katana web|Ronin Wallet|
 |---|---|---|
@@ -25,26 +25,14 @@ When you swap tokens, you incur the following fees:
 |Ronin treasury fee|0.05%|0.05%|
 |Liquidity provider fee|0.25%|0.25%|
 
-### Transaction settings
-
-When swapping tokens, if you're an advanced user, you can fine-tune transaction settings. To access the settings, click the cog icon on the **Swap** panel.
-
-![Transaction settings](../assets/katana-swap-txn-settings.png)
-
-Here's what you can adjust:
-
-1. **Max slippage**: set a custom maximum percentage difference between the expected price and the price at the time of the transaction.
-2. **Transaction deadline**: set a custom time limit for the transaction to be completed.
-3. **Expert mode**: enable high price-impact swaps and skip the confirmation step.
-
 ## Prerequisites
 
-To swap tokens on Katana, you need to have tokens in your Ronin Wallet. You can acquire tokens by depositing from Ethereum using [Ronin Bridge](https://app.roninchain.com/bridge), buying tokens through the [Purchase](https://purchase.roninchain.com) website, or receiving tokens from other users.
+To swap tokens on Katana, you need to have those tokens in your Ronin Wallet. You can acquire tokens by depositing from Ethereum using [Ronin Bridge](https://app.roninchain.com/bridge), buying through the [Purchase](https://purchase.roninchain.com) website, or receiving from other users.
 For more information, see [Acquire RON](../../../basics/acquire-ron.mdx).
 
 ## Swap tokens on Katana web
 
-1. Open [Katana](https://app.roninchain.com/swap) and connect your Ronin Wallet. The **Swap** page is selected by default.
+1. Open [Katana](https://app.roninchain.com/swap) and connect your Ronin Wallet. Katana opens on the **Swap** page by default, with the **Swap** panel in the middle.
     ![Starting page](../assets/katana-starting.png)
 2. Choose the tokens you want to swap from and to.
     ![Swap from](../assets/katana-swap-from.png)
@@ -63,21 +51,17 @@ For more information, see [Acquire RON](../../../basics/acquire-ron.mdx).
     * **Price impact**: estimation of the slippage to expect based on your order size and market movements. This gives you an idea of how much you can receive.
     * **Max. slippage**: the highest percent of price movement of the transaction. Anything greater than this value results in a failed transaction.
     * **Minimum receive**: the lowest amount of tokens you can receive based on slippage tolerance. This is the worst-case scenario. Anything less than this value results in a failed transaction.
-    * **Liquidity provider fee**: the fees allocated to LP provider (0.3% of the transaction value).
+    * **Liquidity provider fee**: the fees allocated to liquidity providers.
     * **Route**: the trading route taken for your order. It can be a direct "token A to token B" route, or there might be a bridge token in the middle, such as "token A through token B to token C." The direct route might not always be the cheapest.
     
     After reviewing the details, click **Confirm Swap**, then confirm the transaction in your Ronin Wallet.
     ![Review details](../assets/katana-swap-review-details.png)
 
-When your transaction is submitted to the blockchain, Kanata displays a **Swap submitted** pop-up.
-
-![Swap submitted](../assets/katana-swap-txn-submitted.png)
-
-After a few seconds, the system confirms your transaction. You can view the transaction details on the **Swap success** pop-up. For more information about this transaction, click **View on explorer**.
+Your transaction is now submitted to the blockchain. When it is completed, Katana displays a confirmation pop-up. Close it or click **View on explorer** to see the detailed information about the transaction.
 
 ![Swap completed](../assets/katana-swap-txn-completed.png)
 
-Congratulations. You just swapped your tokens on the Katana DEX.
+Congratulations. You just swapped your tokens on Katana.
 
 ## Swap tokens in Ronin Wallet
 
@@ -95,7 +79,7 @@ This section describes how to swap tokens in the Ronin Wallet mobile app. The pr
         * **Price impact**: estimation of the slippage to expect based on your order size and market movements. This gives you an idea of how much you can receive.
         * **Max. slippage**: the highest percent of price movement of the transaction. Anything greater than this value results in a failed transaction.
         * **Minimum receive**: the lowest amount of tokens you can receive based on slippage tolerance. This is the worst-case scenario. Anything less than this value results in a failed transaction.
-        * **Liquidity provider fee**: the fees allocated to LP provider (0.3% of the transaction value).
+        * **Liquidity provider fee**: the fees allocated to liquidity providers.
         * **Route**: the trading route taken for your order. It can be a direct "token A to token B" route, or there might be a bridge token in the middle, such as "token A through token B to token C." Direct route might not always be the cheapest.
 7. Tap **Confirm Swap** to start the swap, then confirm the transaction in your Ronin Wallet.
 
