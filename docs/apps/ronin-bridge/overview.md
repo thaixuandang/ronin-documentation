@@ -8,8 +8,6 @@ title: Ronin Bridge
 
 Ronin Bridge ([app.roninchain.com/bridge](https://app.roninchain.com/bridge)) is an app for bridging ERC20 tokens and NFTs (non-fungible tokens) between Ethereum and the Ronin chain.
 
-![bridge-home](./assets/bridge-home.png)
-
 Ronin Bridge is a multi-signature bridge, which means that when you make a transaction, multiple bridge operators have to approve it before it's finalized. This approach makes the bridge a secure choice for cross-chain transactions, preventing any single party from acting maliciously or making unauthorized changes.
 
 ## User guides
@@ -49,9 +47,9 @@ With Ronin Bridge, you can bridge NFTs (non-fungible tokens) from the following 
 
 ## RNS-compatible
 
-When bringing a token or NFT to an address on the Ronin chain, you can enter either a standard crypto address that starts with "0x...", or an RNS (Ronin Name Service) name, such as "example.ron".
+When bringing a token or NFT to an address on the Ronin chain, you can enter either a standard crypto address that starts with `0x`, or an RNS (Ronin Name Service) domain name, such as `example.ron`.
 
-Make sure to type in the *full RNS name* including the ".ron" part, so that the system can recognize the linked address.
+Make sure to type in the *full RNS name* including the `.ron` domain, so that the system can recognize the linked address.
 
 ![bridge-rns](./assets/bridge-rns.png)
 

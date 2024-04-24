@@ -1,4 +1,4 @@
-name: Editorial review
+name: Check for style guide adherence
 on: [pull_request]
 
 jobs:

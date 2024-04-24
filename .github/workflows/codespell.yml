@@ -18,4 +18,4 @@ jobs:
         with:
           path: docs
           skip: '*.svg'
-          ignore_words_list: 'wron,ehr,siz,ot,ihs,2st,appy'
+          ignore_words_list: 'wron,ehr,siz,ot,ihs,2st,appy,bidding,biddings'

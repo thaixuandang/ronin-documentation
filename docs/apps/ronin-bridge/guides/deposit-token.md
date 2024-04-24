@@ -18,7 +18,7 @@ If you access Ronin Bridge on mobile, remember to import your Ethereum address t
    ![token-deposit-0](../assets/token-deposit-0.png)
 2. Select the **From** field and connect the Ethereum wallet that you want to bridge the token from.
    ![token-deposit-1](../assets/token-deposit-1.png)
-3. Select the **To** field and enter the Ronin address that you want to bridge the token to. You can also enter the RNS (Ronin Name Service) domain name linked to the address, such as "example.ron". Make sure to specify the *full RNS name* including the ".ron" part, so that the system can recognize the linked address.
+3. Select the **To** field and enter the Ronin address that you want to bridge the token to. You can also enter the RNS (Ronin Name Service) domain name linked to the address, such as `example.ron`. Make sure to specify the *full RNS name* including the `.ron` domain, so that the system can recognize the linked address.
    ![token-deposit-2](../assets/token-deposit-2.png)
    If the recipient address has an RNS name, the **To** field will automatically show the RNS name instead of the address.
    ![token-deposit-rns](../assets/token-deposit-rns.png)
