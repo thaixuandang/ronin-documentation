@@ -60,11 +60,11 @@ Before registering an auctioned domain, install [Ronin Wallet](https://wallet.ro
 
 If you win the auction, your bid is transferred to the RNS registrar, and you become the owner of the domain name without having to pay the renewal fee for the first year.
 
-## Track your biddings
+## Track your bids
 
-To view your biddings and their status, go to **My account > My biddings**. If the bid is active, then you're the leading bidder. If you're outbid, you lose the auction and the bid is refunded.
+To view your bids and their status, go to **My account > My biddings**. If the bid is active, then you're the leading bidder. If you're outbid, you lose the auction and the bid is refunded.
 
-![biddings](../../assets/auctioned/biddings.png)
+![bids](../../assets/auctioned/biddings.png)
 
 ## See also
 

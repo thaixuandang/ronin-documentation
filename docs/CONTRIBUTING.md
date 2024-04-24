@@ -571,7 +571,7 @@ all the entries defined in the topic have in common.
   requirements," "Request parameters," and "Responses." The format  might be
   different for each section—"General requirements" might be a list, while
   "Request parameters" and "Responses" are tables.
-* Use the "don't repeat yourself" (DRY) method and re-use content if it's
+* Use the "don't repeat yourself" (DRY) method and reuse content if it's
   written for the same audience, and it fits within your reference topic without
   modification.
 * For consistency in longer reference pages, consider using H2 headers for each

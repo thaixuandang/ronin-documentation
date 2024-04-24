@@ -20,4 +20,4 @@ We offer two different methods of installing the bridge:
 
 ## Node upgrade
 
-Keep the node's software up-to-date by upgarding to the latest version as described in [Upgrade bridge software](upgrade-bridge.md).
+Keep the node's software up-to-date by upgrading to the latest version as described in [Upgrade bridge software](upgrade-bridge.md).

@@ -38,7 +38,7 @@ Validators who fail to fulfill their responsibilities are subject to [slashing](
 
 ## Bridge operator
 
-A bridge operator is an individual or institution that has the following responsibilties:
+A bridge operator is an individual or institution that has the following responsibilities:
 
 * Act as a bridge governor: create proposals for any changes in the bridge, such as adding or removing bridge operators, mapping new tokens, deploying new contract logic, and more. All bridge operators have the same voting power. A proposal is executed if it gets approved by 70% of the operators.
 * Run the bridge node: an open-source service that acknowledges deposit and withdrawal events between the Ronin and Ethereum chains.
