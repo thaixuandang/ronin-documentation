@@ -1,0 +1,70 @@
+---
+description: The decentralized token exchange for Ronin.
+slug: /apps/katana
+title: Katana
+---
+
+import katana from './assets/katana.png'
+import approveTokens from './assets/katana-approve-tokens.png'
+import startingPage from './assets/katana-starting.png'
+import walletBalance from './assets/katana-wallet-balance.png'
+import walletOptions from './assets/katana-wallet-options.png'
+
+## Overview
+
+Katana ([app.roninchain.com/swap](https://app.roninchain.com/swap)) is a decentralized exchange (DEX) for trading tokens within the Ronin ecosystem. 
+
+## Key features
+
+* [Swap](./guides/swap.mdx): easily swap between pairs of various ERC 20 tokens, including wrapping RON to wRON to make offers on Mavis Market and participate in Ronin token launches.
+* [Pool](./guides/pool.mdx): provide liquidity for ERC 20 tokens and earn market-making fees.
+* [Farm](./guides/farm.mdx): stake liquidity pool (LP) tokens to earn RON rewards.
+
+## Feature availability
+
+The feature experience differs between Katana web and Wallet Swap in Ronin Wallet. Here's a comparison:
+
+|Feature|Katana web|Wallet Swap|
+|---|---|---|
+|Swap|✅|✅ \*|
+|Pool|✅|❌|
+|Farm|✅|❌|
+
+\*Each swap transaction using Wallet Swap in the Ronin Wallet mobile app and browser extension incurs a development fee of 0.5% of the transaction value.
+
+## Basics
+
+### View your connected wallet
+
+After connecting your Ronin Wallet to Katana, you can see the amount of RON you own and the wallet address you're connected to.
+
+<img src={walletBalance} width={1000} />
+
+To view more details, click the options in the top right-hand corner:
+
+<img src={walletOptions} width={1000} />
+
+1. Network switch: this allows you to switch between the Ronin mainnet and Saigon testnet networks.
+2. User icon: this opens the page for your connected address in [Ronin Block Explorer](https://app.roninchain.com/).
+3. Eye icon: this allows you to hide your wallet balance.
+4. Connected address: this allows you to copy the address or disconnect your Ronin Wallet from Katana and the Ronin app itself.
+
+### Approve tokens
+
+When a smart contract first interacts with a token in your wallet, it asks for your permission. You're prompted once for each token, and these prompts appear visibly before you can continue with your desired actions. 
+
+For example, to stake an SLP/WRON token pair, you need to approve it first. Click **Approve SLP/WRON**, then confirm the transaction in your Ronin Wallet.
+
+<img src={approveTokens} width={1000} />
+
+### Customize transaction settings
+
+When transacting on Katana web or swapping using Wallet Swap, you can fine-tune transaction settings. To access the settings, select the cog icon in the top right-hand corner of the transaction panel.
+
+![Transaction settings](./assets/katana-txn-settings.png)
+
+Here's what you can adjust:
+
+1. **Max slippage**: set a custom maximum percentage difference between the expected price and the price at the time of the transaction.
+2. **Transaction deadline**: set a custom time limit for the transaction to be completed.
+3. **Expert mode**: enable high price-impact swaps and remove the confirmation step.
