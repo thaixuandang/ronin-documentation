@@ -16,7 +16,7 @@ In RNS, auctioned domains are listed as follows:
 
 * **Awaiting auction**: domain name that's in the auctioned list but does not have a scheduled auction in the near future.
 * **Upcoming auction**: domain name that doesn't have a starting price yet but has an announced auction date.
-* **Auctioning**: domain names that's being auctioned and is open for bidding. If no one places a bid during the auction, the domain's status becomes **Awaiting auction** until another auction opens.
+* **Auctioning**: domain names that's being auctioned and is open for biddings. If no one places a bid during the auction, the domain's status becomes **Awaiting auction** until another auction opens.
 
 ### Renewal fee
 
@@ -64,7 +64,7 @@ If you win the auction, your bid is transferred to the RNS registrar, and you be
 
 To view your bids and their status, go to **My account > My biddings**. If the bid is active, then you're the leading bidder. If you're outbid, you lose the auction and the bid is refunded.
 
-![bids](../../assets/auctioned/biddings.png)
+![biddings](../../assets/auctioned/biddings.png)
 
 ## See also
 
