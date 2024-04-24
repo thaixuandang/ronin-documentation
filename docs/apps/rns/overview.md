@@ -22,19 +22,19 @@ Looking to use RNS in your dApp? Visit [RNS developer documentation](https://doc
 
 There are four categories of domain names in RNS:
 
-* **Regular names:** These unregistered domain names, available on a first-come, first-served basis, come with an annual renewal fee.
-* **Auctioned names:** These highly sought-after RNS names, such as `adventure.ron` and `moonshard.ron`, are distributed through auctions where the highest bidder wins.
-* **Protected names:** Names reserved for Sky Mavis's official partners and other brands and businesses. For instance, we ensure that `battlebears.ron` remains exclusive to the Battle Bears team, safeguarding our communities from malicious actors.
-* **Blacklisted names:** Names with negative connotations, sensitive themes, or deceptive potential that aren't available for registration.
+* **Regular names**: these unregistered domain names, available on a first-come, first-served basis, come with an annual renewal fee.
+* **Auctioned names**: these highly sought-after RNS names, such as `adventure.ron` and `moonshard.ron`, are distributed through auctions where the highest bidder wins.
+* **Protected names**: names reserved for Sky Mavis's official partners and other brands and businesses. For instance, we ensure that `battlebears.ron` remains exclusive to the Battle Bears team, safeguarding our communities from malicious actors.
+* **Blacklisted names**: names with negative connotations, sensitive themes, or deceptive potential that aren't available for registration.
 
 ## Domain price
 
 The price of an RNS domain name depends on the following factors:
 
-* **Renewal fee:** A fee charged for the registration duration, in years. This is a fixed fee based on the length of the domain name, applying only to regular names. For protected names, Sky Mavis sets the amount individually for each registrant.
+* **Renewal fee**: a fee charged for the registration duration, in years. This is a fixed fee based on the length of the domain name, applying only to regular names. For protected names, Sky Mavis sets the amount individually for each registrant.
 * Additional fees applied to auctioned domains:
-  * **Domain price:** Set by the market during the auction. The first participant makes a starting bid, then someone else makes a higher bid, and so on. After the auction period, trading (buying or selling) the auctioned domain in the Mavis Market may affect its domain price.
-  * **Reservation fee:** 15% of the auctioned domain's price. This fee applies only to auctioned names and is charged when you renew the domain name after it expires.
+  * **Domain price**: set by the market during the auction. The first participant makes a starting bid, then someone else makes a higher bid, and so on. After the auction period, trading (buying or selling) the auctioned domain in the Mavis Market may affect its domain price.
+  * **Reservation fee**: 15% of the auctioned domain's price. This fee applies only to auctioned names and is charged when you renew the domain name after it expires.
 
 ## Domain tiers
 

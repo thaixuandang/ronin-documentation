@@ -5,7 +5,7 @@ title: Upgrade validator version
 
 ## Overview
 
-This page describes how to get the latest version of the Ronin node's software.
+This page describes how to get the latest version of the software for the validator node.
 
 Upgrades are usually backwards-compatible and can contain performance
 improvements, bug fixes or new features. It's recommended that every node is
@@ -34,7 +34,7 @@ To download the latest image for your node, follow these steps:
 
 1. In the `.env` file, set `NODE_IMAGE` to the following:
 
-    ```
+    ```bash
     ghcr.io/axieinfinity/ronin:v2.7.1-c64ddd3
     ```
 
@@ -50,7 +50,7 @@ To download the latest image for your node, follow these steps:
 
 1. In the `.env` file, set `NODE_IMAGE` to the following:
 
-    ```
+    ```bash
     ghcr.io/axieinfinity/ronin:v2.6.0-83c8375
     ```
 
@@ -59,4 +59,4 @@ To download the latest image for your node, follow these steps:
 
 ## See also
 
-* [Upgrade bridge operator version](./../../bridge-operators/setup/upgrade-bridge-operator.md)
+[Upgrade bridge version](./../../bridge-operators/setup/upgrade-bridge.md)
