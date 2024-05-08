@@ -246,6 +246,8 @@ const sidebars = {
             'validators/setup/cli',
             // Latest version
             'validators/setup/upgrade-validator',
+            // Clean data
+            'validators/setup/clean-data',
             // Network parameters
             {
               type: 'category',
