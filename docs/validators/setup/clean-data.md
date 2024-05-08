@@ -38,7 +38,7 @@ INFO [05-08|07:11:03.037] Deleted trie clean cache                 path=/ronin/d
 INFO [05-08|07:11:03.052] Iterating state snapshot                 accounts=0 slots=0 elapsed="674.358µs"
 INFO [05-08|07:11:11.052] Iterating state snapshot                 accounts=75398 slots=785 elapsed=8.000s      eta=32m41.227s
 ```
-3. After the container is finished, then remove the line added in step 1 and start the node again.
+3. After the container process is finished, then remove the line added in step 1 and start the node again.
 
 ```
 docker-compose up -d 
