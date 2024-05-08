@@ -59,14 +59,14 @@ To set up the origin state of the chain, initialize the genesis block. In your c
   <TabItem value="mainnet" label="Mainnet" default>
 
   ```bash
-  ronin init genesis/mainnet.json --datadir ~/roninchain/data
+  ronin init --datadir ~/roninchain/data genesis/mainnet.json
   ```
 
   </TabItem>
   <TabItem value="testnet" label="Testnet" default>
 
   ```bash
-  ronin init genesis/testnet.json --datadir ~/roninchain/data
+  ronin init --datadir ~/roninchain/data genesis/testnet.json
   ```
 
   </TabItem>
