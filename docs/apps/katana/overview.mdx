@@ -6,6 +6,8 @@ title: Katana
 
 import katana from './assets/katana.png'
 import approveTokens from './assets/katana-approve-tokens.png'
+import seedTokenPool from './assets/katana-seed-token-pool.png'
+import seedTokenWarning from './assets/katana-seed-token.png'
 import startingPage from './assets/katana-starting.png'
 import walletBalance from './assets/katana-wallet-balance.png'
 import walletOptions from './assets/katana-wallet-options.png'
@@ -16,23 +18,21 @@ Katana ([app.roninchain.com/swap](https://app.roninchain.com/swap)) is a decentr
 
 ## Key features
 
-* [Swap](./guides/swap.mdx): easily swap between pairs of various ERC 20 tokens, including wrapping RON to wRON to make offers on Mavis Market and participate in Ronin token launches.
-* [Pool](./guides/pool.mdx): provide liquidity for ERC 20 tokens and earn market-making fees.
-* [Farm](./guides/farm.mdx): stake liquidity pool (LP) tokens to earn RON rewards.
+* [Swap](./guides/swap.mdx) between pairs of various ERC20 tokens, including wrapping RON to wRON to make offers on Mavis Market and participate in Ronin token launches, and swapping between "main" and "seed" tokens.
+* [Create liquidity pools](./guides/pool.mdx) with two tokens, provide liquidity to existing pools, and earn trading fees.
+* [Stake](./guides/farm.mdx) your liquidity pool (LP) tokens in a farm to earn rewards in the form of another ERC20 token.
 
-## Feature availability
+Some features are only available on the Katana web app, while others are available on the Ronin Wallet mobile app and browser extension:
 
-The feature experience differs between Katana web and Wallet Swap in Ronin Wallet. Here's a comparison:
-
-|Feature|Katana web|Wallet Swap|
+|Feature|Katana web|Ronin Wallet|
 |---|---|---|
-|Swap|✅|✅ \*|
-|Pool|✅|❌|
-|Farm|✅|❌|
+|Swap|Available|Available as Wallet Swap |
+|Pool|Available|Not available|
+|Farm|Available|Not available|
 
-\*Each swap transaction using Wallet Swap in the Ronin Wallet mobile app and browser extension incurs a development fee of 0.5% of the transaction value.
+Each swap transaction using Wallet Swap incurs a development fee of 0.5% of the transaction value.
 
-## Basics
+## Get started
 
 ### View your connected wallet
 
@@ -47,24 +47,32 @@ To view more details, click the options in the top right-hand corner:
 1. Network switch: this allows you to switch between the Ronin mainnet and Saigon testnet networks.
 2. User icon: this opens the page for your connected address in [Ronin Block Explorer](https://app.roninchain.com/).
 3. Eye icon: this allows you to hide your wallet balance.
-4. Connected address: this allows you to copy the address or disconnect your Ronin Wallet from Katana and the Ronin app itself.
+4. Connected address: this allows you to copy your Ronin Wallet address to the clipboard or log out of the Ronin app.
 
-### Approve tokens
+### Approve a token
 
-When a smart contract first interacts with a token in your wallet, it asks for your permission. You're prompted once for each token, and these prompts appear visibly before you can continue with your desired actions. 
+When you first interact with a token, Katana prompts you to approve it. This means you're allowing a smart contract to interact with your token. This is a one-time action for each token, and the prompts appear visibly before you can continue with your desired actions.
 
 For example, to stake an SLP/WRON token pair, you need to approve it first. Click **Approve SLP/WRON**, then confirm the transaction in your Ronin Wallet.
 
 <img src={approveTokens} width={1000} />
 
-### Customize transaction settings
+### Trade "main" and "seed" tokens
 
-When transacting on Katana web or swapping using Wallet Swap, you can fine-tune transaction settings. To access the settings, select the cog icon in the top right-hand corner of the transaction panel.
+Katana classifies ERC20 tokens into "main" tokens and "seed" tokens, which have different risk profiles:
 
-![Transaction settings](./assets/katana-txn-settings.png)
+* “Seed” tokens have a higher risk profile and volatility. They may be designed to be highly experimental and inflationary at their inception. In the user interface, “seed” tokens are marked with a plant icon.
+* "Main" tokens are defined against a non-exhaustive list of factors: depth of liquidity, market capitalization, volumes, and whether the team is verified. For example, RON and WETH have a "main" tag.
+* All newly launched tokens are tagged as “seed.” Tags are reviewed on a regular basis and tokens can be relabelled to "main" after a period of time in the market based on improvements in certain factors.
 
-Here's what you can adjust:
+Anyone on Katana can trade both "main" and "seed" tokens.
 
-1. **Max slippage**: set a custom maximum percentage difference between the expected price and the price at the time of the transaction.
-2. **Transaction deadline**: set a custom time limit for the transaction to be completed.
-3. **Expert mode**: enable high price-impact swaps and remove the confirmation step.
+For easier identification, "seed" tokens are marked with a plant icon:
+
+<img src={seedTokenPool} width={1000} />
+
+When you first interact with a token, Katana prompts you to acknowledge the risks involved:
+
+<img src={seedTokenWarning} width={400} />
+
+**Note:** Providing liquidity involves risks including impermanent loss, especially if asset prices change significantly. We encourage you to assess your risk tolerance before participating.
