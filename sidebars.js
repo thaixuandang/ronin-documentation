@@ -149,11 +149,13 @@ const sidebars = {
             id: 'apps/katana/overview', 
           },
           items: [
-            // Swap
+            // Swap tokens
             'apps/katana/guides/swap',
-            // Pool
+            // Create a liquidity pool
             'apps/katana/guides/pool',
-            // Farm
+            // Create a farm
+            'apps/katana/guides/create-farm',
+            // Farm tokens
             'apps/katana/guides/farm',
           ]
         },
