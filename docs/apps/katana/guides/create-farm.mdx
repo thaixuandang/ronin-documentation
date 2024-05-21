@@ -21,11 +21,7 @@ import katanaSelectTokenPair from './../assets/katana-select-token-pair.png'
 
 ## Overview
 
-You can create a farm in the liquidity pool with your ERC20 token on Katana. When users contribute liquidity to your pool, they receive liquidity pool (LP) tokens in return. A farm is a way for users to earn rewards by staking their LP tokens. 
-
-To add a farm, you need to choose the token for distribution, deposit the reward amount, and set the duration of the farm.
-
-When users see that your pool offers farm rewards, they're encouraged to provide more liquidity, which increases the trading volume of the pool and reduces slippage when users swap the pool's tokens.
+This guide is for token creators who want to create a farm on Katana to encourage users to contribute liquidity to their pool. A farm is a way for users to earn rewards by staking their liquidity pool (LP) tokens. When users see that your pool offers farm rewards, they're encouraged to provide more liquidity, which increases the trading volume of the pool and reduces slippage when users swap the pool's tokens.
 
 An important metric for farms is the rewards per second. This metric shows how much of the reward token is distributed to all users per second. The rewards per second are calculated based on the total reward amount and the farm duration. Changing the farm duration or the reward amount affects the rewards per second, resulting in a top-up from your wallet or a refund.
 
@@ -54,7 +50,9 @@ Your farm is now created and scheduled for publishing on the start date. As long
 
 Click **View farm details** to see the farm details and if you need to, edit the duration or the reward amount of the farm before it's published. 
 
-## Edit a scheduled farm
+## Edit a farm
+
+### Edit a scheduled farm
 
 Before your farm is published, you can change the initial reward amount and adjust the period over which the rewards are distributed. Depending on the changes you make, you may need to top up the initial reward amount or receive a refund if the required amount is less than the initial reward.
 
@@ -65,7 +63,7 @@ Before your farm is published, you can change the initial reward amount and adju
 4. Review the amount of tokens you need to top up or receive due to the changes, then press **Confirm**, and then confirm the transaction in your Ronin Wallet.
   ![Confirm farm edit](../assets/katana-edit-scheduled-farm-confirm.png)
 
-## Edit a published farm
+### Edit a published farm
 
 After publishing your farm, you can extend its reward distribution period or end it earlier. If you decide to extend the farm, the system will calculate the amount of rewards you need to pay on top of the initial rewards. If you want to end the farm earlier, the system will issue a refund for the remaining rewards.
 
@@ -75,4 +73,3 @@ After publishing your farm, you can extend its reward distribution period or end
   ![Edit a published farm](../assets/katana-edit-published-farm.png)
 4. Click **Confirm changes**, review the details, then confirm the transaction in your Ronin Wallet.
   ![Confirm farm edit](../assets/katana-edit-published-farm-confirm.png)
-

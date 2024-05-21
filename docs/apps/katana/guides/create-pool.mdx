@@ -2,6 +2,7 @@
 description: Create new liquidity pools on Katana to earn trading fees from transactions.
 slug: /apps/katana/create-pool
 title: Create a liquidity pool
+toc_max_heading_level: 2
 ---
 
 ## Overview
@@ -24,34 +25,36 @@ Be aware that earning a profit through providing liquidity isn't guaranteed.
 You may face what's known as _impermanent loss_, a risk that arises from
 fluctuations in the value of the deposited tokens.
 
-:::info Token creators
+## Prerequisites
+
+* To provide liquidity on Katana, you need to have tokens in your Ronin Wallet. You can acquire tokens by depositing from Ethereum using [Ronin Bridge](https://app.roninchain.com/bridge), buying tokens through the [Purchase](https://purchase.roninchain.com) website, or receiving tokens from other users.
+For more information, see [Acquire RON](../../../basics/acquire-ron.mdx).
+* Token creators: to create a liquidity pool with your token on Katana, you need to meet the following requirements:
+  * Have your ERC20 token contract deployed on the Ronin network.
+  * Have your token reviewed by Sky Mavis.
+  * Have your Ronin address whitelisted by Sky Mavis. During the whitelisting period, only you can create liquidity pools with your token. This address will be linked to your token contract after you deploy it.
+
+## Launch your ERC20 token
+
 If you're a token creator, you can launch your own ERC20 token on Katana and create a liquidity pool with it. This is a unique opportunity to bootstrap liquidity for your tokens and incentivize trading. By creating a pool, you provide a platform for users to trade your token with other tokens, increasing its utility and value.
 
 During an initial whitelisting period, only you as the owner of the Ronin address that deployed the ERC20 token can create liquidity pools with your token. After the whitelisting period ends, users can contribute liquidity to your pool or create their own pools with your token.
 
 After creating a liquidity pool, you can [create a farm](create-farm.mdx) to encourage users to contribute liquidity to your pool.
-:::
 
-## Prerequisites
-
-* Only _whitelisted_ Ronin addresses can create liquidity pools during a token whitelisting period. To apply, submit your Ronin address to Sky Mavis. This address will be linked to your token contract after you deploy it.
-* Have your token's details and tag classification finalized with Sky Mavis.
-* To provide liquidity on Katana, you need to have tokens in your Ronin Wallet. You can acquire tokens by depositing from Ethereum using [Ronin Bridge](https://app.roninchain.com/bridge), buying tokens through the [Purchase](https://purchase.roninchain.com) website, or receiving tokens from other users.
-For more information, see [Acquire RON](../../../basics/acquire-ron.mdx).
-
-## Write your ERC20 token contract
+### Write an ERC20 token contract
 
 To create a token, we recommend that you use the [OpenZeppelin ERC-20](https://docs.openzeppelin.com/contracts/5.x/erc20) contract. This way, you don't have to write the contract from scratch. Instead, you import the library and use its functions.
 
 Your token contract MUST strictly follow the [ERC20 token standard](https://eips.ethereum.org/EIPS/eip-20) and our smart contract guidelines. For more information, refer to [Smart contract guidelines](https://docs.skymavis.com/ronin/smart-contracts/reference/guidelines).
 
-## Deploy your ERC20 contract to Ronin
+### Deploy the contract to Ronin
 
 Deploy your token contract to the Ronin network. Make sure to test your contract on the Saigon testnet before deploying it to the Ronin mainnet.
 
 For more information, refer to [Deploy a smart contract on Ronin](https://docs.skymavis.com/ronin/smart-contracts/overview).
 
-## Submit your token address and publish timestamp
+### Submit token address and publish timestamp
 
 Submit the following information to your Sky Mavis partner engineer:
 
