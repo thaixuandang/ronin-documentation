@@ -150,14 +150,38 @@ const sidebars = {
           },
           items: [
             // Swap tokens
-            'apps/katana/guides/swap',
-            // Create a liquidity pool
-            'apps/katana/guides/pool',
-            // Create a farm
-            'apps/katana/guides/create-farm',
-            // Farm tokens
-            'apps/katana/guides/farm',
-          ]
+            'apps/katana/guides/swap-tokens',
+            // Liquidity pools
+            {
+              type: 'category',
+              label: 'Liquidity pools',
+              link: {
+                type: 'generated-index',
+                description: 'Guides for creating and managing liquidity pools.',
+              },
+              items: [
+                // Create a liquidity pool
+                'apps/katana/guides/create-pool',
+                // Add liquidity to a pool
+                'apps/katana/guides/add-liquidity',
+              ],
+            },
+            // Farms
+            {
+              type: 'category',
+              label: 'Farms',
+              link: {
+                type: 'generated-index',
+                description: 'Guides for creating farms and staking LP tokens.',
+              },
+              items: [
+                // Create a farm
+                'apps/katana/guides/create-farm',
+                // Farm tokens
+                'apps/katana/guides/farm-tokens',
+              ],
+            },
+          ],
         },
         // Ronin Explorer
         'apps/ronin-explorer',
