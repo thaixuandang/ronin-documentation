@@ -140,7 +140,7 @@ const sidebars = {
             'apps/ronin-bridge/reference/withdrawal-limits',
           ]
         },
-        // Katana DEX
+        // Katana
         {
           type: 'category',
           label: 'Katana',
@@ -149,13 +149,41 @@ const sidebars = {
             id: 'apps/katana/overview', 
           },
           items: [
-            // Swap
-            'apps/katana/guides/swap',
-            // Pool
-            'apps/katana/guides/pool',
-            // Farm
-            'apps/katana/guides/farm',
-          ]
+            // Swap tokens
+            'apps/katana/guides/swap-tokens',
+            // Liquidity pools
+            {
+              type: 'category',
+              label: 'Liquidity pools',
+              link: {
+                type: 'generated-index',
+                description: 'Guides for creating and managing liquidity pools.',
+                slug: 'apps/katana/pools'
+              },
+              items: [
+                // Create a liquidity pool
+                'apps/katana/guides/create-pool',
+                // Add liquidity to a pool
+                'apps/katana/guides/add-liquidity',
+              ],
+            },
+            // Farms
+            {
+              type: 'category',
+              label: 'Farms',
+              link: {
+                type: 'generated-index',
+                description: 'Guides for creating farms and staking LP tokens.',
+                slug: 'apps/katana/farms',
+              },
+              items: [
+                // Create a farm
+                'apps/katana/guides/create-farm',
+                // Stake LP tokens
+                'apps/katana/guides/stake-tokens',
+              ],
+            },
+          ],
         },
         // Ronin Explorer
         'apps/ronin-explorer',
