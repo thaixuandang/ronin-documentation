@@ -24,7 +24,7 @@ There are four categories of domain names in RNS:
 
 * **Regular names**: these unregistered domain names, available on a first-come, first-served basis, come with an annual renewal fee.
 * **Auctioned names**: these highly sought-after RNS names, such as `adventure.ron` and `moonshard.ron`, are distributed through auctions where the highest bidder wins.
-* **Protected names**: names reserved for Sky Mavis's official partners and other brands and businesses. For instance, we ensure that `battlebears.ron` remains exclusive to the Battle Bears team, safeguarding our communities from malicious actors.
+* **Protected names**: names reserved for Sky Mavis's official partners and other brands and businesses. We ensure that protected domains remain exclusive to the respective entities, safeguarding our communities from malicious actors.
 * **Blacklisted names**: names with negative connotations, sensitive themes, or deceptive potential that aren't available for registration.
 
 ## Domain price
