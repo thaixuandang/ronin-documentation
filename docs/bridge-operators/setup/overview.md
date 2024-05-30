@@ -11,7 +11,7 @@ The *bridge node* ([GitHub](https://github.com/axieinfinity/bridge-v2)) is an op
 
 Bridge nodes are run by a fixed set of bridge operators selected by Sky Mavis and community. To run the bridge node, you need to go through a governance process that requires approval of at least 70% of the current bridge operators.
 
-## Node installlation
+## Node installation
 
 We offer two different methods of installing the bridge:
 
