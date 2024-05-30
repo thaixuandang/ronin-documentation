@@ -15,7 +15,7 @@ The rewards are divided into *staking rewards* and *bridge rewards*. Ronin alloc
 |         Year        	| Staking rewards (RON)	| Bridge rewards (RON)	|
 |:-------------------:	|:--------------:	|:-------------:	|
 |          1          	|   30,000,000   	|   1,000,000   	|
-|          2          	|   30,000,000   	|               	|
+|          2          	|   30,000,000   	|   1,000,000   	|
 |          3          	|   30,000,000   	|               	|
 |          4          	|   28,000,000   	|               	|
 |          5          	|   24,000,000   	|               	|
@@ -109,6 +109,6 @@ The following table is a sensitivity analysis of the annual percentage rate (APR
 
 The rewards for bridge operators are funded by RON allocation rewards:
 
-* We allocated 1,000,000 RON for bridge operator reward in the first year.
+* We allocated 1,000,000 RON for bridge operator reward in the first two years.
 The rewards are automatically given to the bridge operators at the end of each period.
 * In each period, each bridge operator will be given a reward that is proportional to the number of votes in the period. After this period, we will need to find other sources of rewards for the bridge operators. We are planning to introduce other types of rewards with the goal that the operators are profitable without receiving the fund from RON allocation rewards.
