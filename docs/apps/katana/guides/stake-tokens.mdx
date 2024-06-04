@@ -5,6 +5,10 @@ title: Stake LP tokens
 toc_max_heading_level: 2
 ---
 
+import katanaFarmClaimSuccess from '../assets/katana-farm-claim-success.png';
+import katanaFarmStakeSuccess from '../assets/katana-farm-stake-success.png';
+import katanaFarmUnstakeSuccess from '../assets/katana-farm-unstake-success.png';
+
 ## Overview
 
 When you provide liquidity to a pool on Katana, you receive liquidity pool (LP) tokens in return. You can stake these LP tokens in a farm to earn rewards in the form of another ERC20 token, which is chosen by the farm creator. A farm can offer more than one reward token to choose from. Generally, the more LP tokens you stake, the more reward tokens you earn. Farming is available for a limited number of pools at any given time.
@@ -24,13 +28,13 @@ To farm tokens on Katana, you need to have LP tokens that you can stake. To acqu
   
     ![Stake panel](../assets/katana-farm-stake-panel.png)
 
-6. Enter the amount of LP tokens you want to stake. You can also click **Max** to stake the maximum amount of LP tokens you have in this pool. When you're ready, click **Stake** and confirm the transaction in your Ronin Wallet.
+6. Select the reward token, then enter the amount of LP tokens you want to stake, and then click **Stake**.
 
     ![Enter stake amount](../assets/katana-farm-stake-amount.png)
 
-Your transaction is now submitted to the blockchain. When it completes, Katana displays a confirmation pop-up. Close it or click **View on explorer** to see the detailed information about the transaction.
+Confirm the transaction in your Ronin Wallet. When the transaction completes, Katana displays a confirmation pop-up.
 
-![Successful staking](../assets/katana-farm-stake-success.png)
+<img src={katanaFarmStakeSuccess} width={400} />
 
 After staking, you can see an update in your total LP tokens staked and available in wallet.
 
@@ -40,23 +44,27 @@ Congratulations, you are now farming tokens on Katana.
 
 ## Claim reward tokens
 
-### Claim from the My positions tab
+You can claim rewards from the list of your positions or from the pool's details page.
+
+### Claim from My positions
 
 Open the **Liquidity pool** page, then select **My positions**, and then click **Claim** next to the pool you want to claim rewards from.
 
 ![Claim from My positions](../assets/katana-farm-positions-claim.png)
 
-### Claim from the Farm rewards tab
+Confirm the transaction in your Ronin Wallet. When the transaction completes, Katana displays a confirmation pop-up.
 
-Select the pool to claim rewards from, then open the **Farm rewards** tab, and then click **Claim all**.
+<img src={katanaFarmClaimSuccess} width={400} />
+
+### Claim from individual pool
+
+Select the pool to claim rewards from, then in the **Farm Rewards** section, click **Claim**.
 
 ![Claim from individual pool](../assets/katana-farm-individual-claim.png)
 
-After clicking either of the buttons, confirm the transaction in your Ronin Wallet.
+Confirm the transaction in your Ronin Wallet. When the transaction completes, Katana displays a confirmation pop-up.
 
-When the transaction completes, Katana displays a confirmation pop-up. Close it or click **View on explorer** to see the detailed information about the transaction.
-
-![Successful claim](../assets/katana-farm-claim-success.png)
+<img src={katanaFarmClaimSuccess} width={400} />
 
 ## Stop farming
 
@@ -66,13 +74,13 @@ To stop farming, you need to unstake the LP tokens from a farm pool. Unstaking m
 
     ![Unstake panel](../assets/katana-farm-unstake-panel.png)
 
-2. Enter the amount of LP tokens you want to unstake. You can also click **Max** to unstake all your LP tokens. When you're ready, click **Unstake** and confirm the transaction in your Ronin Wallet.
+2. Enter the amount of LP tokens you want to unstake, then click **Unstake**.
 
     ![Enter unstake amount](../assets/katana-farm-unstake-amount.png)
 
-Your transaction is now submitted to the blockchain. When it completes, Katana displays a confirmation pop-up. Close it or click **View on explorer** to see the detailed information about the transaction.
+Confirm the transaction in your Ronin Wallet. When the transaction completes, Katana displays a confirmation pop-up.
 
-![Successful unstaking](../assets/katana-farm-unstake-success.png)
+<img src={katanaFarmUnstakeSuccess} width={400} />
 
 After unstaking, you can see an update in your total LP tokens staked and available in wallet reflective of the changes you made.
 
