@@ -1,11 +1,7 @@
 ---
-description: Links to Ronin network's security audit reports.
+description: List of Ronin's security audit reports.
 title: Security audits
 ---
-
-## Overview
-
-Links to Ronin's security audit reports in PDF.
 
 ## Ronin Bridge
 
@@ -22,6 +18,7 @@ Links to Ronin's security audit reports in PDF.
 
 [Certik Audit for Ronin DPoS Contracts](./assets/audits/CertiK-Audit-for-Ronin-DPoS-Contracts.pdf)
 
-## Marketplace smart contracts
+## Marketplace
 
-[Verichains Public Audit Report - Ronin Marketplace - v.1.0](./assets/audits/Verichains-Audit-Ronin-Marketplace-v1.0.pdf)
+* [Verichains Public Audit Report - Ronin Marketplace - v.1.0](./assets/audits/Verichains-Audit-Ronin-Marketplace-v1.0.pdf)
+* [Verichains Public Report - Mavis Launchpad - v.1.0](./assets/audits/Verichains-Public-Report-Mavis-Launchpad.pdf)
