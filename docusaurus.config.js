@@ -200,7 +200,7 @@ const config = {
             title: 'Links',
             items: [
               {
-                label: 'Whitepaper',
+                label: 'Ronin whitepaper',
                 href: 'https://docs.roninchain.com/whitepaper',
               },
               {
