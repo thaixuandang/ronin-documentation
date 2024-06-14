@@ -8,6 +8,10 @@ description: What is Ronin?
 
 Ronin is an EVM blockchain specifically forged for gaming. Launched by Sky Mavis, the creator of Web3’s breakout title Axie Infinity which has generated over &#36;1.3 B in revenue, Ronin is the only blockchain proven to scale a single game to accommodate millions of daily active users and has processed over &#36;4 B in NFT volumes. Ronin optimizes for near-instant transactions and negligible fees that enable millions of in-game transactions to occur seamlessly, making it the leading choice for Web3 games.
 
+### Ronin whitepaper
+
+Download the Ronin whitepaper here: [Ronin whitepaper](/basics/white-paper).
+
 ## What makes Ronin unique as a blockchain?
 
 ### Ronin is battle-tested and scalable

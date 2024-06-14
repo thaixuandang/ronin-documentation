@@ -39,8 +39,6 @@ const sidebars = {
         'basics/acquire-ron',
         // Key concepts
         'basics/key-concepts',
-        // White paper
-        'basics/white-paper',
         // Tokenomics
         'basics/tokenomics',
         // Nodes
