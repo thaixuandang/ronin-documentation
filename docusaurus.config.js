@@ -201,7 +201,7 @@ const config = {
             items: [
               {
                 label: 'Ronin whitepaper',
-                href: 'https://docs.roninchain.com/whitepaper',
+                href: 'https://docs.roninchain.com/basics/white-paper',
               },
               {
                 label: 'Ronin brand kit',
