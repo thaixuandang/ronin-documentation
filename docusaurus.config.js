@@ -168,6 +168,10 @@ const config = {
             label: 'Bridge operators',
             to: 'bridge-operators',
           },
+          {
+            label: 'Whitepaper',
+            href: 'http://docs.roninchain.com/basics/white-paper',
+          },
           // Search
           {
             type: 'search',
@@ -199,10 +203,6 @@ const config = {
           {
             title: 'Links',
             items: [
-              {
-                label: 'Ronin whitepaper',
-                href: 'https://docs.roninchain.com/basics/white-paper',
-              },
               {
                 label: 'Ronin brand kit',
                 href: 'https://drive.google.com/drive/folders/1ZM0R6fd13IhvBpTFwOBebYZqmTxQNgJi',
