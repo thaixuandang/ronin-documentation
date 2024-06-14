@@ -37,7 +37,6 @@ const config = {
     'docusaurus-plugin-sass',
     ['@docusaurus/plugin-client-redirects',
     {
-      fromExtensions: ['pdf'],
       createRedirects(existingPath) {
         if (existingPath.includes('/')) {
           return [
