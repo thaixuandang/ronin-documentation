@@ -4,7 +4,7 @@ const Whitepaper = () => {
   return (
     <div style={{ height: '100vh' }}>
       <iframe
-        src="/ronin-whitepaper.pdf"
+        src="/Ronin_Whitepaper_v2.pdf"
         width="100%"
         height="100%"
         style={{ border: 'none' }}
