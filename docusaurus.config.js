@@ -148,6 +148,11 @@ const config = {
             label: 'Basics',
             to: 'basics',
           },
+          {
+            label: 'Whitepaper',
+            to: '/basics/white-paper',
+            target: '_blank',
+          },
           // Apps
           {
             label: 'dApps',
@@ -167,11 +172,6 @@ const config = {
           {
             label: 'Bridge operators',
             to: 'bridge-operators',
-          },
-          {
-            label: 'Whitepaper',
-            to: '/basics/white-paper',
-            target: '_blank',
           },
           // Search
           {
