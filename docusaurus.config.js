@@ -148,6 +148,11 @@ const config = {
             label: 'Basics',
             to: 'basics',
           },
+          {
+            label: 'Whitepaper',
+            to: '/basics/white-paper',
+            target: '_blank',
+          },
           // Apps
           {
             label: 'dApps',
@@ -167,10 +172,6 @@ const config = {
           {
             label: 'Bridge operators',
             to: 'bridge-operators',
-          },
-          {
-            label: 'Support',
-            to: 'https://support.roninchain.com/hc/en-us',
           },
           // Search
           {
@@ -196,7 +197,7 @@ const config = {
               {
                 type: 'link',
                 label: 'Blog',
-                href: 'https://blog.roninchain.com/',
+                href: 'https://roninchain.com/blog/',
               },
             ],
           },
@@ -204,16 +205,12 @@ const config = {
             title: 'Links',
             items: [
               {
-                label: 'Developer docs',
-                href: 'https://docs.skymavis.com/ronin/overview',
-              },
-              {
-                label: 'RON staking',
-                href: 'https://app.roninchain.com/staking/',
-              },
-              {
                 label: 'Ronin brand kit',
                 href: 'https://drive.google.com/drive/folders/1ZM0R6fd13IhvBpTFwOBebYZqmTxQNgJi',
+              },
+              {
+                label: 'Support',
+                to: 'https://support.roninchain.com/hc/en-us',
               },
             ],
           },
