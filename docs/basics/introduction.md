@@ -10,7 +10,7 @@ Ronin is an EVM blockchain specifically forged for gaming. Launched by Sky Mavis
 
 ### Ronin whitepaper
 
-Download the Ronin whitepaper here: <a href="http://docs.roninchain.com/basics/white-paper" target="_blank">Ronin whitepaper</a>.
+Download the latest version of our whitepaper here: <a href="/basics/white-paper" target="_blank">Ronin whitepaper</a>.
 
 ## What makes Ronin unique as a blockchain?
 
