@@ -170,7 +170,8 @@ const config = {
           },
           {
             label: 'Whitepaper',
-            href: 'http://docs.roninchain.com/basics/white-paper',
+            to: '/basics/white-paper',
+            target: '_blank',
           },
           // Search
           {
