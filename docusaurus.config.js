@@ -1,7 +1,7 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
-import remarkMath from 'remark-math';
-import rehypeKatex from 'rehype-katex';
+const math = require('remark-math');
+const katex = require('rehype-katex');
 
 const lightCodeTheme = require('prism-react-renderer/themes/github')
 const darkCodeTheme = require('prism-react-renderer/themes/dracula')
@@ -55,8 +55,8 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
-          remarkPlugins: [remarkMath],
-          rehypePlugins: [rehypeKatex],
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
           editUrl: `https://github.com/axieinfinity/ronin-documentation/edit/main`,
           editLocalizedFiles: false,
           editCurrentVersion: false,
@@ -69,6 +69,8 @@ const config = {
           routeBasePath: 'blog',
           blogSidebarTitle: 'Technical blog',
           showReadingTime: true,
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.scss'),

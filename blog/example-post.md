@@ -17,8 +17,12 @@ hide_table_of_contents: false
 
 Welcome to this blog. This blog is created with [**Docusaurus 3**](https://docusaurus.io/).
 
-<!-- truncate -->
-
 This is my first post on Docusaurus 3.
+
+**Fundamental Theorem of Calculus**  
+Let $f:[c,b] \to \R$ be Riemann integrable. Let $F:[c,b]\to\R$ be $F(x)=
+\int_{c}^{x}f(t)dt$.
+Then $$F$$ is continuous, and at all $x$ such that $f$ is continuous at $x$,
+$F$ is differentiable at $x$ with $F'(x)=f(x)$.
 
 A whole bunch of exploration to follow.
