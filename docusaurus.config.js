@@ -63,6 +63,11 @@ const config = {
           showLastUpdateTime: true,
         },
         blog: {
+          path: 'blog',
+          blogTitle: 'Technical blog',
+          blogDescription: 'Learn about the latest updates on Ronin',
+          routeBasePath: 'blog',
+          blogSidebarTitle: 'Technical blog',
           showReadingTime: true,
         },
         theme: {
@@ -172,6 +177,12 @@ const config = {
           {
             label: 'Bridge operators',
             to: 'bridge-operators',
+          },
+          // Blog
+          {
+            label: 'Blog',
+            to: 'blog',
+            position: 'right',
           },
           // Search
           {

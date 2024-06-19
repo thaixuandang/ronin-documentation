@@ -1,7 +1,8 @@
 import React from 'react'
 
-import BoxTickIcon from './box-tick.svg'
 import { Card } from './Card'
+import BlogIcon from './blog.svg'
+import BoxTickIcon from './box-tick.svg'
 import CoinIcon from './coins.svg'
 import AppsIcon from './apps.svg'
 import ListViewIcon from './list-view.svg'
@@ -51,6 +52,15 @@ const featureList = [
     link: {
       href: '/bridge-operators',
       title: 'Bridge operators',
+    },
+  },
+  {
+    title: 'Technical blog',
+    Icon: BlogIcon,
+    description: <>Stay up to date with the latest technical updates on Ronin.</>,
+    link: {
+      href: '/blog',
+      title: 'Technical blog',
     },
   },
 ]
