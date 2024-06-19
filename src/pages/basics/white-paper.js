@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Whitepaper = () => {
+const WhitePaper = () => {
   return (
-    <div style={{ height: '100vh' }}>
+    <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <iframe
-        src="/Ronin_Whitepaper_v2.pdf"
+        src="https://drive.google.com/file/d/1pZoUWvbT45-G7zcD2XThPFFPDrUGeqYc/preview"
         width="100%"
         height="100%"
         style={{ border: 'none' }}
@@ -13,4 +13,4 @@ const Whitepaper = () => {
   );
 };
 
-export default Whitepaper;
+export default WhitePaper;
