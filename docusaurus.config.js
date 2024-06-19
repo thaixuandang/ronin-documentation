@@ -205,11 +205,6 @@ const config = {
                 label: 'X',
                 href: 'https://twitter.com/ronin_network',
               },
-              {
-                type: 'link',
-                label: 'Blog',
-                href: 'https://roninchain.com/blog/',
-              },
             ],
           },
           {
