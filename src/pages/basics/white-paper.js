@@ -1,5 +1,5 @@
 import React from 'react';
-import './white-paper.css'; // Import the CSS file for custom styling
+import './white-paper.css';
 
 const WhitePaper = () => {
   const googleDriveEmbedLink = "https://drive.google.com/file/d/1pZoUWvbT45-G7zcD2XThPFFPDrUGeqYc/preview";

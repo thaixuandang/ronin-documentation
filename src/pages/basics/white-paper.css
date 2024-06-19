@@ -5,13 +5,13 @@
 
 .download-button {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 0;
+  right: 0;
   padding: 5px 10px;
   background-color: #2762D8;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 0;
   text-decoration: none;
   text-align: center;
   font-size: 14px;
