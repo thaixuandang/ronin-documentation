@@ -1,7 +1,7 @@
 ---
-title: "Zero-Knowledge Proofs and zkEVMs Explored"
+title: "Scalability on Blockchains: Exploring Zero-Knowledge Proofs and zkEVMs"
 description: First post on the Ronin technical blog.
-slug: zkevms-explored
+slug: explore-zkevms
 authors:
   - name: Ngan Nguyen
     title: Researcher at Sky Mavis
@@ -35,25 +35,31 @@ Blockchain trilemma (first coined by Vitalik Buterin) is a problem faced by bloc
 <img src={trilemma} width={600} title="Blockchain trilemma, source: vitalik.eth.limo" />
 <center>Blockchain trilemma, source: vitalik.eth.limo</center>
 
-## Scaling using rollups - layer 2
+<p>&nbsp;</p>
 
 Similar to how the Internet protocol is modelled as a multi-layer stack, a blockchain protocol can be divided into several layers. 
-- Layer 0 (L0): consists of hardware devices, protocols, connections, and other components that form the foundation of a blockchain ecosystem, Layer 0 acts as the infrastructure lying underneath the blockchain.
-- Layer 1 (L1): carries out most of the tasks to maintain a blockchain network’s fundamental operations like consensus mechanisms, dispute resolution, programming languages, policies, etc. This layer represents the actual blockchain.
-- Layer 2 (L2): is an extra layer sitting on top of layer-1. Layer 2 performs the majority of transactional validations and heavy computations that are meant to run on layer 1. Layer 2 relies on layer 1 for security, so it frequently exchanges data with layer 1.
+- **Layer 0 (L0):** consists of hardware devices, protocols, connections, and other components that form the foundation of a blockchain ecosystem, Layer 0 acts as the infrastructure lying underneath the blockchain.
+- **Layer 1 (L1):** carries out most of the tasks to maintain a blockchain network’s fundamental operations like consensus mechanisms, dispute resolution, programming languages, policies, etc. This layer represents the actual blockchain.
+- **Layer 2 (L2):** is an extra layer sitting on top of layer-1. Layer 2 performs the majority of transactional validations and heavy computations that are meant to run on layer 1. Layer 2 relies on layer 1 for security, so it frequently exchanges data with layer 1.
+
+## Scaling using rollups - layer 2
 
 Scaling solutions refer to protocols that help solve the scalability problem of blockchain. A solution can be implemented on any layer of the blockchain, however, L0 and L1 are costly to modify as some changes might require a hard fork. Nowadays, the most widely adopted scaling solutions are implemented on L2 and many of them are rollups.
 
 Rollup is a class of L2 scaling solutions that bundles several off-chain transactions into one on-chain commitment, hence reducing the overall cost of the protocol as fewer computations are performed on L1. According to how rollups enforce Computational Integrity (CI), there are two main types of rollups:
-- **Optimistic rollup:** uses fraud proofs 
-- **Zero-knowledge rollup (ZK rollup):** uses zero-knowledge proofs 
+- In **optimistic rollups**, L2 sequencers submit batches of transactions to the mainnet without verifying their validity. Instead of immediate verification, optimistic rollups provide a challenge period, lasting up to approximately seven days, during which network participants can dispute the validity of any transaction.
+- **Zero-knowledge (ZK) rollups** use advanced cryptographic techniques known as zero-knowledge proofs to validate transactions. This method allows the execution of transactions on L2 to be verified on L1 without a challenge period, significantly improving the user experience for cross-chain transactions between L1 and L2 compared to optimistic rollups.
 
 <img src={layer2solutions} width={1280} title="Layer-2 solutions on Ethereum. Source: thirdweb.com" />
 <center>Layer-2 solutions on Ethereum. Source: thirdweb.com</center>
 
+<p>&nbsp;</p>
+
+In this article, we focus on ZK rollups (zkEVM). First, we explore the concept of zero-knowledge proof (ZKP). Then, we delve into how ZKP can improve the scalability of blockchain. Finally, we summarize and compare some existing implementations zkEVM, evaluating their designs and performance.
+
 ## What is zero-knowledge proof?
 
-First devised in 1985 by Goldwasser, Micali, and Rackoff, an interactive proof system (IP) is an interactive protocol that involves two parties: a prover and a verifier. These two parties will communicate back and forth multiple times for prover to convince verifier that a statement is true. Any interactive proof has the two following properties:
+Zero-knowledge proof is first devised in 1985 by Goldwasser, Micali, and Rackoff, as an interactive proof system (IP) is an interactive protocol that involves two parties: a prover and a verifier. These two parties will communicate back and forth multiple times for prover to convince verifier that a statement is true. Any interactive proof has the two following properties:
 - **Completeness:** If the statement is true, then an honest prover can convince the verifier with high probability.
 - **Soundness:** If the statement is false, then, for any prover, the verifier rejects the proof with high probability.
 
@@ -63,11 +69,12 @@ In practice, the term "proof" is used interchangeably with "argument" and, most 
 
 A proof or argument system is considered zero-knowledge if the prover discloses nothing to the verifier other than the truthfulness of the statement being proved. A witness for a statement is a piece of information that allows you to efficiently verify that the statement is true. In a zero-knowledge proof system, prover can convince verifier that the existential statement holds while revealing absolutely no information about any of the witnesses.
 
+
 Currently, many practical zero-knowledge proof (or argument) systems have been realized. Most of these schemes fall into one of the two following categories:
 - *Zero-Knowledge Succinct Non-Interactive Argument of Knowledge (zk-SNARK):*
-  - Example: Groth16, PlonK, Halo, etc
+  - Example: Groth16, PlonK, Halo, etc.
 - *Zero-Knowledge Scalable Transparent Arguments of Knowledge (zk-STARK):*
-  - Example: Fractal, Aurora, STARK, etc
+  - Example: Fractal, Aurora, STARK, etc.
 
 The main difference between zk-SNARK and zk-STARK is the need for trusted setup - a piece of random data that must be honestly generated. In reality, randomness generation is not easy to implement securely, especially in a trustless setting (you can look at Zcash's counterfeiting vulnerability). zk-STARK eliminates the need for trusted setup, which effectively reduces security risks and assumptions while increasing protocol's transparency. On the other hand, zk-STARKs usually have significantly larger proof size compared to that of zk-SNARKs. This can be a big problem if data transfer is expensive like in the case of Ethereum smart contracts. Therefore, both zk-SNARKs and zk-STARKs are sometimes utilized in one protocol to get the best of both worlds, e.g., Plonky2, eSTARK, etc.
 
@@ -76,9 +83,9 @@ Zero-knowledge proof is a fast-growing field of research and the race to practic
 <img src={zkpsytems} width={zkpsytems} title="Proving architecture of Polygon zkEVM. Source: zkevm-techdocs" />
 <center>Some popular zero-knowledge proof systems. Source: zkhack.dev</center>
 
-## How ZKPs improve scalability on blockchain?
+## How do ZKPs improve scalability on blockchain?
 
-How are zero-knowledge proofs of any help for a blockchain scalability? One of the most desired properties of zero-knowledge proofs is succintness - the ability to prove a statement with a proof much smaller than witness. For example, a prover can convince verifier that he has correctly run a computation against a massive database (a few GB) without revealing the whole database to verifier. It is as if prover has "compressed" the database into a small piece of proof (a few hundred bytes). Moreover, advanced techniques like recursion, aggregation or composition can be applied to further minimize the proof size. It is also important that zero-knowledge proof verification is most likely to be cheaper and faster than naively re-running the computation (naive verification).
+How are zero-knowledge proofs of any help towards blockchain scalability? One of the most desired properties of zero-knowledge proofs is succintness - the ability to prove a statement with a proof much smaller than witness. For example, a prover can convince verifier that he has correctly run a computation against a massive database (a few GB) without revealing the whole database to verifier. It is as if prover has "compressed" the database into a small piece of proof (a few hundred bytes). Moreover, advanced techniques like recursion, aggregation or composition can be applied to further minimize the proof size. It is also important that zero-knowledge proof verification is most likely to be cheaper and faster than naively re-running the computation (naive verification).
 
 Since L1 blockchains are highly secure, we can trust a smart contract (that is carefully audited) to run proof verification for us. This is the most common approach when designing a ZK rollup. Generally, a simplified ZK rollup looks something like this:
 
@@ -104,7 +111,7 @@ Another way to think of zkEVM is as a special kind of ZK rollup (the program giv
 
 Simply put, the statement of zkEVM is something like: I have executed the EVM correctly with the given inputs. In reality, this statement must be formalized so that it can be "interpreted" by the zero-knowledge part of zkEVM (similar to how programmers must write code for computer to "understand" a task). We refer to said formal representation as ZK circuits.
 
-The prover can only generate zero-knowledge proofs for statements of certain format. In literature, this format is usually called circuit (or arithmetic circuit) due to its similarity to regular electric circuit. To avoid confusion between these two types of circuit, we refer to the former one as ZK circuit. Depending on which proof system & implementation are used, the definition of ZK circuits may differ. A few examples are R1CS (used by snarkjs for PlonK, fflonk & Groth16), AIR (used by Winterfell for STARK), etc. Usually, programmers of ZK circuits express the logic in a higher-level language then compile it down to its circuit form. The process of converting a high-level program into ZK circuits is called arithmetization.
+The prover can only generate zero-knowledge proofs for statements of a certain format. In literature, this format is usually called circuits (or arithmetic circuits) due to its similarity to the regular electric circuits. To avoid confusion between these two types of circuits, we refer to the former one as ZK circuit. Depending on which proof system & implementation are used, the definition of ZK circuits may differ. A few examples are R1CS (used by snarkjs for PlonK, fflonk & Groth16), AIR (used by Winterfell for STARK), etc. Usually, programmers of ZK circuits express the logic in a higher-level language then compile it down to its circuit form. The process of converting a high-level program into ZK circuits is called arithmetization.
 
 According to Vitalik Buterin, there are four types of zkEVMs based on their performance and compatibility with EVM.
 
@@ -124,6 +131,8 @@ During this discussion, we will first go over the tech stack of each product (in
 <img src={polygonzkevm} width={1280} />
 <center>Prover architecture of Polygon zkEVM. Source: [Polygon zkEVM techdocs](https://github.com/0xPolygonHermez/zkevm-techdocs/blob/main/docs/proof-recursion.pdf)</center>
 
+<p>&nbsp;</p>
+
 **DA Solution:** All transaction data of Polygon zkEVM is stored on Ethereum smart contracts. More specifically, RLP-encoded L2 transactions must be saved to rollup contract for them to be processed. This approach is simple to implement, and gives maximum transparency.
 
 **EVM Compatibility:** Thanks to the Etrog update in early 2024, Polygon zkEVM is nearly a full type-2 zkEVM. This status means that dApps developers can redeploy their smart contracts exactly as they are on Ethereum without the need for additional auditing or modifications. As pointed out in Vitalik Buterin's blog, type-2 zkEVMs appear to be EVM-equivalent but they are, in fact, slightly different regarding some parts like block structure and state tree.
@@ -133,10 +142,12 @@ During this discussion, we will first go over the tech stack of each product (in
 
 <img src={polygonzkevm} width={1280} />
 <center>Polygon block. Source: [docs.polygon.technology](https://docs.polygon.technology/zkEVM/architecture/protocol/etrog-upgrade/?h=etrog#etrog-blocks)</center>
+<p>&nbsp;</p>
+
 
 - State tree: While the original EVM stores Ethereum's state in a Merkle-Patricia Trie constructed with Keccak256, Polygon zkEVM utilizes a Trie Binary Sparse Merkle Tree built with Poseidon-Goldilocks.
 
-Polygon zkEVM's high compatibility with EVM is demonstrated by its ability to interpret EVM bytecode generated by solc, no intermediate representation is required.
+Polygon zkEVM's high compatibility with EVM is demonstrated by its ability to interpret EVM bytecode generated by solc; no intermediate representation is required.
 
 ### zkSync Era
 
@@ -146,9 +157,11 @@ Polygon zkEVM's high compatibility with EVM is demonstrated by its ability to in
 <img src={zksync} width={1280} />
 <center>Prover architecture of zkSync Era. Source: [zkSync Era techdocs](https://github.com/matter-labs/era-zkevm_test_harness/tree/ac9744638662f7b1d701207291ff7695c75afd79/circuit_definitions)</center>
 
+<p>&nbsp;</p>
 
-**DA Solution:** Instead of submitting detailed transaction data, zkSync focuses on posting state differentials (state diffs for short) to L1. These diffs represent changes in the blockchain's state (account balance changes, storage updates, etc), enabling zkSync to efficiently manage how data is stored and referenced:
-- Instead of submitting detailed transaction data, zkSync focuses on posting state differentials (state diffs for short) to L1. These diffs represent changes in the blockchain's state (account balance changes, storage updates, etc), enabling zkSync to efficiently manage how data is stored and referenced:
+
+**DA Solution:** Instead of submitting detailed transaction data, zkSync focuses on posting state differentials ("state diffs") to L1. These diffs represent changes in the blockchain's state (account balance changes, storage updates, etc.), enabling zkSync to efficiently manage how data is stored and referenced:
+- Instead of submitting detailed transaction data, zkSync focuses on posting state differentials (state diffs for short) to L1. These diffs represent changes in the blockchain's state (account balance changes, storage updates, etc.), enabling zkSync to efficiently manage how data is stored and referenced:
 - Compression techniques: All data sent to L1, including state diffs, is compressed to further reduce costs.
 
 **EVM Compatibility:** zkSync Era is classified as a type-4 zkEVM, which means compatibility is actively traded for faster development. To make comparison easier, we will examine the same aspects as we did for Polygon zkEVM.
@@ -158,10 +171,13 @@ Polygon zkEVM's high compatibility with EVM is demonstrated by its ability to in
 - State tree: The state tree of zkSync Era is a single-level, full binary tree with 256-bit keys. Only changes of smart contract storage slots are written directly to state tree. The rest of Ethereum's state (account nonce, balance, code, etc) is managed by system contracts.
 
 
-Since EraVM's instruciton set is mostly different from that of EVM, it cannot interpret EVM bytecode directly like Polygon zkEVM. According to specification, EraVM only supports one native language called EraVM bytecode (a.k.a. zkEVM bytecode). In order to make this VM usable, the team at Matter Labs had to build a new toolkit for developers (zksolc/zkvyper for compilation, hardhat-zksync/foundry-zksync for debugging and testing, …). Compared to Polygon zkEVM, the compiler toolchain of zkSync Era is quite complicated.
+Since EraVM's instruction set is mostly different from that of EVM, it cannot interpret EVM bytecode directly like Polygon zkEVM. According to specification, EraVM only supports one native language called EraVM bytecode (a.k.a. zkEVM bytecode). In order to make this VM usable, the team at Matter Labs had to build a new toolkit for developers (zksolc/zkvyper for compilation, hardhat-zksync/foundry-zksync for debugging and testing). Compared to Polygon zkEVM, the compiler toolchain of zkSync Era is quite complicated.
 
 <img src={zksynccompiler} width={1280} />
 <center>Overview of the compiler toolchain of zkSync Era. Source: <a href="https://docs.zksync.io/zk-stack/components/compiler/toolchain">docs.zksync.io</a></center>
+
+<p>&nbsp;</p>
+
 
 Besides incompatibility at bytecode level, zkSync Era also deviates from EVM in many aspects such as fee model, computer architecture, built-in Account Abstraction, etc. Notably, some of these changes actually alter the behavior of execution layer.
 
