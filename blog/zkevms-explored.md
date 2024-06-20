@@ -1,6 +1,5 @@
 ---
 title: "Scalability on Blockchains: Exploring Zero-Knowledge Proofs and zkEVMs"
-description: First post on the Ronin technical blog.
 slug: explore-zkevms
 authors:
   - name: Ngan Nguyen
