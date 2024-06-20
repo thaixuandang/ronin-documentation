@@ -32,7 +32,8 @@ In the rapidly evolving field of blockchain technology, scalability remains a cr
 
 Blockchain trilemma (first coined by Vitalik Buterin) is a problem faced by blockchain engineers. The trilemma states that we cannot optimize all three aspects of a blockchain, namely, decentralization, security and scalability without accepting some kind of trade-off between them. Traditional blockchains like Bitcoin, Ethereum, etc are built upon security and decentralization. Therefore, they inevitably suffer from scalability problems. Recognizing this problem, the Ethereum team has proposed a rollup-centric roadmap to scale the blockchain through rollups. 
 
-<img src={trilemma} width={480} title="Blockchain trilemma, source: vitalik.eth.limo" />
+<img src={trilemma} width={600} title="Blockchain trilemma, source: vitalik.eth.limo" />
+<center>Blockchain trilemma, source: vitalik.eth.limo</center>
 
 ## Scaling using rollups - layer 2
 
@@ -48,7 +49,7 @@ Rollup is a class of L2 scaling solutions that bundles several off-chain transac
 - **Zero-knowledge rollup (ZK rollup):** uses zero-knowledge proofs 
 
 <img src={layer2solutions} width={1280} title="Layer-2 solutions on Ethereum. Source: thirdweb.com" />
-
+<center>Layer-2 solutions on Ethereum. Source: thirdweb.com</center>
 
 ## What is zero-knowledge proof?
 
@@ -72,7 +73,8 @@ The main difference between zk-SNARK and zk-STARK is the need for trusted setup 
 
 Zero-knowledge proof is a fast-growing field of research and the race to practical and efficient general-purpose ZKPs is reaching new heights (a Cambrian explosion as described by Eli Ben-Sasson) with the rise of zero-knowledge Virtual Machines (zkVMs).
 
-<img src={polygonzkevm} width={polygonzkevm} title="Proving architecture of Polygon zkEVM. Source: zkevm-techdocs" />
+<img src={zkpsytems} width={zkpsytems} title="Proving architecture of Polygon zkEVM. Source: zkevm-techdocs" />
+<center>Some popular zero-knowledge proof systems. Source: zkhack.dev</center>
 
 ## How ZKPs improve scalability on blockchain?
 
@@ -84,6 +86,7 @@ Since L1 blockchains are highly secure, we can trust a smart contract (that is c
 In the figure above, the program fed to prover can be anything, e.g., a voting system, a lottery game, Doom, whatever computing task you want to offload from L1 to L2.
 
 <img src={zkrollup} width={1280} title="Zk rollup in a nutshell" />
+<center>Zk rollup in a nutshell</center>
 
 ## Zero-knowledge Ethereum Virtual Machine (zkEVM)
 
@@ -105,7 +108,8 @@ The prover can only generate zero-knowledge proofs for statements of certain for
 
 According to Vitalik Buterin, there are four types of zkEVMs based on their performance and compatibility with EVM.
 
-<img src={zkevmtypes} width={1280} title="Four types of zkEVMs, source: vitalik.eth.limo" />
+<img src={zkevmtypes} width={1280}/>
+<center>Four types of zkEVMs, source: vitalik.eth.limo</center>
 
 ## Existing zkEVMs
 We are now discussing two of the most prominent zkEVMs, namely Polygon zkEVM and zkSync Era. The primary reason for choosing these two is that they are the only ZK-Rollups that are both EVM-compatible and fully open-sourced among the popular deployed ZK-Rollups. 
