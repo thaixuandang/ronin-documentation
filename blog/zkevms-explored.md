@@ -191,11 +191,11 @@ Besides incompatibility at bytecode level, zkSync Era also deviates from EVM in 
 
 ### Performance benchmark 
 
-We present a benchmark comparison between Polygon zkEVM and zkSync Era based on data from [[12]](#12). 
+We summarize the benchmark to compare Polygon zkEVM and zkSync Era based on data from [[12]](#12). 
 
 **Prover time.** Polygon zkEVM maintains a proving time of either 190 or 200 seconds for each batch regardless of input size. In exchange for its outstandingly fast proof generation, Polygon zKEVM requires much more expensive hardware. On the other hand, the time spent on proof generation of zkSync Era extends with larger batch sizes. The proving time of zkSync Era increased from 400 to 1200 seconds when the batch size increased from 10 transactions to 200 transactions.
 
-**Settlement costs.** This involves (a) calling the L1 contract to commit to a specific batch, and (b) submitting proofs and executing the verifier logic (e.g., SNARK verifier) for the committed batches.
+**Settlement costs.** The settlement costs This involve calling the L1 contract to commit to a specific batch, and submitting proofs and executing the verifier logic (e.g., SNARK verifier) for the committed batches. The settlement costs per batch of Polygon zkEVM are cheaper. However, its batch size is smaller, resulting in higher settlement costs per transaction overall.
 
 | Metrics              | Polygon zkEVM  | zkSync Era  |
 | -------------------- | -------------- | ----------- |
@@ -203,9 +203,9 @@ We present a benchmark comparison between Polygon zkEVM and zkSync Era based on 
 | Median Batch Size    | 27             | 3,895       |
 | Median Batch Size    | 2,201 gas      | 209 gas     |
 
-**Proof Compression.** Some constructions involve compressing (or converting) the block’s proof from one proof system to another. This typically involves proving the verification of the aggregated proof in a cheaper (with regards to the verification cost) proof system (e.g., Groth16) so that the cost of settlement is lower. For Polygon zkEVM, the median time of proof compression is 311 seconds while the number for zkSync Era is 1,075 seconds.
+**Proof Compression.** The block’s proof from one proof system to another can be compressed to a smaller proof. This typically involves proving the verification of the aggregated proof in a cheaper (with regards to the verification cost) proof system (e.g., Groth16) so that the cost of settlement is lower. For Polygon zkEVM, the median time of proof compression is 311 seconds while the number for zkSync Era is 1,075 seconds.
 
-**DA costs** One of the disadvantages of Polygon zkEVM is its high DA cost. The table below show the number of bytes used for DA
+**DA costs** One of the disadvantages of Polygon zkEVM is its high DA cost. The table below show the number of bytes used for DA for different payload types. The DA cost of Polygon zkEVM is 3-7 times higher than zkSync Era. 
 
 | Payload Type         | Polygon zkEVM  | zkSync Era  |
 | -------------------- | -------------- | ----------- |
