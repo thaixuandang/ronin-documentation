@@ -24,10 +24,10 @@ import polygonblock from './assets/polygonblock.png';
 import zksync from './assets/zksync.png';
 import zksynccompiler from './assets/zksynccompiler.png';
 
-In the rapidly evolving field of blockchain technology, scalability remains a critical challenge. Zero-knowledge proofs (ZKPs) have emerged as a promising solution to enhance scalability. This article delves into the fundamental concepts of zero-knowledge proofs and their pivotal role in addressing scalability issues on blockchains. Specifically, it focuses on zkEVMs (zero-knowledge Ethereum Virtual Machines), which integrate ZKPs to facilitate a more scalable and secure blockchain. By providing a comprehensive comparison between various notable zkEVM implementations, the article aims to elucidate their differences and advantages.
+Scalability remains a significant challenge in blockchain technology, prompting the exploration of innovative solutions like zero-knowledge proofs (ZKPs). We explore the fundamental concepts of ZKPs and their application in addressing blockchain scalability, with a focus on zero-knowledge Ethereum Virtual Machines (zkEVMs). zkEVMs leverage ZKPs to enhance scalability in blockchain systems while maintaining a high level of security. We also provide a comparison of various zkEVM implementations, highlighting their differences and advantages. Specific attention is given to prominent open-source zkEVMs such as Polygon zkEVM and zkSync Era, detailing their technical stacks, zero-knowledge components, data availability solutions, and EVM compatibility. Performance benchmarks are also presented, comparing prover time, settlement costs, proof compression, and data availability costs. 
+
 
 ## Blockchain trilemma
-
 
 Blockchain trilemma (first coined by Vitalik Buterin) is a problem faced by blockchain engineers. The trilemma states that we cannot optimize all three aspects of a blockchain, namely, decentralization, security and scalability without accepting some kind of trade-off between them. Traditional blockchains like Bitcoin, Ethereum, etc are built upon security and decentralization. Therefore, they inevitably suffer from scalability problems. Recognizing this problem, the Ethereum team has proposed a rollup-centric roadmap to scale the blockchain through rollups. 
 
@@ -54,7 +54,7 @@ Rollup is a class of L2 scaling solutions that bundles several off-chain transac
 
 <p>&nbsp;</p>
 
-In this article, we focus on ZK rollups (zkEVM). First, we explore the concept of zero-knowledge proof (ZKP). Then, we delve into how ZKP can improve the scalability of blockchain. Finally, we summarize and compare some existing implementations zkEVM, evaluating their designs and performance.
+In this article, we focus on ZK rollups (zkEVM). First, we present the concept of zero-knowledge proof (ZKP) and how ZKP can improve the scalability of blockchain. Then, we provide an overview of zkevm. Finally, we summarize and compare some existing implementations of zkEVMs, evaluating their designs and performance.
 
 ## What is zero-knowledge proof?
 
@@ -82,36 +82,31 @@ Zero-knowledge proof is a fast-growing field of research and the race to practic
 <img src={zkpsytems} width={zkpsytems} title="Proving architecture of Polygon zkEVM. Source: zkevm-techdocs" />
 <center>Some popular zero-knowledge proof systems. Source: zkhack.dev</center>
 
-## How do ZKPs improve scalability on blockchain?
+### How do ZKPs improve scalability on blockchain?
 
-How are zero-knowledge proofs of any help towards blockchain scalability? One of the most desired properties of zero-knowledge proofs is succintness - the ability to prove a statement with a proof much smaller than witness. For example, a prover can convince verifier that he has correctly run a computation against a massive database (a few GB) without revealing the whole database to verifier. It is as if prover has "compressed" the database into a small piece of proof (a few hundred bytes). Moreover, advanced techniques like recursion, aggregation or composition can be applied to further minimize the proof size. It is also important that zero-knowledge proof verification is most likely to be cheaper and faster than naively re-running the computation (naive verification).
-
-Since L1 blockchains are highly secure, we can trust a smart contract (that is carefully audited) to run proof verification for us. This is the most common approach when designing a ZK rollup. Generally, a simplified ZK rollup looks something like this:
+One of the most sought-after characteristics of zero-knowledge proofs (ZKPs) is succinctness—the capacity to substantiate a claim with a proof significantly smaller than the original witness. For instance, a prover can persuade a verifier that a computation has been correctly executed on a massive database (several gigabytes) without disclosing the entire database to the verifier. It is as though the prover has "compressed" the database into a concise proof (a few hundred bytes). Additionally, the verification of ZKPs is generally more cost-effective and faster than the naive approach of re-running the computation. With ZKPs, the execution of a vast number of transactions on L2 can be verified by a succinct proof submitted on L1 (see the figure bellow). 
 
 <img src={zkrollup} width={1280} title="Zk rollup in a nutshell" />
 <center>Zk rollup in a nutshell</center>
 
-In the figure above, the program fed to prover can be anything, e.g., a voting system, a lottery game, Doom, whatever computing task you want to offload from L1 to L2.
+Since all transactions in L2 can be verify in L1, L2 can inhereity the strong security of L2, even though the validators on L2 is compromised.
 
 ## Zero-knowledge Ethereum Virtual Machine (zkEVM)
 
 ### Overview
-zkEVM is an EVM that is verifiable. In short, the validity of any computation run on zkEVM can be verified through zero-knowledge proofs (or validity proofs). A fun fact about EVM is that it is quasi-Turing-complete (according to Ethereum Yellow Paper), which means EVM can perform pretty much any computation that respects the intrinsic bound set with gas. Hence, by making EVM verifiable, we have essentially made all computations on Ethereum's execution layer verifiable. This allows us to "outsource" most of the transaction processing job from Ethereum to L2 via ZK rollup.
+zkEVM is a virtual machine that executes smart contract transactions, providing compatibility with both zero-knowledge-proof computations and the EVM. EVM is quasi-Turing-complete (according to Ethereum Yellow Paper [[9]](#9)), which means EVM can perform pretty much any computation that respects the intrinsic bound set with gas. With the integration of ZKPs, the validity of any computation run on zkEVM can be verified. This allows us to "outsource" most of the transaction processing job from Ethereum to L2 via ZK rollup.
 
-Another way to think of zkEVM is as a special kind of ZK rollup (the program given to prover is EVM). From this viewpoint, we can divide zkEVM into two major parts:
+In essence, zkEVM can be described as asserting: "I have correctly executed the EVM with the provided inputs." However, this assertion needs to be formalized to be interpretable by the zero-knowledge component of zkEVM. This formalization process is analogous to how programmers must write code for computers to understand and perform a task. The formal representation required for this purpose is referred to as ZK circuits.
+
+We can divide zkEVM into two parts:
 
 - Logic Part:
   - EVM program: EVM's logic expressed as ZK circuits
 - Zero-knowledge Part:
   - Prover: Off-chain program that generates proof given the EVM program and inputs
   - Verifier: Smart contract that performs proof verification
-- Data availability (DA). 
-  - L2 Data availability ensures public verifiability, allowing anyone to verify transactions are executed correctly on L2.
 <img src={zkevm} width={1280} />
 
-Simply put, the statement of zkEVM is something like: I have executed the EVM correctly with the given inputs. In reality, this statement must be formalized so that it can be "interpreted" by the zero-knowledge part of zkEVM (similar to how programmers must write code for computer to "understand" a task). We refer to said formal representation as ZK circuits.
-
-The prover can only generate zero-knowledge proofs for statements of a certain format. In literature, this format is usually called circuits (or arithmetic circuits) due to its similarity to the regular electric circuits. To avoid confusion between these two types of circuits, we refer to the former one as ZK circuit. Depending on which proof system & implementation are used, the definition of ZK circuits may differ. A few examples are R1CS (used by snarkjs for PlonK, fflonk & Groth16), AIR (used by Winterfell for STARK), etc. Usually, programmers of ZK circuits express the logic in a higher-level language then compile it down to its circuit form. The process of converting a high-level program into ZK circuits is called arithmetization.
 
 Beyond logic and zero-knowledge aspects, ensuring data availability is critical. This guarantees users can access their transaction data, safeguarding their assets even in scenarios involving malicious activities.
 
@@ -136,7 +131,7 @@ Polygon zkEVM is developed by [Polygon Labs](https://polygon.technology/). Polyg
 
 **Logic Part:** The logic part of Polygon zkEVM is divided into two parts: Polygon-VM and its ROM. Implementing logic part starts with a DSL called Polynomial Identity Language (PIL). This language is used to describe a uniprocessor VM. We refer to this machine as Polygon-VM. The firmware of Polygon-VM is written in a higher-level DSL called zero-knowledge Assembly (zkASM). The logic of EVM is contained within this firmware. Due to its immutability, the firmware is referred to as the read-only memory (ROM) of Polygon-VM.
 
-**Zero-knowledge Part:** Polygon zkEVM generates proofs of CI through a pipeline. In this pipeline, eSTARK [[8]](#8) is utilized to perform proof recursion, aggregation and composition while Groth16 [[1]](#1) or fflonk [[9]](#9) is employed for proof compression.
+**Zero-knowledge Part:** Polygon zkEVM generates proofs of CI through a pipeline. In this pipeline, eSTARK [[8]](#8) is utilized to perform proof recursion, aggregation and composition while Groth16 [[1]](#1) or fflonk [[10]](#10) is employed for proof compression.
 
 <img src={polygonzkevm} width={1280} />
 <center>Prover architecture of Polygon zkEVM. Source: [Polygon zkEVM techdocs](https://github.com/0xPolygonHermez/zkevm-techdocs/blob/main/docs/proof-recursion.pdf)</center>
@@ -166,7 +161,7 @@ zkSync Era is developed by [Matter Labs](https://matter-labs.io/). Matter Labs h
 
 **Logic Part:** Two main components of zkSync Era's logic part are Era virtual machine (EraVM) and system contracts. EraVM is a register-based VM written in Rust (based on the era-boojum library). Similar to modern operating systems, EraVM has a special feature called kernel mode in which privileged operations like calling system contracts are allowed. System contracts are smart contracts written in Solidity or Yul which can only be accessed by EraVM in kernel mode. Some logics of EVM are migrated to system contracts since it makes implementing native Account Abstraction (AA) easier. Moreover, writing smart contracts is much less of a hassle than building Rust ZK circuits.
 
-**Zero-knowledge Part:** zkSync Era uses a proof system called Boojum - an instantiation of RedShift [[10]](#10). A major source of inspiration for Boojum's design is Plonky2 - a transparent zk-SNARK tailored to fast recursive composition. In total, zkSync Era utilizes three types of ZK circuits: base-layer circuits, recursive-layer circuits and "AUX" circuits (see this document for more details). Overall, the proving architecture resembles a tree in which each node is a proof and every parent node is the aggregated proof of its children. zkSync Era's prover is able to scale horizontally as proof generation on base and recursive layers can be parallelized across a large cluster of CPUs or GPUs.
+**Zero-knowledge Part:** zkSync Era uses a proof system called Boojum - an instantiation of RedShift [[11]](#11). A major source of inspiration for Boojum's design is Plonky2 - a transparent zk-SNARK tailored to fast recursive composition. In total, zkSync Era utilizes three types of ZK circuits: base-layer circuits, recursive-layer circuits and "AUX" circuits (see this document for more details). Overall, the proving architecture resembles a tree in which each node is a proof and every parent node is the aggregated proof of its children. zkSync Era's prover is able to scale horizontally as proof generation on base and recursive layers can be parallelized across a large cluster of CPUs or GPUs.
 <img src={zksync} width={1280} />
 <center>Prover architecture of zkSync Era. Source: [zkSync Era techdocs](https://github.com/matter-labs/era-zkevm_test_harness/tree/ac9744638662f7b1d701207291ff7695c75afd79/circuit_definitions)</center>
 
@@ -196,7 +191,7 @@ Besides incompatibility at bytecode level, zkSync Era also deviates from EVM in 
 
 ### Performance benchmark 
 
-We present a benchmark comparison between Polygon zkEVM and zkSync Era based on data from [[11]](#11). 
+We present a benchmark comparison between Polygon zkEVM and zkSync Era based on data from [[12]](#12). 
 
 **Prover time.** Polygon zkEVM maintains a proving time of either 190 or 200 seconds for each batch regardless of input size. In exchange for its outstandingly fast proof generation, Polygon zKEVM requires much more expensive hardware. On the other hand, the time spent on proof generation of zkSync Era extends with larger batch sizes. The proving time of zkSync Era increased from 400 to 1200 seconds when the batch size increased from 10 transactions to 200 transactions.
 
@@ -244,12 +239,15 @@ Polygon Zero Team et al. "Plonky2: Fast Recursive Arguments with PLONK and FRI"
 Masip-Ardevol, Héctor, et al. "eSTARK: Extending STARKs with Arguments." Cryptology ePrint Archive (2023).
 
 <a id="9">[9]</a> 
-Gabizon, Ariel, and Zachary J. Williamson. "fflonK: a Fast-Fourier inspired verifier efficient version of PlonK." Cryptology ePrint Archive (2021).
+Wood, Gavin. "Ethereum: A secure decentralised generalised transaction ledger." Ethereum project yellow paper 151.2014 (2014): 1-32.
 
 <a id="10">[10]</a> 
-Kattis, Assimakis A., Konstantin Panarin, and Alexander Vlasov. "RedShift: transparent SNARKs from list polynomial commitments." Proceedings of the 2022 ACM SIGSAC Conference on Computer and Communications Security. 2022.
+Gabizon, Ariel, and Zachary J. Williamson. "fflonK: a Fast-Fourier inspired verifier efficient version of PlonK." Cryptology ePrint Archive (2021).
 
 <a id="11">[11]</a> 
+Kattis, Assimakis A., Konstantin Panarin, and Alexander Vlasov. "RedShift: transparent SNARKs from list polynomial commitments." Proceedings of the 2022 ACM SIGSAC Conference on Computer and Communications Security. 2022.
+
+<a id="12">[12]</a> 
 Chaliasos, Stefanos, et al. "Analyzing and Benchmarking ZK-Rollups." Cryptology ePrint Archive (2024).
 
 
