@@ -145,7 +145,7 @@ Polygon zkEVM is developed by [Polygon Labs](https://polygon.technology/). Polyg
   - Change-L2-block transactions: the deliminators for different blocks within the same batch
   - Regular Ethereum transactions: at the time of writing, only legacy transactions are supported
 
-<img src={polygonzkevm} width={1280} />
+<img src={polygonblock} width={1280} />
 <center>Polygon block. Source: [docs.polygon.technology](https://docs.polygon.technology/zkEVM/architecture/protocol/etrog-upgrade/?h=etrog#etrog-blocks)</center>
 <p>&nbsp;</p>
 
