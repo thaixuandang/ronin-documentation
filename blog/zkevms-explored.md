@@ -23,6 +23,7 @@ import polygonzkevm from './assets/polygonzkevm.png';
 import polygonblock from './assets/polygonblock.png';
 import zksync from './assets/zksync.png';
 import zksynccompiler from './assets/zksynccompiler.png';
+import waldoexample from './assets/waldo-example.png';
 
 Scalability remains a significant challenge in blockchain technology, prompting the exploration of innovative solutions like zero-knowledge proofs (ZKPs). We explore the fundamental concepts of ZKPs and their application in addressing blockchain scalability, with a focus on zero-knowledge Ethereum Virtual Machines (zkEVMs). zkEVMs leverage ZKPs to enhance scalability in blockchain systems while maintaining a high level of security. We also provide a comparison of various zkEVM implementations, highlighting their differences and advantages. Specific attention is given to prominent open-source zkEVMs such as Polygon zkEVM and zkSync Era, detailing their technical stacks, zero-knowledge components, data availability solutions, and EVM compatibility. Performance benchmarks are also presented, comparing prover time, settlement costs, proof compression, and data availability costs. 
 
@@ -68,8 +69,10 @@ If prover only sends one message to verifier, we say that the proof system they 
 
 In practice, the term "proof" is used interchangeably with "argument" and, most of the times, the latter is more accurate. **Argument systems** were introduced by [Brassard, Chaum, and Crépeau](https://crypto.cs.mcgill.ca/~crepeau/PDF/BCC88-jcss.pdf) in 1986. Compared to proof systems, the soundness property of argument systems is only required to hold against computationally bounded provers (provers with limited computing resources). According to this intuition, most modern computers are bounded, so arguments are considered "sound enough" in most cases.
 
-A proof or argument system is considered **zero-knowledge** if the prover discloses nothing to the verifier other than the truthfulness of the statement being proved. A **witness** is a piece of information that allows you to efficiently verify that the statement is true. In a zero-knowledge proof system, prover can convince verifier that a statement holds while revealing absolutely no information about any of the witnesses.
+A proof or argument system is considered **zero-knowledge** if the prover discloses nothing to the verifier other than the truthfulness of the statement being proved. With a zero-knowledge proof, a prover can prove that they know some hidden information. That secret information is, conceptually, a **witness**. In a zero-knowledge proof system, prover can perduade verifier that a statement holds while revealing any of the witnesses. One of the most well-known examples for zero-knowledge proof is the "Where's Waldo?" example. In this example, you want to convince your friend that you have found Waldo without disclosing his location in the picture. You can do so by using a board big enough to cover the entire picture when you show your friend the image of Waldo through a fixed peephole on that board. The witness, in this case, is the exact coordinates of Waldo.
 
+<img src={waldoexample} width={waldoexample} title="Illustration for the Where's Waldo? example" />
+<center>Illustration for the "Where's Waldo?" example</center>
 
 Currently, many practical zero-knowledge proof (or argument) systems have been realized. Most of these schemes fall into one of the two following categories:
 - *Zero-Knowledge Succinct Non-Interactive Argument of Knowledge (zk-SNARK):*
@@ -77,7 +80,7 @@ Currently, many practical zero-knowledge proof (or argument) systems have been r
 - *Zero-Knowledge Scalable Transparent Arguments of Knowledge (zk-STARK):*
   - Example: Fractal [[4]](#4), Aurora [[5]](#5), STARK [[6]](#6), etc.
 
-The main difference between zk-SNARK and zk-STARK is the need for trusted setup - a piece of random data that must be honestly generated. In reality, randomness generation is not easy to implement securely, especially in a trustless setting (you can look at Zcash's counterfeiting vulnerability). zk-STARK eliminates the need for trusted setup, which effectively reduces security risks and assumptions while increasing protocol's transparency. On the other hand, zk-STARKs usually have significantly larger proof size compared to that of zk-SNARKs. This can be a big problem if data transfer is expensive like in the case of Ethereum smart contracts. Therefore, both zk-SNARKs and zk-STARKs are sometimes utilized in one protocol to get the best of both worlds, e.g., Plonky2 [[7]](#7), eSTARK [[8]](#8), etc.
+The main difference between zk-SNARK and zk-STARK is the need for trusted setup - a piece of random data that must be honestly generated. In reality, randomness generation is not easy to implement securely, especially in a trustless setting (you can look at [Zcash's counterfeiting vulnerability](https://electriccoin.co/blog/zcash-counterfeiting-vulnerability-successfully-remediated/)). Zk-STARK eliminates the need for trusted setup, which effectively reduces security risks and assumptions while increasing protocol's transparency. On the other hand, zk-STARKs usually have significantly larger proof size compared to that of zk-SNARKs. This can be a big problem if data transfer is expensive like in the case of Ethereum smart contracts. Therefore, elements of zk-SNARKs and zk-STARKs are sometimes combined in one protocol to get the best of both worlds, e.g., transparent zk-SNARKs like Plonky2 [[7]](#7) and eSTARK [[8]](#8).
 
 Zero-knowledge proof is a fast-growing field of research and the race to practical and efficient general-purpose ZKPs is reaching new heights (a [Cambrian explosion](https://medium.com/starkware/the-cambrian-explosion-of-crypto-proofs-7ac080ac9aed) as described by Eli Ben-Sasson) with the rise of zero-knowledge Virtual Machines (zkVMs).
 
@@ -96,9 +99,9 @@ Since all transactions in L2 can be verify in L1, L2 can inherit the strong secu
 ## Zero-knowledge Ethereum Virtual Machine (zkEVM)
 
 ### Overview
-zkEVM is a virtual machine that executes smart contract transactions, providing compatibility with both zero-knowledge-proof computations and the EVM. EVM is quasi-Turing-complete (according to Ethereum Yellow Paper [[9]](#9)), which means EVM can perform pretty much any computation that respects the bound set by gas. With the integration of ZKPs, the validity of any computation run on zkEVM can be verified. This allows us to "outsource" most of the transaction processing job from Ethereum to L2 via ZK rollup.
+zkEVM is a virtual machine that executes smart contract transactions, providing compatibility with both zero-knowledge-proof computations and the EVM. EVM is quasi-Turing-complete (according to Ethereum Yellow Paper [[9]](#9)), which means EVM can perform pretty much any computation that respects the bound set by [gas](https://ethereum.org/en/developers/docs/gas/). With the integration of ZKPs, the validity of any computation run on zkEVM can be verified. This allows us to "outsource" most of the transaction processing job from Ethereum to L2 via ZK rollup.
 
-In essence, zkEVM can be described as asserting: "I have correctly executed the EVM with the provided inputs." However, this assertion needs to be formalized to be interpretable by the zero-knowledge component of zkEVM. This formalization process is analogous to how programmers must write code for computers to understand and perform a task. The formal representation required for this purpose is referred to as ZK circuits.
+In essence, zkEVM can be described as asserting: "I have correctly executed the EVM with the provided inputs." However, this assertion needs to be formalized to be interpretable by the zero-knowledge component of zkEVM. This formalization process is analogous to how programmers must write code for computers to understand and perform a task. The formal representation required for this purpose is usually referred to as **ZK circuits** or **arithmetic circuits**.
 
 We can divide zkEVM into two parts:
 
@@ -131,7 +134,7 @@ This comparison highlights the distinct approaches and technical considerations 
 Polygon zkEVM is developed by [Polygon Labs](https://polygon.technology/). Polygon Labs has open-sourced two implementations of their CPU prover (written in [C++](https://github.com/0xPolygonHermez/zkevm-prover) and [Javascript](https://github.com/0xPolygonHermez/zkevm-proverjs)).
 
 
-**Logic Part:** The logic part of Polygon zkEVM is divided into two parts: Polygon-VM and its ROM. Implementing logic part starts with a DSL called Polynomial Identity Language (PIL). This language is used to describe a uniprocessor VM. We refer to this machine as Polygon-VM. The firmware of Polygon-VM is written in a higher-level DSL called zero-knowledge Assembly (zkASM). The logic of EVM is contained within this firmware. Due to its immutability, the firmware is referred to as the read-only memory (ROM) of Polygon-VM.
+**Logic Part:** The logic part of Polygon zkEVM is divided into two parts: Polygon-VM and its ROM. Implementing logic part starts with a DSL called [Polynomial Identity Language (PIL)](https://docs.polygon.technology/zkEVM/spec/pil/). This language is used to describe a uniprocessor VM. We refer to this machine as Polygon-VM. The firmware of Polygon-VM is written in a higher-level DSL called [zero-knowledge Assembly (zkASM)](https://docs.polygon.technology/zkEVM/spec/zkasm/). The logic of EVM is contained within this firmware. Due to its immutability, the firmware is referred to as the read-only memory (ROM) of Polygon-VM.
 
 **Zero-knowledge Part:** Polygon zkEVM generates proofs of CI through a pipeline. In this pipeline, eSTARK [[8]](#8) is utilized to perform [proof recursion, aggregation and composition](https://docs.polygon.technology/zkEVM/architecture/zkprover/stark-recursion/composition-recursion-aggregation/) while Groth16 [[1]](#1) or fflonk [[10]](#10) is employed for proof compression. Because of the monolithic design of its ZK circuits, Polygon's prover is highly optimized to run on CPUs of a single powerful node.
 
@@ -193,10 +196,10 @@ Besides incompatibility at bytecode level, zkSync Era also deviates from EVM in 
 
 We summarize the benchmarks to compare Polygon zkEVM and zkSync Era based on data from [[12]](#12). But ... before we start, here are the configurations of each prover:
 
-  |  |  Git Commit  | Hardware Configuration | Hourly Cost |
-  | -------- | -------- | -------- | -------- |
-  | Polygon zkEVM | d37e826  | r6i.metal (128 vCPUs, 1024GB RAM)     | 8.06 USD     |
-  | zkSync Era | 4794286  | g2-standard-32 (32 vCPUs, 1 NVIDIA L4 GPU, 128 GB RAM)     | 1.87 USD     |
+  |               |  Git Commit  | Hardware Configuration                                   | Hourly Cost |
+  | --------      | --------     | --------                                                 | -------- |
+  | Polygon zkEVM | d37e826      | r6i.metal (128 vCPUs, 1024GB RAM)                        | 8.06 USD     |
+  | zkSync Era    | 4794286      | g2-standard-32 (32 vCPUs, 1 NVIDIA L4 GPU, 128 GB RAM)   | 1.87 USD     |
 
 
 **Prover time.** Polygon zkEVM maintains a proving time of either 190 or 200 seconds for each batch regardless of input size. In exchange for its outstandingly fast proof generation, Polygon zKEVM requires much more expensive hardware. On the other hand, the time spent on proof generation of zkSync Era extends with larger batch sizes. The proving time of zkSync Era increased from 400 to 1200 seconds when the batch size increased from 10 transactions to 200 transactions.
@@ -225,7 +228,7 @@ To quickly sum up what we have learnt in this section, below is a table that cap
 
 |                       | Polygon zkEVM  | zkSync Era  |
 | --------------------  | -------------- | ----------- |
-| Logic Part            |  Use PIL to define base constraint system (Polygon-VM) and zkASM to write EVM's logic (ROM)  | Constraint system and a part of EVM's logic are contained in Rust ZK circuits while the rest of EVM is included in Solidity/Yul smart contracts  |
+| Logic Part            |  Use PIL to define base constraint system (Polygon-VM) and zkASM to write EVM's logic (ROM)  | Constraint system and a part of EVM's logic are contained in Rust ZK circuits while the rest of EVM is handled by Solidity/Yul smart contracts  |
 | Zero-knowledge Part   | Proving architecture resembles a pipeline. Prover is resource-intesive and highly optimized for CPU and vertical scaling | Proving architecture resembles a tree. Prover can run on both CPU and GPU and can horizontally scale    |
 | DA Solution           | All L2 transaction data is published on L1        | Only (compressed) state differentials (state diffs) are published on L1       |
 | zkEVM Type            | Type-2 zkEVM | Type-4 zkEVM |
