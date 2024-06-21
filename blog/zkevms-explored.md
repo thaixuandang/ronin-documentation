@@ -71,11 +71,11 @@ A proof or argument system is considered zero-knowledge if the prover discloses 
 
 Currently, many practical zero-knowledge proof (or argument) systems have been realized. Most of these schemes fall into one of the two following categories:
 - *Zero-Knowledge Succinct Non-Interactive Argument of Knowledge (zk-SNARK):*
-  - Example: Groth16[[1]](#1), PlonK[[2]](#2), Halo[[3]](#3), etc.
+  - Example: Groth16 [[1]](#1), PlonK [[2]](#2), Halo [[3]](#3), etc.
 - *Zero-Knowledge Scalable Transparent Arguments of Knowledge (zk-STARK):*
-  - Example: Fractal[[4]](#4), Aurora[[5]](#5), STARK[[6]](#6), etc.
+  - Example: Fractal [[4]](#4), Aurora [[5]](#5), STARK [[6]](#6), etc.
 
-The main difference between zk-SNARK and zk-STARK is the need for trusted setup - a piece of random data that must be honestly generated. In reality, randomness generation is not easy to implement securely, especially in a trustless setting (you can look at Zcash's counterfeiting vulnerability). zk-STARK eliminates the need for trusted setup, which effectively reduces security risks and assumptions while increasing protocol's transparency. On the other hand, zk-STARKs usually have significantly larger proof size compared to that of zk-SNARKs. This can be a big problem if data transfer is expensive like in the case of Ethereum smart contracts. Therefore, both zk-SNARKs and zk-STARKs are sometimes utilized in one protocol to get the best of both worlds, e.g., Plonky2[[7]](#7), eSTARK[[8]](#8), etc.
+The main difference between zk-SNARK and zk-STARK is the need for trusted setup - a piece of random data that must be honestly generated. In reality, randomness generation is not easy to implement securely, especially in a trustless setting (you can look at Zcash's counterfeiting vulnerability). zk-STARK eliminates the need for trusted setup, which effectively reduces security risks and assumptions while increasing protocol's transparency. On the other hand, zk-STARKs usually have significantly larger proof size compared to that of zk-SNARKs. This can be a big problem if data transfer is expensive like in the case of Ethereum smart contracts. Therefore, both zk-SNARKs and zk-STARKs are sometimes utilized in one protocol to get the best of both worlds, e.g., Plonky2 [[7]](#7), eSTARK [[8]](#8), etc.
 
 Zero-knowledge proof is a fast-growing field of research and the race to practical and efficient general-purpose ZKPs is reaching new heights (a Cambrian explosion as described by Eli Ben-Sasson) with the rise of zero-knowledge Virtual Machines (zkVMs).
 
@@ -88,14 +88,14 @@ How are zero-knowledge proofs of any help towards blockchain scalability? One of
 
 Since L1 blockchains are highly secure, we can trust a smart contract (that is carefully audited) to run proof verification for us. This is the most common approach when designing a ZK rollup. Generally, a simplified ZK rollup looks something like this:
 
-
-In the figure above, the program fed to prover can be anything, e.g., a voting system, a lottery game, Doom, whatever computing task you want to offload from L1 to L2.
-
 <img src={zkrollup} width={1280} title="Zk rollup in a nutshell" />
 <center>Zk rollup in a nutshell</center>
 
+In the figure above, the program fed to prover can be anything, e.g., a voting system, a lottery game, Doom, whatever computing task you want to offload from L1 to L2.
+
 ## Zero-knowledge Ethereum Virtual Machine (zkEVM)
 
+### Overview
 zkEVM is an EVM that is verifiable. In short, the validity of any computation run on zkEVM can be verified through zero-knowledge proofs (or validity proofs). A fun fact about EVM is that it is quasi-Turing-complete (according to Ethereum Yellow Paper), which means EVM can perform pretty much any computation that respects the intrinsic bound set with gas. Hence, by making EVM verifiable, we have essentially made all computations on Ethereum's execution layer verifiable. This allows us to "outsource" most of the transaction processing job from Ethereum to L2 via ZK rollup.
 
 Another way to think of zkEVM is as a special kind of ZK rollup (the program given to prover is EVM). From this viewpoint, we can divide zkEVM into two major parts:
@@ -131,9 +131,12 @@ This comparison highlights the distinct approaches and technical considerations 
 
 ### Polygon zkEVM
 
+Polygon zkEVM is developed by [Polygon Labs](https://polygon.technology/). Polygon Labs has open-sourced two implementations of their CPU prover (written in [C++](https://github.com/0xPolygonHermez/zkevm-prover) and [Javascript](https://github.com/0xPolygonHermez/zkevm-proverjs)).
+
+
 **Logic Part:** The logic part of Polygon zkEVM is divided into two parts: Polygon-VM and its ROM. Implementing logic part starts with a DSL called Polynomial Identity Language (PIL). This language is used to describe a uniprocessor VM. We refer to this machine as Polygon-VM. The firmware of Polygon-VM is written in a higher-level DSL called zero-knowledge Assembly (zkASM). The logic of EVM is contained within this firmware. Due to its immutability, the firmware is referred to as the read-only memory (ROM) of Polygon-VM.
 
-**Zero-knowledge Part:** Polygon zkEVM generates proofs of CI through a pipeline. In this pipeline, eSTARK[[8]](#8) is utilized to perform proof recursion, aggregation and composition while Groth16[[1]](#1) or fflonk[[9]](#9) is employed for proof compression.
+**Zero-knowledge Part:** Polygon zkEVM generates proofs of CI through a pipeline. In this pipeline, eSTARK [[8]](#8) is utilized to perform proof recursion, aggregation and composition while Groth16 [[1]](#1) or fflonk [[9]](#9) is employed for proof compression.
 
 <img src={polygonzkevm} width={1280} />
 <center>Prover architecture of Polygon zkEVM. Source: [Polygon zkEVM techdocs](https://github.com/0xPolygonHermez/zkevm-techdocs/blob/main/docs/proof-recursion.pdf)</center>
@@ -142,7 +145,7 @@ This comparison highlights the distinct approaches and technical considerations 
 
 **DA Solution:** All transaction data of Polygon zkEVM is stored on Ethereum smart contracts. More specifically, RLP-encoded L2 transactions must be saved to rollup contract for them to be processed. This approach is simple to implement, and gives maximum transparency.
 
-**EVM Compatibility:** Thanks to the Etrog update in early 2024, Polygon zkEVM is nearly a full type-2 zkEVM. This status means that dApps developers can redeploy their smart contracts exactly as they are on Ethereum without the need for additional auditing or modifications. As pointed out in Vitalik Buterin's blog, type-2 zkEVMs appear to be EVM-equivalent but they are, in fact, slightly different regarding some parts like block structure and state tree.
+**EVM Compatibility:** Polygon zkEVM is nearly a full type-2 zkEVM, thanks to the Etrog update in early 2024. After Etrog update, dApps developers can redeploy their smart contracts exactly as they are on Ethereum without the need for additional auditing or modifications. As pointed out in Vitalik Buterin's blog, type-2 zkEVMs appear to be EVM-equivalent but they are, in fact, slightly different regarding some parts like block structure and state tree.
 - Block structure: In Polygon zkEVM, multiple blocks (a.k.a. L2 blocks) are bundled into a batch. Unlike Ethereum blocks, Polygon zkEVM's L2 blocks do not contain any other data besides from the RLP-encoded transactions. A block consists of:
   - Change-L2-block transactions: the deliminators for different blocks within the same batch
   - Regular Ethereum transactions: at the time of writing, only legacy transactions are supported
@@ -158,9 +161,12 @@ Polygon zkEVM's high compatibility with EVM is demonstrated by its ability to in
 
 ### zkSync Era
 
+zkSync Era is developed by [Matter Labs](https://matter-labs.io/). Matter Labs has open-sourced their CPU and GPU provers, namely [era-boojum](https://github.com/matter-labs/era-boojum) and [era-shivini](https://github.com/matter-labs/era-shivini) (both written in Rust).
+
+
 **Logic Part:** Two main components of zkSync Era's logic part are Era virtual machine (EraVM) and system contracts. EraVM is a register-based VM written in Rust (based on the era-boojum library). Similar to modern operating systems, EraVM has a special feature called kernel mode in which privileged operations like calling system contracts are allowed. System contracts are smart contracts written in Solidity or Yul which can only be accessed by EraVM in kernel mode. Some logics of EVM are migrated to system contracts since it makes implementing native Account Abstraction (AA) easier. Moreover, writing smart contracts is much less of a hassle than building Rust ZK circuits.
 
-**Zero-knowledge Part:** zkSync Era's main proof system is Boojum - an instantiation of RedShift[[10]](#10). A major source of inspiration for Boojum's design is Plonky2 - a transparent zk-SNARK tailored to fast recursive composition. In total, zkSync Era utilizes three types of ZK circuits: base-layer circuits, recursive-layer circuits and "AUX" circuits (see this document for more details). Overall, the proving architecture resembles a tree in which each node is a proof and every parent node is the aggregated proof of its children. zkSync Era's prover is able to scale horizontally as proof generation on base and recursive layers can be parallelized across a large cluster of CPUs or GPUs.
+**Zero-knowledge Part:** zkSync Era uses a proof system called Boojum - an instantiation of RedShift [[10]](#10). A major source of inspiration for Boojum's design is Plonky2 - a transparent zk-SNARK tailored to fast recursive composition. In total, zkSync Era utilizes three types of ZK circuits: base-layer circuits, recursive-layer circuits and "AUX" circuits (see this document for more details). Overall, the proving architecture resembles a tree in which each node is a proof and every parent node is the aggregated proof of its children. zkSync Era's prover is able to scale horizontally as proof generation on base and recursive layers can be parallelized across a large cluster of CPUs or GPUs.
 <img src={zksync} width={1280} />
 <center>Prover architecture of zkSync Era. Source: [zkSync Era techdocs](https://github.com/matter-labs/era-zkevm_test_harness/tree/ac9744638662f7b1d701207291ff7695c75afd79/circuit_definitions)</center>
 
@@ -245,3 +251,7 @@ Kattis, Assimakis A., Konstantin Panarin, and Alexander Vlasov. "RedShift: trans
 
 <a id="11">[11]</a> 
 Chaliasos, Stefanos, et al. "Analyzing and Benchmarking ZK-Rollups." Cryptology ePrint Archive (2024).
+
+
+## Disclaimer
+Please note that this content is presented or otherwise made available to you on an “as is” basis for general informational and educational purposes only, without representation or warranty of any kind. This content should not be construed or used as financial, legal, or other professional advice, nor is it intended to recommend the purchase or use of any specific product or service. You must seek your independent advice from appropriate professional advisors. Where this article is contributed by a third party, please note that those views expressed belong to the third party and do not necessarily reflect those of Sky Mavis. Please refer to our [Terms of Service](https://cdn.skymavis.com/files/terms-of-use.pdf) for more information.
