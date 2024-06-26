@@ -272,6 +272,8 @@ const sidebars = {
             'validators/setup/cli',
             // Latest version
             'validators/setup/upgrade-validator',
+            // Latest version
+            'validators/setup/random-beacon',
             // Clean data
             'validators/setup/clean-data',
             // Network parameters
