@@ -15,7 +15,7 @@ Before setting up the Random Beacon Service, we need to prepare:
 - Go version 1.19 or higher
 - Docker 
 - Registered the [VRF key](../manage/vrf-key.mdx)
-- A Ronin address to submit the random beacon. This can be any address. 
+- A Ronin address to submit the random beacon. This can be any address but make sure to top up to this address (you will need to send one transaction per day).
 
 ## Run Random Beacon Service in standalone mode
 
@@ -69,7 +69,7 @@ services:
       POSTGRES_PASSWORD: ${DB_PASS}
 ```
 
-This compose file defines the ronin-random-beacon service that pulls a Ronin random beacon image from the GitHub Container Registry. ( https://github.com/ronin-chain/ronin-random-beacon/pkgs/container/ronin-random-beacon)
+This compose file defines the `ronin-random-beacon` service that pulls a Ronin random beacon image from the [GitHub Container Registry](https://github.com/ronin-chain/ronin-random-beacon/pkgs/container/ronin-random-beacon).
 
 **Note.** In case you want to connect to node container in different docker-compose in the same machine, please check [here](https://docs.docker.com/compose/networking/#use-a-pre-existing-network) for reusing the existing network in the above setting for making a connection between random-beacon service with rpc node service. 
 
@@ -173,7 +173,7 @@ services:
       POSTGRES_PASSWORD: ${RONIN_RANDOM_BEACON_DB_PASS}
 ```
 
-This compose file defines the `ronin-random-beacon` service that pulls a Ronin random beacon image from the GitHub Container Registry.
+This compose file defines the `ronin-random-beacon` service that pulls a Ronin random beacon image from the [GitHub Container Registry](https://github.com/ronin-chain/ronin-random-beacon/pkgs/container/ronin-random-beacon).
 
 3. In the docker directory, create an `.env` file and add the following content, replacing the `<...>` placeholder values with your information:
 
