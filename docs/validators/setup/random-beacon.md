@@ -15,7 +15,7 @@ Before setting up the Random Beacon Service, we need to prepare:
 - Go version 1.19 or higher
 - Docker 
 - Registered the [VRF key](../manage/vrf-key.mdx)
-- A Ronin address to submit the random beacon. This can be any address but make sure to top up to this address (you will need to send one transaction per day).
+- A Ronin address to submit the random beacon. This can be any address (https://docs.roninchain.com/validators/setup/generate-keys#generate-an-ecdsa-key-using-the-cli ) but make sure to top up to this address some RON (you will need to send one transaction per day).
 
 ## Run Random Beacon Service in standalone mode
 
@@ -73,7 +73,7 @@ This compose file defines the `ronin-random-beacon` service that pulls a Ronin r
 
 **Note.** In case you want to connect to node container in different docker-compose in the same machine, please check [here](https://docs.docker.com/compose/networking/#use-a-pre-existing-network) for reusing the existing network in the above setting for making a connection between random-beacon service with rpc node service. 
 
-For example if the current docker network of node containers you wanna connect is `ronin_default` (You can check by running `docker network ls`) Then put this block in per service inside the above docker-compose to connect to the existing network.
+For example if the current docker network of node containers you wanna connect is `ronin_default` (You can check by running `docker network ls`). Then put this block in per service inside the above docker-compose to connect to the existing network.
 
 ```
 ...
