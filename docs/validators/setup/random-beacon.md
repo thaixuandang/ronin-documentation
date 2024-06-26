@@ -94,7 +94,7 @@ ronin-random-beacon-chain-db:
 3. In the docker directory, create an `.env` file and add the following content, replacing the `<...>` placeholder values with your information:
 
 ```
-NODE_IMAGE=<NODE_IMAGE>
+NODE_IMAGE=ghcr.io/ronin-chain/ronin-random-beacon:v0.0.1-2798dc6
 DB_USER=<DB_USER>
 DB_PASS=<DB_PASS>
 DB_NAME=<DB_NAME>
@@ -178,7 +178,7 @@ This compose file defines the `ronin-random-beacon` service that pulls a Ronin r
 3. In the docker directory, create an `.env` file and add the following content, replacing the `<...>` placeholder values with your information:
 
 ```
-RONIN_RANDOM_BEACON_CHAIN_IMAGE=<RONIN_RANDOM_BEACON_CHAIN_IMAGE>
+RONIN_RANDOM_BEACON_CHAIN_IMAGE=ghcr.io/ronin-chain/ronin-random-beacon:v0.0.1-2798dc6
 RONIN_RANDOM_BEACON_DB_USER=<RONIN_RANDOM_BEACON_DB_USER>
 RONIN_RANDOM_BEACON_DB_PASS=<RONIN_RANDOM_BEACON_DB_PASS>
 RONIN_RANDOM_BEACON_DB_NAME=<RONIN_RANDOM_BEACON_DB_NAME>
