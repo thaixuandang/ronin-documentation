@@ -12,6 +12,7 @@ Governing Validators can choose to run the Random Beacon Service in standalone m
 ## Prerequisites
 
 Before setting up the Random Beacon Service, we need to prepare:
+- Go version 1.19 or higher
 - Docker 
 - Registered the [VRF key](../manage/vrf-key.mdx)
 - A Ronin address to submit the random beacon. This can be any address. 
