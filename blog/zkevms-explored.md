@@ -72,7 +72,9 @@ In practice, the term "proof" is used interchangeably with "argument" and, most 
 A proof or argument system is considered **zero-knowledge** if the prover discloses nothing to the verifier other than the truthfulness of the statement being proved. With a zero-knowledge proof, a prover can prove that they know some hidden information. That secret information is, conceptually, a **witness**. In a zero-knowledge proof system, prover can perduade verifier that a statement holds while revealing any of the witnesses. One of the most well-known examples for zero-knowledge proof is the "Where's Waldo?" example. In this example, you want to convince your friend that you have found Waldo without disclosing his location in the picture. You can do so by using a board big enough to cover the entire picture when you show your friend the image of Waldo through a fixed peephole on that board. The witness, in this case, is the exact coordinates of Waldo.
 
 <img src={waldoexample} width={waldoexample} title="Illustration for the Where's Waldo? example" />
-<center>Illustration for the "Where's Waldo?" example</center>
+<center>An illustration for the "Where's Waldo?" example. A larger board covers the entire picture, revealing only Waldo's location. </center>
+
+<p>&nbsp;</p>
 
 Currently, many practical zero-knowledge proof (or argument) systems have been realized. Most of these schemes fall into one of the two following categories:
 - *Zero-Knowledge Succinct Non-Interactive Argument of Knowledge (zk-SNARK):*
@@ -93,6 +95,8 @@ One of the most sought-after characteristics of zero-knowledge proofs (ZKPs) is 
 
 <img src={zkrollup} width={1280} title="Zk rollup in a nutshell" />
 <center>Zk rollup in a nutshell</center>
+
+<p>&nbsp;</p>
 
 Since all transactions in L2 can be verify in L1, L2 can inherit the strong security of L2, even though the validators on L2 is compromised.
 
@@ -127,7 +131,13 @@ We will begin by exploring the technical stack of each product, including their 
 
 Furthermore, we will evaluate the EVM compatibility of both zkEVMs. Polygon zkEVM demonstrates high compatibility with EVM through its ability to directly interpret EVM bytecode without the need for an intermediate representation. On the other hand, [zkSync Era's instruction set](https://matter-labs.github.io/eravm-spec/spec.html) differs significantly from that of EVM, preventing it from directly interpreting EVM bytecode like Polygon zkEVM.
 
-This comparison highlights the distinct approaches and technical considerations of each zkEVM in the context of their architecture, zero-knowledge features, data availability solutions, and compatibility with Ethereum's EVM.
+This comparison highlights the distinct approaches and technical considerations of each zkEVM in the context of their architecture, zero-knowledge features, data availability solutions, and compatibility with Ethereum's EVM. To quickly sum up what we have learnt in this section, below is a table that captures the key takeaways from our analysis of Polygon zkEVM and zkSync Era.
+
+|                       | Polygon zkEVM  | zkSync Era  |
+| --------------------  | -------------- | ----------- |
+| EVM Compatibility     | Type-2 zkEVM. It can directly interpret EVM bytecode         |  Type-4 zkEVM. Smart contracts must be compiled to EraVM bytecode to be executed  |
+| Proving time  | Proving time remains constant regardless of input size | Proving time increases as input size grows |
+| DA Solution           | DA cost is significantly higher because of all transaction data is posted to L1  | DA cost is much lower as only (compressed) state differentials are published on L1       |
 
 ### Polygon zkEVM
 
@@ -194,12 +204,8 @@ Besides incompatibility at bytecode level, zkSync Era also deviates from EVM in 
 
 ### Performance benchmarks
 
-We summarize the benchmarks to compare Polygon zkEVM and zkSync Era based on data from [[12]](#12). But ... before we start, here are the configurations of each prover:
-
-  |               |  Git Commit  | Hardware Configuration                                   | Hourly Cost |
-  | --------      | --------     | --------                                                 | -------- |
-  | Polygon zkEVM | d37e826      | r6i.metal (128 vCPUs, 1024GB RAM)                        | 8.06 USD     |
-  | zkSync Era    | 4794286      | g2-standard-32 (32 vCPUs, 1 NVIDIA L4 GPU, 128 GB RAM)   | 1.87 USD     |
+We summarize the benchmarks to compare Polygon zkEVM and zkSync Era based on data from [[12]](#12).
+In the benchmarks, the hardware to run Polygon zkEVM is an r6i.metal instance with 128 vCPUs and 1024GB of RAM, costing \$8.06 per hour. For zkSync Era, the hardware is a g2-standard-32 instance with 32 vCPUs, one NVIDIA L4 GPU, and 128GB of RAM, costing \$1.87 per hour.
 
 
 **Prover time.** Polygon zkEVM maintains a proving time of either 190 or 200 seconds for each batch regardless of input size. In exchange for its outstandingly fast proof generation, Polygon zKEVM requires much more expensive hardware. On the other hand, the time spent on proof generation of zkSync Era extends with larger batch sizes. The proving time of zkSync Era increased from 400 to 1200 seconds when the batch size increased from 10 transactions to 200 transactions.
@@ -222,19 +228,7 @@ We summarize the benchmarks to compare Polygon zkEVM and zkSync Era based on dat
 | Contract Deployment  | 84,369         | 17,087      |
 | ETH Transfer         | 283,905        | 88,693      |
 
-
-### Polygon zkEVM vs zkSync Era: In Conclusion
-To quickly sum up what we have learnt in this section, below is a table that captures the key takeaways from our analysis of Polygon zkEVM and zkSync Era.
-
-|                       | Polygon zkEVM  | zkSync Era  |
-| --------------------  | -------------- | ----------- |
-| Logic Part            |  Use PIL to define base constraint system (Polygon-VM) and zkASM to write EVM's logic (ROM)  | Constraint system and a part of EVM's logic are contained in Rust ZK circuits while the rest of EVM is handled by Solidity/Yul smart contracts  |
-| Zero-knowledge Part   | Proving architecture resembles a pipeline. Prover is resource-intesive and highly optimized for CPU and vertical scaling | Proving architecture resembles a tree. Prover can run on both CPU and GPU and can horizontally scale    |
-| DA Solution           | All L2 transaction data is published on L1        | Only (compressed) state differentials (state diffs) are published on L1       |
-| zkEVM Type            | Type-2 zkEVM | Type-4 zkEVM |
-| EVM Compatibility     | Can directly interpret EVM bytecode         |  Ethereum smart contracts must be compiled to EraVM bytecode to be executed  |
-| Performance  | Proving time remains constant regardless of input size. DA cost is significantly higher because of all transaction data is posted to L1 | Proving time increases as input size grows. DA cost is much lower thanks to the use of state diffs and data compression |
-
+Based on the benchmarks, we observe that Polygon zkEVM and zkSync Era have distinct optimization focuses. Polygon zkEVM aims to optimize proving time, enabling faster synchronization between L1 and L2 chains. This allows cross-chain transactions to be executed more quickly. On the other hand, zkSync Era is optimized for settlement cost, focusing on minimizing the expenses associated with transaction settlement on L1. 
 
 ## References
 <a id="1">[1]</a> 
