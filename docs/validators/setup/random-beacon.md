@@ -45,14 +45,14 @@ services:
       RONIN_SECRET_KEY: ${RONIN_SECRET_KEY}
       RONIN_RPC_ENDPOINT: ${RONIN_RPC_ENDPOINT}
       RONIN_VERBOSITY: ${RONIN_VERBOSITY}
-      RONIN_DATABASE_URL: postgresql://${DB_USER}:${DB_PASS}@ronin-random-beacon-chain-db:5432/${DB_NAME}?sslmode=disable
+      RONIN_DATABASE_URL: postgresql://${DB_USER}:${DB_PASS}@ronin-random-beacon-chain-db:5432/${DB_USER}?sslmode=disable
     depends_on:
       - ronin-random-beacon-chain-db
   ronin-random-beacon-chain-db:
     image: postgres:14
     restart: always
     ports:
-      - "127.0.0.1:5432:5432"
+      - "127.0.0.1:5433:5432"
     logging:
       options:
         max-size: 10m
@@ -73,7 +73,7 @@ This compose file defines the `ronin-random-beacon` service that pulls a Ronin r
 
 **Note.** In case you want to connect to node container in different docker-compose in the same machine, please check [here](https://docs.docker.com/compose/networking/#use-a-pre-existing-network) for reusing the existing network in the above setting for making a connection between random-beacon service with rpc node service. 
 
-For example if the current docker network of node containers you wanna connect is `ronin_default`. Then put this block in per service inside the above docker-compose to connect to the existing network.
+For example if the current docker network of node containers you wanna connect is `ronin_default` (You can check by running `docker network ls`) Then put this block in per service inside the above docker-compose to connect to the existing network.
 
 ```
 ...
@@ -89,15 +89,19 @@ ronin-random-beacon-chain-db:
   networks:
    - ronin_default
 ...
+...
+
+networks:
+  ronin_default:
+    external: true
 ```
 
 3. In the docker directory, create an `.env` file and add the following content, replacing the `<...>` placeholder values with your information:
 
 ```
 NODE_IMAGE=ghcr.io/ronin-chain/ronin-random-beacon:v0.0.1-2798dc6
-DB_USER=<DB_USER>
+DB_USER=ronin
 DB_PASS=<DB_PASS>
-DB_NAME=<DB_NAME>
 # your ronin private key with the 0x prefix for submitting the transactions to chain.
 RONIN_PRIVATE_KEY=<RONIN_PRIVATE_KEY> 
 # Your VRF Secret key with the 0x prefix
@@ -149,14 +153,14 @@ services:
       RONIN_SECRET_KEY: ${RONIN_RANDOM_BEACON_CHAIN_SECRET_KEY}
       RONIN_RPC_ENDPOINT: ${RONIN_RANDOM_BEACON_CHAIN_RPC_ENDPOINT}
       RONIN_VERBOSITY: ${RONIN_RANDOM_BEACON_CHAIN_VERBOSITY}
-      RONIN_DATABASE_URL: postgresql://${RONIN_RANDOM_BEACON_DB_USER}:${RONIN_RANDOM_BEACON_DB_PASS}@ronin-random-beacon-chain-db:5432/${RONIN_RANDOM_BEACON_DB_NAME}?sslmode=disable
+      RONIN_DATABASE_URL: postgresql://${RONIN_RANDOM_BEACON_DB_USER}:${RONIN_RANDOM_BEACON_DB_PASS}@ronin-random-beacon-chain-db:5432/${RONIN_RANDOM_BEACON_DB_USER}?sslmode=disable
     depends_on:
       - ronin-random-beacon-chain-db
   ronin-random-beacon-chain-db:
     image: postgres:14
     restart: always
     ports:
-      - "127.0.0.1:5432:5432"
+      - "127.0.0.1:5433:5432"
     logging:
       options:
         max-size: 10m
@@ -179,9 +183,8 @@ This compose file defines the `ronin-random-beacon` service that pulls a Ronin r
 
 ```
 RONIN_RANDOM_BEACON_CHAIN_IMAGE=ghcr.io/ronin-chain/ronin-random-beacon:v0.0.1-2798dc6
-RONIN_RANDOM_BEACON_DB_USER=<RONIN_RANDOM_BEACON_DB_USER>
+RONIN_RANDOM_BEACON_DB_USER=ronin
 RONIN_RANDOM_BEACON_DB_PASS=<RONIN_RANDOM_BEACON_DB_PASS>
-RONIN_RANDOM_BEACON_DB_NAME=<RONIN_RANDOM_BEACON_DB_NAME>
 # your ronin private key with the 0x prefix for submitting the transactions to chain.
 RONIN_RANDOM_BEACON_CHAIN_PRIVATE_KEY=<RONIN_RANDOM_BEACON_CHAIN_PRIVATE_KEY> 
 # Your VRF Secret key with the 0x prefix
