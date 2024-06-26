@@ -1,0 +1,44 @@
+---
+description: Add a VRF key to your profile. 
+title: Add or change VRF key
+---
+import profile from './assets/profile.png';
+import addStepOne from './assets/add-vrf-key-1.png';
+import addStepTwo from './assets/add-vrf-key-2.png';
+
+## Overview
+
+This guide demonstrates how to add a *VRF key* to your profile. The VRF key is used to [generate random beacon](https://github.com/ronin-chain/REPs/blob/main/REP-0010/REP-0010.md#compute-random-beacon). If you're an active Ronin Governing Validator, you need to have this key added.
+
+## Generate a VRF key pair
+
+You can generate VRF Key pair using the Ronin Random Beacon Source Code by running the following commands:
+
+```
+git clone https://github.com/axieinfinity/ronin-random-beacon.git
+cd ronin-random-beacon 
+make generate-key
+```
+
+The command will return the key pair as follows:
+
+```
+Generated public key is: 0x979f03c1f944313db375818e7dc5f1070a853efabef0ddc271cdb91954a452ae00 
+(x=68580194754132548214753431781510961646127154131722984450548856377419405480622,
+y=3612091428284825898459683399860281775250351902969658470120053308948377988804)
+Key hash is: 0xd68168ec9792b2dd7aa11ea02966913747008c960a697732056e61656387e1fd
+Secret key is: 0xdcb5cd9959d30dfeab5a94717b8d124c6e3dd1cd14d25b8390cf216b89c60b5b 
+```
+
+## Add or change a VRF key 
+
+1. Open the [Validator Dashboard](https://validator.roninchain.com), then go to your account, and then click **My profile**.
+   <img src={profile} width={280} />
+
+2. In the **VRF KEY HASH** field, click **Add key** or the edit icon.
+   <img src={addStepOne} width={400} />
+
+3. Paste your VRF key hash.
+   <img src={addStepTwo} width={400} />
+
+4. Save the change and confirm the transaction.

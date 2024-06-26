@@ -319,6 +319,8 @@ const sidebars = {
             'validators/manage/stake',
             // Add or change finality vote key
             'validators/manage/finality',
+            // Add or change VRF key
+            'validators/manage/vrf-key',
             // Change commission rate
             'validators/manage/commission',
             // Change admin address
