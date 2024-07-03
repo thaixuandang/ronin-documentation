@@ -39,12 +39,14 @@ const sidebars = {
         'basics/acquire-ron',
         // Key concepts
         'basics/key-concepts',
+        // Consensus
+        'basics/consensus',
+        // Rewards
+        'basics/rewards',
         // Tokenomics
         'basics/tokenomics',
         // Nodes
         'basics/nodes',
-        // Rewards
-        'basics/rewards',
         // Security audits
         'basics/audits',
         // Roles
