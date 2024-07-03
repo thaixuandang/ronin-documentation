@@ -29,7 +29,7 @@ When the validator generates a block, they earn transaction fees for all the tra
 
 ## Rewards for finality voting and producing blocks
 
-Validators are responsible for producing blocks finality voting, and earning rewards for their efforts. When the DPoS went live in April 2023, only 22 selected validators could produce blocks, vote for finality, and earn rewards on any given day. Starting in July 2024, all validators have the opportunity to earn rewards daily. Here’s how it works:
+Validators are responsible for producing blocks finality voting, and earning rewards for their efforts. When the DPoS went live in April 2023, only 22 selected validators (and their delegators) could produce blocks, vote for finality, and earn rewards on any given day. Starting in July 2024, all validators and delegators have the opportunity to earn rewards daily. Here’s how it works:
 
 - All validators always actively **vote for finality**, which makes up 85% of the total rewards.
 - Alongside 12 Governing Validators, 10 Rotating Validators are randomly selected every 10 minutes based on their staked amount to **produce blocks**. This process allows them to earn the remaining 15% of the total rewards.
