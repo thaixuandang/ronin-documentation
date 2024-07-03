@@ -24,12 +24,12 @@ On Ronin, token holders stake their RON to participate in validator selection an
 
 </details>
 
-When the validator generates a block, they earn transaction fees for all the transactions in the block. These rewards are primarily meant to jump-start the network, while the protocol is intended to sustain itself on transaction fees.
+When the validator generates a block, they earn transaction fees for all the transactions in the block. These rewards are primarily meant to jump-start the network, until transaction fees become sustainable for staking rewards.
 
 
 ## Rewards for finality voting and producing blocks
 
-Validators are responsible for producing blocks finality voting, and earning rewards for their efforts. When the DPoS went live in April 2023, only 22 selected validators could produce blocks, vote for finality, and earn rewards on any given day. Starting in July 2024, all validators will have the opportunity to earn rewards daily. Here’s how it works:
+Validators are responsible for producing blocks finality voting, and earning rewards for their efforts. When the DPoS went live in April 2023, only 22 selected validators could produce blocks, vote for finality, and earn rewards on any given day. Starting in July 2024, all validators have the opportunity to earn rewards daily. Here’s how it works:
 
 - All validators always actively **vote for finality**, which makes up 85% of the total rewards.
 - Alongside 12 Governing Validators, 10 Rotating Validators are randomly selected every 10 minutes based on their staked amount to **produce blocks**. This process allows them to earn the remaining 15% of the total rewards.
@@ -66,9 +66,7 @@ The following table is a sensitivity analysis of the expected annual commission 
 
 For staking RON to a validator, a delegator earns the staking reward that is correspondent to the amount that was staked and the commission rate of the validator.
 
-The rewards for a delegator are calculated based on their lowest balance per day. This means that if it's the delegator's first day to delegate, they will not receive any rewards for that period as their lowest balance for that day is zero.
-
-The delegator will only get rewards if the validators they chose to delegate to get selected for block confirmation for that day. Governing Validators (marked with a green checkmark) are guaranteed to always be chosen as validators, along with 10 validators with the highest staked amount. The delegator should factor in the status of the validator or the amount of RON staked to them in consideration when choosing a validator.
+The rewards for a delegator are calculated based on their lowest balance per day. This means that if it's the delegator's first day to delegate, they do not receive any rewards for that period as their lowest balance for that day is zero.
 
 The delegator may get less or no rewards if their chosen validator is punished due to being unavailable (validator nodes are expected to be always online and up to date) or due to malicious activities. The delegator should look at the stats such as the uptime percentage in the validator list to choose a reliable validator to maximize their RON rewards.
 

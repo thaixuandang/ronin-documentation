@@ -8,17 +8,14 @@ The role of the bridge operator is to acknowledge deposit and withdrawal events 
 
 ## Rewards for bridge operators
 
-The rewards for bridge operators are funded by RON allocation rewards:
-
-* We allocated 1,000,000 RON for bridge operator reward in the first two years.
+* Ronin allocated 1,000,000 RON each year for bridge operator reward in the first two years.
 The rewards are automatically given to the bridge operators at the end of each period.
-* In each period, each bridge operator will be given a reward that is proportional to the number of votes in the period. After this period, we will need to find other sources of rewards for the bridge operators. We are planning to introduce other types of rewards with the goal that the operators are profitable without receiving the fund from RON allocation rewards.
+* In each period, each bridge operator be given a reward that is proportional to the number of votes in the period. 
 
 ## Slashing rules
 
 The system slashes bridge operators for not providing enough signatures.
-This is checked against a smart contract that records the
-number of the bridge operators' votes.
+A smart contract records the number of the bridge operators' votes and slash unavailable bridge operators.
 
 ### Tier 1 operator slashing
 

@@ -3,7 +3,7 @@ description: Ronin consensus protocol.
 title: Ronin consensus
 ---
 
-In May of 2021, Ronin began using the Proof of Authority (PoA) consensus mechanism. In Ronin’s PoA consensus mechanism, the Ronin community hand-selected reliable validators to maintain the network and verify transactions. However, the PoA consensus mechanism required an enormous amount of trust in the chosen group of validators.  As the next step toward decentralization, in April of 2023, Ronin upgraded to Delegated Proof of Stake (DPoS), allowing anyone to become validator. 
+In May of 2021, Ronin began using the Proof of Authority (PoA) consensus mechanism. In Ronin’s PoA consensus mechanism, the Ronin community hand-selected reliable validators to maintain the network and verify transactions. However, the PoA consensus mechanism required an enormous amount of trust in the chosen group of validators. As the next step toward decentralization, in April of 2023, Ronin upgraded to Delegated Proof of Stake (DPoS), allowing anyone to become validator. 
 
 ## Delegated Proof of Stake
 
