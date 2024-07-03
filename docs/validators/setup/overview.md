@@ -27,7 +27,7 @@ To run a reliable, performant node, we suggest that the node’s hardware profil
 |---------------------------|---------------------------|------------------------|---------------------------|
 |   8-core CPU              |   6-core CPU              |   8-core CPU           |   4-core CPU              |
 |   32 GB RAM               |   25 GB RAM               |   32 GB RAM            |   8 GB RAM                |
-|   700 GB high-speed SSD   |   700 GB high-speed SSD   |   7 TB high-speed SSD  |   100 GB high-speed SSD   |
+|   1.2 TB high-speed SSD   |   1.2 TB high-speed SSD   |   7 TB high-speed SSD  |   100 GB high-speed SSD   |
 |   x86-64 architecture     |   x86-64 architecture     |   x86-64 architecture  |   x86-64 architecture     |
 
 ### Saigon testnet
