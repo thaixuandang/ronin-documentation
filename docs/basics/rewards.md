@@ -5,30 +5,39 @@ title: Rewards
 
 ## Overview
 
-On Ronin, token holders stake their RON to participate in validator selection and in exchange, earn rewards for their service.
-
-The rewards are divided into *staking rewards* and *bridge rewards*. Ronin allocates 180,000,000 RON for the staking rewards and 1,000,000 RON for the bridge rewards. This is to ensure that the network is seeded well enough until transaction fees gain traction. These rewards are primarily meant to jump-start the network, while the protocol is intended to sustain itself on transaction fees.
+On Ronin, token holders stake their RON to participate in validator selection and in exchange, earn rewards for their service. Ronin allocates 180,000,000 RON for the staking rewards. 
 
 <details>
 <summary>Expand to see the reward allocation table</summary>
 
-|         Year        	| Staking rewards (RON)	| Bridge rewards (RON)	|
-|:-------------------:	|:--------------:	|:-------------:	|
-|          1          	|   30,000,000   	|   1,000,000   	|
-|          2          	|   30,000,000   	|   1,000,000   	|
-|          3          	|   30,000,000   	|               	|
-|          4          	|   28,000,000   	|               	|
-|          5          	|   24,000,000   	|               	|
-|          6          	|   18,000,000   	|               	|
-|          7          	|   14,000,000   	|               	|
-|          8          	|    6,000,000   	|               	|
-| Total allocated RON 	|   180,000,000  	|               	|
+|         Year        	| Staking rewards (RON)	|
+|:-------------------:	|:--------------:	|
+|          1          	|   30,000,000   	| 
+|          2          	|   30,000,000   	|  
+|          3          	|   30,000,000   	| 
+|          4          	|   28,000,000   	|
+|          5          	|   24,000,000   	| 
+|          6          	|   18,000,000   	|
+|          7          	|   14,000,000   	|
+|          8          	|    6,000,000   	|
+| Total allocated RON 	|   180,000,000  	|
 
 </details>
 
+When the validator generates a block, they earn transaction fees for all the transactions in the block. These rewards are primarily meant to jump-start the network, while the protocol is intended to sustain itself on transaction fees.
+
+
+## Rewards for finality voting and producing blocks
+
+Validators are responsible for producing blocks finality voting, and earning rewards for their efforts. When the DPoS went live in April 2023, only 22 selected validators could produce blocks, vote for finality, and earn rewards on any given day. Starting in July 2024, all validators will have the opportunity to earn rewards daily. Here’s how it works:
+
+- All validators always actively **vote for finality**, which makes up 85% of the total rewards.
+- Alongside 12 Governing Validators, 10 Rotating Validators are randomly selected every 10 minutes based on their staked amount to **produce blocks**. This process allows them to earn the remaining 15% of the total rewards.
+
+
 ## Rewards for validators
 
-For their block confirmation efforts, validators receive block rewards, which are divided into *staking rewards* and *transaction fees*. A validator shares the staking reward and the transaction fees with their delegators—token holders who staked their RON with this validator.
+For their efforts to secure Ronin chain, validators receive block rewards, which are divided into *staking rewards* and *transaction fees*. A validator shares the staking reward and the transaction fees with their delegators—token holders who staked their RON with this validator.
 
 ### Commission from staking rewards
 
@@ -52,17 +61,6 @@ The following table is a sensitivity analysis of the expected annual commission 
 
 </details>
 
-### Transaction fees for block generation
-
-When the validator generates a block, they earn transaction fees for all the transactions in the block.
-
-### Fast finality rewards
-
-At most 0.5% of the block rewards is distributed to the validators who vote to finalize blocks. These rewards are not distributed to the delegators.
-
-These rewards are distributed in every period to the validators based on their votes.
-
-For more information on fast finality reward distribution, see [REP-0003](https://github.com/axieinfinity/REPs/blob/main/REP-0003/REP-0003.md).
 
 ## Rewards for delegators
 
@@ -105,10 +103,4 @@ The following table is a sensitivity analysis of the annual percentage rate (APR
 
 </details>
 
-## Rewards for bridge operators
 
-The rewards for bridge operators are funded by RON allocation rewards:
-
-* We allocated 1,000,000 RON for bridge operator reward in the first two years.
-The rewards are automatically given to the bridge operators at the end of each period.
-* In each period, each bridge operator will be given a reward that is proportional to the number of votes in the period. After this period, we will need to find other sources of rewards for the bridge operators. We are planning to introduce other types of rewards with the goal that the operators are profitable without receiving the fund from RON allocation rewards.
