@@ -133,7 +133,7 @@ Generate a private key for operating the bridge node. For instructions, see [Gen
 
    This command pulls the bridge image and a Postgres database, and starts the services you defined.
 
-5. After a few minutes, check the status of your node on the [Ronin Network Status](https://ronin-stats.roninchain.com/) page. If it's green, the node is connected and up to date with the network.
+5. After a few minutes, check the status of your node on the [Ronin Analytics](https://ronin-stats.roninchain.com/) page. If it's green, the node is connected and up to date with the network.
 6. Review the log for the bridge.
 
    ```bash

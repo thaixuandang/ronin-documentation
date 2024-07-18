@@ -221,7 +221,7 @@ For more information, see [Generate keys](../generate-keys.md).
    ```
   
    This command pulls a Ronin node image, a bridge image, a Postgres database, and starts the services you defined.
-6. After a few minutes, check the status of your node on the [Ronin Network Status](https://ronin-stats.roninchain.com/) page, the **Testnet** section. If it's green, the node is connected and up to date with the network.
+6. After a few minutes, check the status of your node on the [Ronin Analytics](https://ronin-stats.roninchain.com/) page, the **Testnet** section. If it's green, the node is connected and up to date with the network.
 
 7. Review the log for the validator and the bridge (the node should sync to the latest block for making the bridge work).
 
