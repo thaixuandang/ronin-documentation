@@ -141,7 +141,7 @@ Generate a private key for your validator node. For more information, see [Gener
    docker logs node -f --tail 100
    ```
 
-7. After a few minutes, check the status of your node on the [Ronin Network Status](https://ronin-stats.roninchain.com/) page. If it's green, the node is connected and up to date with the network.
+7. After a few minutes, check the status of your node on the [Ronin Analytics](https://ronin-stats.roninchain.com/) page. If it's green, the node is connected and up to date with the network.
 
 ## Verify the node is working
 

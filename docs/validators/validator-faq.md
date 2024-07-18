@@ -59,7 +59,7 @@ on your safe's settings.
 
 Consider the following:
 
-* Integrate with the [Ronin Network Status](https://ronin-stats.roninchain.com) page
+* Integrate with the [Ronin Analytics](https://ronin-stats.roninchain.com) page
   for the overall status of the chain's node.
 * For each node, the system publishes metrics on port `6060` for Prometheus
   collection. Integrate a Prometheus-Grafana stack for more granular monitoring

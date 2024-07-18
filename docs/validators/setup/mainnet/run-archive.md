@@ -93,4 +93,4 @@ Install Docker Engine and the Docker Compose plugin:
    ```
 
    This command pulls a Ronin node image and starts the service you defined.
-5. After a few minutes, check the status of your node on the [Ronin Network Status](https://ronin-stats.roninchain.com/) page. If it's green, the node is connected and up to date with the network.
+5. After a few minutes, check the status of your node on the [Ronin Analytics](https://ronin-stats.roninchain.com/) page. If it's green, the node is connected and up to date with the network.
