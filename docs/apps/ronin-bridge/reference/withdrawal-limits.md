@@ -24,6 +24,7 @@ See the following table for details on token withdrawal limits.
 | **USDC** | Capped at 2,500,000 | < 1,000,000 | ≥ 1,000,000 | ≥ 2,000,000 |
 | **WETH** | Capped at 4,500 | < 1,000 | ≥ 1,000 | ≥ 4,000 |
 | **YGG** | Capped at 2,000,000 | < 1,000,000 | ≥ 1,000,000 | ≥ 2,000,000 |
+| **WBTC** | Capped at 42 | < 17 | ≥ 17 | ≥ 34 |
 
 :::info Tier 3 withdrawals
 Higher withdrawal amounts (Tier 3) require manual review for security and have a fee of around 0.001% of the transaction value. These transactions aren't counted toward the daily limit per token.
