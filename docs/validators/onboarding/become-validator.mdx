@@ -1,6 +1,6 @@
 ---
-description: Register as a validator on Ronin.
-title: Become a validator
+description: Register as a Validator Candidate on Ronin.
+title: Become a Validator 
 ---
 
 import becomeValidator from './assets/become-validator.png';
@@ -9,7 +9,6 @@ import stepTwo from './assets/onboarding-step-2.png'
 import stepThree from './assets/onboarding-step-3.png'
 import stepFour from './assets/onboarding-step-4.png'
 import stepFive from './assets/onboarding-step-5.png'
-import stepSix from './assets/onboarding-step-6.png'
 
 ## Overview
 
@@ -18,12 +17,12 @@ After following the steps in this guide, you'll become a
 Validator Candidate and have a chance to be selected as a
 Standard Validator on the next day.
 
-## Validator roles
+### Validator roles
 
 There are three validator roles:
 
 * **Validator Candidate.** The role you get after following the steps
-in this guide.
+in this guide. Validator Candidates are eligible to be selected as Standard Validators the next day.
 * **Standard Validator.** Every day, at least 10 Validator Candidates
 with the highest stakes are selected as Standard Validators.
 The system records your total staking amount at 00:00 UTC every day
@@ -33,30 +32,27 @@ Sky Mavis to ensure network security. Governing Validators are
 validators by default, and they account for more than half of the
 total validator set.
 
-## Before you start
+## Prerequisites
 
-Before registering as a Validator Candidate, make sure that you have at least 250,000 RON for the initial stake. To learn how to purchase RON, see [Acquire RON](./../../basics/acquire-ron.mdx).
+Have at least 250,000 RON for the initial stake in your Ronin Wallet. For information on how to buy RON, see [Acquire RON](./../../basics/acquire-ron.mdx).
 
-## Register
+## Steps
 
-1. Go to [Validator Dashboard](https://validator.roninchain.com/) > **Become a Validator**. 
-<img src={becomeValidator} width={1280} />
+1. Open the [Validator Dashboard](https://validator.roninchain.com/), then click **Become a Validator**.
+    <img src={becomeValidator} width={1000} />
 
 2. Familiarize yourself with the requirements and slashing rules. 
-It's also highly recommended that you read the <a href="/basics/white-paper" target="_blank">Ronin whitepaper</a>.
-<img src={stepOne} width={1280} />
+It's also highly recommended that you read the <a href="/basics/white-paper" target="_blank">Ronin Whitepaper</a>.
+    <img src={stepOne} width={1000} />
 
-1. Set up your validator node.
-<img src={stepTwo} width={1280} />
+3. Set up your validator node following the instructions in the [Validator Node Setup](/validators/setup/mainnet) guide.
+    <img src={stepTwo} width={1000} />
 
-1. Fill in your addresses and specify the commission rate.
-<img src={stepThree} width={1280} />
+4. Fill in your addresses, the commission rate, the fast finality vote key, and the proof of possession. For more information, see [Add or change finality vote key](../manage/finality.mdx).
+    <img src={stepThree} width={1000} />
 
-1. Provide the initial stake of RON.
-<img src={stepFour} width={1280} />
-
-1. Enter your fast finality vote key—see [Add or change finality vote key](../manage/finality.mdx) for details.
-<img src={stepFive} width={1280} />
+5. Provide the initial stake of 250,000 RON from your connected Ronin Wallet.
+    <img src={stepFour} width={1000} />
 
 Congratulations, you're now a Validator Candidate.
-<img src={stepSix} width={1280} />
+<img src={stepFive} width={1000} />
