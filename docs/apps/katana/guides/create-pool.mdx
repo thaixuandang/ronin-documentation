@@ -32,7 +32,7 @@ For more information, see [Acquire RON](../../../basics/acquire-ron.mdx).
 * Token creators: to create a liquidity pool with your token on Katana, you need to meet the following requirements:
   * Have your ERC20 token contract deployed on the Ronin network.
   * Have your token reviewed by Sky Mavis.
-  * Have your Ronin address whitelisted by Sky Mavis. During the whitelisting period, only you can create liquidity pools with your token. This address will be linked to your token contract after you deploy it.
+  * Have your Ronin address whitelisted by Sky Mavis. During the whitelisting period, only you can create liquidity pools with your token. This address is linked to your token contract after the deployment is approved.
 
 ## Launch your ERC20 token
 
@@ -63,22 +63,22 @@ Submit the following information to your Sky Mavis partner engineer:
 * ERC20 token contract address.
 * Deployer Ronin address for farm creation if different from the LP creation address.
 
-Sky Mavis will review your ERC20 token contract to ensure it meets the requirements. If the contract is approved, Sky Mavis will map your LP creation Ronin address with the contract address. This will make the token visible to you on Katana, where you can launch liquidity pools with it.
+Sky Mavis reviews your ERC20 token contract to ensure it meets the requirements. If the contract is approved, Sky Mavis maps your LP creation Ronin address with the contract address. This makes the token visible to you on Katana, where you can create pools with it.
 
 ## Create a liquidity pool
 
 1. Go to [Katana](https://app.roninchain.com/liquidity) and connect your Ronin Wallet.
 2. Select the **Liquidity pool** page, then click **Create new pool**.
   ![Create a new pool](../assets/katana-create-new-pool.png)
-3. Select the tokens you want to pool, then enter the amount. You may need to approve both tokens in your Ronin Wallet if you interact with them for the first time. Token creators: select your token from the list. When selecting the token, you will see its publish date at the bottom. This date signifies when the whitelisting period ends
+3. Select the tokens you want to pool, then enter the amount. You may need to approve both tokens in your Ronin Wallet if you interact with them for the first time. Token creators: select your token from the list. When selecting the token, you see its publish date at the bottom. This date signifies when the whitelisting period ends
   ![Select a token pair](../assets/katana-select-token-pair.png)
 4. Click **Confirm** to finalize pool creation.
   ![Confirm pool creation](../assets/katana-confirm-pool-creation.png)
 5. Review the details of your liquidity contribution:
     * The amount of tokens you are contributing.
-    * The amount of LP tokens you will receive in return.
+    * The amount of LP tokens you receive in return.
     * The exchange rate.
-    * The share of the pool you will receive, which is 100% for a pool creator.
+    * The share of the pool you receive, which is 100% for a pool creator.
     * The publish date of the token, which signifies when the whitelisting period ends.
 
     Click **Create pool & Supply**, then confirm the transaction in your Ronin Wallet.
@@ -92,11 +92,11 @@ As long as the pool is in a scheduled state, only you can see it.
 
 ![Scheduled pool in the list](../assets/katana-pool-list.png)
 
-On the publishing date, the pool will become available for all Katana users to contribute liquidity to. As a liquidity provider, you will start earning fees from the pool's transactions.
+On the publishing date, the pool becomes available for all Katana users to contribute liquidity to. As a liquidity provider, you start earning fees from the pool's transactions.
 
 As a token creator, you can also create a farm for your token. For more information, see [Create a farm](create-farm.mdx).
 
-## Edit a pool
+## Edit a liquidity pool
 
 You can change the initial amount of tokens in a pool as long as the pool is in a scheduled state.
 

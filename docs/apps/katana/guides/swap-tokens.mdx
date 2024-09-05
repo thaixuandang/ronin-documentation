@@ -15,31 +15,42 @@ import roninWalletSwapCompleted from '../assets/ronin-wallet-swap-completed.png'
 
 ## Overview
 
-You can trade one token for another on Katana, a process known as swapping. Swapping is decentralized and does not require a traditional bank or other trusted third party, as it uses smart contracts to facilitate the exchange. As an automated market maker (AMM), Katana is always ready to buy and sell any tokens immediately.
+You can trade one token for another on Katana in a process known as swapping. When swapping tokens, you sell the currently owned tokens for the proportional amount of the tokens that you want to buy, minus the swap fee. The swap fee is awarded to liquidity providers (LPs).
 
-### Swap on Katana web vs Ronin Wallet
+### Swap on Ronin app vs in Ronin Wallet
 
-The swap experience differs between Katana web and Ronin Wallet:
-
-* Katana web users: Use the **Katana > Swap** page in the Ronin web app.
-* Ronin Wallet users: Use the **Wallet Swap** dApp in the Ronin Wallet mobile app or browser extension. Each swap transaction using Wallet Swap incurs a development fee of 0.5% of the transaction value.
+There are two ways to swap on Ronin: the [Swap](https://app.roninchain.com/swap) page in the Ronin web app and the Wallet Swap feature in the [Ronin Wallet](https://wallet.roninchain.com) mobile app and browser extension. The process is similar in both, but the interface differs slightly.
 
 ### Swap fees
 
-When swapping tokens, you incur the following fees:
+The fees for swapping tokens on Katana vary depending on the version of Katana you are using.
 
-|Fee|Katana web|Wallet Swap|
-|---|---|---|
-|Ronin treasury fee|0.05%|0.05%|
-|Liquidity provider fee|0.25%|0.25%|
-|Development fee|-|0.5%|
+#### Katana v2
+
+In Katana v2, the fee structure is as follows:
+
+| Fee type | Ronin web app | Wallet Swap |
+| --- | --- | --- |
+| Ronin Treasury fee | 0.05% | 0.05% |
+| LP fee | 0.25% | 0.25% |
+| Development fee | - | 0.5% |
+
+#### Katana v3
+
+Katana v3 introduces a new fee structure that allows LPs to choose the fee tier that best suits their trading pairs. The fee structure is designed to accommodate different types of trading pairs, such as meme coins, sheet coins, and stablecoins.
+
+The fee tiers in Katana v3 are as follows:
+
+* 1% = 0.85% LP fee + 0.15% Ronin Treasury fee (meme coins, sheet coins)
+* 0.3% = 0.25% LP fee + 0.05% Ronin Treasury fee (as in v2)
+* 0.01% = 0.005% LP fee + 0.005% Ronin Treasury fee (stablecoins)
 
 ## Prerequisites
 
-To swap any tokens, you need to have them in your Ronin Wallet. You can acquire tokens by depositing from Ethereum using [Ronin Bridge](https://app.roninchain.com/bridge), buying through the [Purchase](https://purchase.roninchain.com) website, or receiving from other users.
+To swap tokens, you need to have them in your Ronin Wallet. You can acquire tokens by depositing from Ethereum using [Ronin Bridge](https://app.roninchain.com/bridge), buying through the [Purchase](https://purchase.roninchain.com) page, or receiving from other users.
 For more information, see [Acquire RON](../../../basics/acquire-ron.mdx).
 
-## Swap tokens on Katana web
+## Swap in Ronin app
 
 1. Open [Katana](https://app.roninchain.com/swap) and connect your Ronin Wallet. The **Swap** page opens by default.
     ![Starting page](../assets/katana-starting.png)
