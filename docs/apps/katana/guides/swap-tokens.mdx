@@ -1,5 +1,5 @@
 ---
-description: Trade one ERC20 token for another on Katana.
+description: Trade one ERC-20 token for another on Katana.
 slug: /apps/katana/swap-tokens
 title: Swap tokens
 toc_max_heading_level: 2
@@ -23,27 +23,21 @@ There are two ways to swap on Ronin: the [Swap](https://app.roninchain.com/swap)
 
 ### Swap fees
 
-The fees for swapping tokens on Katana vary depending on the version of Katana you are using.
+The fees for swapping tokens on Katana vary depending on the version of the AMM protocol being used: Katana v2 or Katana v3.
 
 #### Katana v2
 
-In Katana v2, the fee structure is as follows:
+In Katana v2, the fees are fixed at the following rates:
 
-| Fee type | Ronin web app | Wallet Swap |
-| --- | --- | --- |
-| Ronin Treasury fee | 0.05% | 0.05% |
-| LP fee | 0.25% | 0.25% |
-| Development fee | - | 0.5% |
+| Fee amount | Fee breakdown |
+| --- | --- |
+| 0.3% | 0.25% LP fee + 0.05% Ronin Treasury fee |
+
+When using Wallet Swap, a development fee of 0.5% is added to the total fee, making it 0.8%.
 
 #### Katana v3
 
-Katana v3 introduces a new fee structure that allows LPs to choose the fee tier that best suits their trading pairs. The fee structure is designed to accommodate different types of trading pairs, such as meme coins, sheet coins, and stablecoins.
-
-The fee tiers in Katana v3 are as follows:
-
-* 1% = 0.85% LP fee + 0.15% Ronin Treasury fee (meme coins, sheet coins)
-* 0.3% = 0.25% LP fee + 0.05% Ronin Treasury fee (as in v2)
-* 0.01% = 0.005% LP fee + 0.005% Ronin Treasury fee (stablecoins)
+In Katana v3, the fees are tiered based on the type of tokens being swapped. The higher the volatility of the token pair, the higher the fee. For more information, see [Create a liquidity pool](create-pool.mdx).
 
 ## Prerequisites
 

@@ -1,12 +1,12 @@
 ---
-description: Bridge ERC20 tokens from Ethereum to Ronin using Ronin Bridge.
+description: Bridge ERC-20 tokens from Ethereum to Ronin using Ronin Bridge.
 slug: /apps/ronin-bridge/deposit-token
-title: Deposit an ERC20 token
+title: Deposit an ERC-20 token
 ---
 
 ## Overview
 
-This guide describes how to use Ronin Bridge to send an ERC20 token from your Ethereum address to your Ronin Wallet.
+This guide describes how to use Ronin Bridge to send an ERC-20 token from your Ethereum address to your Ronin Wallet.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ If you access Ronin Bridge on mobile, remember to import your Ethereum address t
 
 ## Step 2. Choose the token and amount
 
-Choose the ERC20 token that you want to deposit, then enter the amount manually or select **Max** to bridge the entire balance of this token available in your connected wallet.
+Choose the ERC-20 token that you want to deposit, then enter the amount manually or select **Max** to bridge the entire balance of this token available in your connected wallet.
 ![token-deposit-3](../assets/token-deposit-3.png)
 
 ## Step 3. Confirm your deposit

@@ -9,30 +9,28 @@ import approveTokens from './assets/katana-approve-tokens.png'
 import seedTokenPool from './assets/katana-seed-token-pool.png'
 import seedTokenWarning from './assets/katana-seed-token.png'
 import startingPage from './assets/katana-starting.png'
+import switchPools from './assets/katana-switch-pools.gif'
+import switchSwap from './assets/katana-switch-swap.gif'
 import walletBalance from './assets/katana-wallet-balance.png'
 import walletOptions from './assets/katana-wallet-options.png'
 
 ## Overview
 
-Katana ([app.roninchain.com/swap](https://app.roninchain.com/swap)) is a decentralized exchange (DEX) for trading tokens within the Ronin ecosystem. 
+Katana ([app.roninchain.com/swap](https://app.roninchain.com/swap)) is a decentralized exchange (DEX) for trading tokens within the Ronin ecosystem. The AMM (automated market maker) protocol that powers Katana allows users to swap tokens, create liquidity pools, and stake LP tokens to earn rewards.
 
-## Key features
+:::info Note
+Katana is transitioning to the next version of the AMM, Katana v3, which introduces new features and improvements. The Katana v3 upgrade includes a new fee structure, tiered fees based on the type of tokens being swapped, and improved oracles.
 
-* [Swap](./guides/swap-tokens.mdx) between pairs of various ERC20 tokens, including wrapping RON to wRON to make offers on Mavis Market and participate in Ronin token launches, and swapping between "main" and "seed" tokens. Dynamic fees are applied based on the token pair.
-* [Create liquidity pools](./guides/create-pool.mdx) with token pairs to earn trading fees, allocating liquidity within specific price ranges. Earn higher returns on your assets by focusing your liquidity where it's needed most.
-* [Add liquidity](./guides/add-liquidity.mdx) to existing pools to earn fees from transactions.
-* [Create farms](./guides/create-farm.mdx) to encourage users to contribute liquidity to your pool.
-* [Stake your liquidity pool (LP) tokens](./guides/stake-tokens.mdx) in a farm to earn rewards in the form of another ERC20 token.
+Both v2 and v3 versions of Katana are operational, and you can choose to interact with either version.
+:::
 
-Some features are only available in the Ronin app, while others exist in Ronin Wallet mobile app and browser extension:
+## Features
 
-|Feature|Ronin app|Ronin Wallet|
-|---|---|---|
-|Swap|Available|Available as Wallet Swap |
-|Pool|Available|Not available|
-|Farm|Available|Not available|
-
-Each swap transaction using Wallet Swap incurs a development fee of 0.5% of the transaction value.
+* **Concentrated liquidity**: Katana v3 allows liquidity providers (LPs) to allocate their liquidity within a specific price range, significantly improving capital efficiency. LPs can now earn higher returns on their assets by concentrating their liquidity where it's most needed.
+* **Fee tiers**: Katana v3 introduces multiple fee tiers to accommodate different types of trading pairs. This flexibility enables LPs to choose fee structures that best suit their risk/reward preferences and market conditions.
+* **Improved oracles**: Katana v3 brings enhanced smart contract-based oracles that provide more accurate and reliable price feeds. These oracles help reduce the reliance on external data sources and increase the overall robustness of the system, ensuring better price feeds for on-chain transactions.
+* **Lower swap fees**: thanks to the multiple fee tiers in Katana v3, users can enjoy lower swap fees for high-volume stablecoin pairs, making it more cost-effective to trade stablecoins on the platform.
+* **Lower slippage**: concentrating liquidity within specific price ranges helps execute trades closer to the market price with less price impact, especially valuable during high volatility.
 
 ## Get started
 
@@ -51,7 +49,7 @@ To view more details, click the options in the top right-hand corner:
 3. Eye icon: this allows you to hide your wallet balance.
 4. Connected address: this allows you to copy your Ronin Wallet address to the clipboard or log out of the Ronin app.
 
-### Approve a token
+### Approve tokens
 
 When you first interact with a token, Katana prompts you to approve it. This means you're allowing a smart contract to interact with your token. This is a one-time action for each token, and the prompts appear visibly before you can continue with your desired actions.
 
@@ -59,9 +57,21 @@ For example, to stake an SLP/WRON token pair, you need to approve it first. Clic
 
 <img src={approveTokens} width={1000} />
 
+### Switch between v2 and v3
+
+To switch between Katana v2 and v3, you can select the version you want to interact with.
+
+On the **Liquidity** page, click the **V2 Pools** or **V3 Pools** switch in the top left-hand corner of the pool list.
+
+<img src={switchPools} width={1000} />
+
+On the **Swap** page, go to **Transaction Settings** and select the version you want to use under **Default trade options**. The default setting is Katana v3.
+
+<img src={switchSwap} width={1000} />
+
 ### Trade "main" and "seed" tokens
 
-Katana classifies ERC20 tokens into "main" tokens and "seed" tokens, which have different risk profiles:
+Katana classifies ERC-20 tokens into "main" tokens and "seed" tokens, which have different risk profiles:
 
 * “Seed” tokens have a higher risk profile and volatility. They may be designed to be highly experimental and inflationary at their inception. In the user interface, “seed” tokens are marked with a plant icon.
 * "Main" tokens are defined against a non-exhaustive list of factors: depth of liquidity, market capitalization, volumes, and whether the team is verified. For example, RON and WETH have a "main" tag.
@@ -73,8 +83,8 @@ For easier identification, "seed" tokens are marked with a plant icon:
 
 <img src={seedTokenPool} width={1000} />
 
-When you first interact with a token, Katana prompts you to acknowledge the risks involved:
+When you first interact with a "seed" token, Katana prompts you to acknowledge the risks involved:
 
-<img src={seedTokenWarning} width={300} />
+<img src={seedTokenWarning} width={1000} />
 
 **Note:** Providing liquidity involves risks including impermanent loss, especially if asset prices change significantly. We encourage you to assess your risk tolerance before participating.

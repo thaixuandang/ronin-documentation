@@ -1,12 +1,12 @@
 ---
-description: Bridge ERC20 tokens from Ronin to Ethereum using Ronin Bridge.
+description: Bridge ERC-20 tokens from Ronin to Ethereum using Ronin Bridge.
 slug: /apps/ronin-bridge/withdraw-token
-title: Withdraw an ERC20 token
+title: Withdraw an ERC-20 token
 ---
 
 ## Overview
 
-This guide describes how to use Ronin Bridge to send an ERC20 token from your Ronin Wallet to an Ethereum address.
+This guide describes how to use Ronin Bridge to send an ERC-20 token from your Ronin Wallet to an Ethereum address.
 
 ## Prerequisites
 
@@ -28,11 +28,11 @@ If you access Ronin Bridge on mobile, remember to import your Ethereum address t
 
 ## Step 2. Choose the token and amount
 
-1. Choose the ERC20 token that you want to withdraw, then enter the withdrawal amount manually or select **Max** to withdraw the entire balance of this token available in your wallet.
+1. Choose the ERC-20 token that you want to withdraw, then enter the withdrawal amount manually or select **Max** to withdraw the entire balance of this token available in your wallet.
    ![token-withdrawal-4](../assets/token-withdrawal-4.png)
 2. When prompted, select **Approve** to approve the new spending cap for the selected token.
    :::note[Spending cap]
-   When you bridge an ERC20 token for the first time, you need to set a spending cap. To do that, enter your desired token amount, then follow instructions on the screen to approve the cap. In the future, when you bridge an amount that exceeds your current cap, you will need to approve a new spending cap corresponding to the higher amount.
+   When you bridge an ERC-20 token for the first time, you need to set a spending cap. To do that, enter your desired token amount, then follow instructions on the screen to approve the cap. In the future, when you bridge an amount that exceeds your current cap, you will need to approve a new spending cap corresponding to the higher amount.
    :::
    ![token-withdrawal-5](../assets/token-withdrawal-5.png)
 3. When prompted, sign the transaction in your Ronin Wallet.

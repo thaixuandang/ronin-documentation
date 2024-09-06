@@ -193,7 +193,7 @@ Developed by Sky Mavis, Ronin is an Ethereum-linked chain on which Axie Infinity
 
 ### Ronin Wallet
 
-Ronin Wallet is the primary wallet used for the Ronin network. It's where the standard ERC20 and ERC721 tokens, including RON, are kept. The wallet is available as a browser extension for Google Chrome and as a mobile app for smartphones on Android and iOS.
+Ronin Wallet is the primary wallet used for the Ronin network. It's where the standard ERC-20 and ERC-721 tokens, including RON, are kept. The wallet is available as a browser extension for Google Chrome and as a mobile app for smartphones on Android and iOS.
 
 With the Ronin wallet, users can exchange the standard tokens, and send and receive cryptocurrencies and NFTs without paying high gas fees.
 

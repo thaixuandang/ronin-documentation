@@ -128,9 +128,9 @@ const sidebars = {
             id: 'apps/ronin-bridge/overview', 
           },
           items: [
-            // Deposit ERC20 tokens
+            // Deposit ERC-20 tokens
             'apps/ronin-bridge/guides/deposit-token',
-            // Withdraw ERC20 tokens
+            // Withdraw ERC-20 tokens
             'apps/ronin-bridge/guides/withdraw-token',
             // Deposit NFTs
             'apps/ronin-bridge/guides/deposit-nft',
