@@ -21,13 +21,11 @@ You can trade one token for another on Katana in a process known as swapping. Wh
 
 There are two ways to swap on Ronin: the [Swap](https://app.roninchain.com/swap) page in the Ronin web app and the Wallet Swap feature in the [Ronin Wallet](https://wallet.roninchain.com) mobile app and browser extension. The process is similar in both, but the interface differs slightly.
 
-### Swap fees
+### Swap fees in Katana v2 and v3
 
 The fees for swapping tokens on Katana vary depending on the version of the AMM protocol being used: Katana v2 or Katana v3.
 
 #### Katana v2
-
-In Katana v2, the fees are fixed at the following rates:
 
 | Fee amount | Fee breakdown |
 | --- | --- |
@@ -37,7 +35,11 @@ When using Wallet Swap, a development fee of 0.5% is added to the total fee, mak
 
 #### Katana v3
 
-In Katana v3, the fees are tiered based on the type of tokens being swapped. The higher the volatility of the token pair, the higher the fee. For more information, see [Create a liquidity pool](create-pool.mdx).
+| Fee tier | Fee breakdown | Used for |
+| --- | --- | --- |
+| 0.01% | 0.005% LP fee + 0.005% Ronin Treasury fee | Stablecoin pairs |
+| 0.3% | 0.25% LP fee + 0.05% Ronin Treasury fee | Most trading pairs |
+| 1% | 0.85% LP fee + 0.15% Ronin Treasury fee | High-volatility pairs |
 
 ## Prerequisites
 

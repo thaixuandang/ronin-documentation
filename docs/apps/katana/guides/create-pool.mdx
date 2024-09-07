@@ -27,7 +27,7 @@ fluctuations in the value of the deposited tokens.
 
 ### Katana v2 vs Katana v3
 
-Katana v2 is a previous version of the Katana smart contract, which is still operational. Katana v3 is the latest version, which introduces concentrated liquidity, fee tiers, and improved oracles. When creating a liquidity pool, you can choose to use either Katana v2 or Katana v3.
+Katana v2 is a previous version of the Katana smart contract, which is still operational. Katana v3 is the latest version, which introduces concentrated liquidity, fee tiers, and improved oracles. When creating a liquidity pool, you can [choose to use](../overview.mdx#switch-between-v2-and-v3) either Katana v2 or Katana v3.
 
 #### Fee tiers
 
@@ -158,7 +158,7 @@ Sky Mavis reviews your ERC-20 token contract to ensure it meets the requirements
 8. Click **Deposit**.
 9. Click **Add liquidity**.
 
-Your position is now created.
+Your pool is now created.
 
 ### Create a pool in Katana v2
 
@@ -175,12 +175,14 @@ Your position is now created.
     * The amount of LP tokens you receive in return.
     * The exchange rate.
     * The share of the pool you receive, which is 100% for a pool creator.
-    * The publish date of the token, which signifies when the whitelisting period ends.
+    * Token creators: the publish date of the token, which signifies when the whitelisting period ends.
 
     Click **Create pool & Supply**, then confirm the transaction in your Ronin Wallet.
   ![Create pool and supply liquidity](../assets/katana-create-pool-supply.png)
 
-Your pool is now created and scheduled for publishing on the specified date.
+Your pool is now created. 
+
+Token creators: your pool is in a scheduled state, visible only to you.
 
 ![Successful pool creation](../assets/katana-create-pool-success.png)
 
@@ -190,7 +192,7 @@ As long as the pool is in a scheduled state, only you can see it.
 
 On the publishing date, the pool becomes available for all Katana users to contribute liquidity to. As a liquidity provider, you start earning fees from the pool's transactions.
 
-As a token creator, you can also create a farm for your token. For more information, see [Create a farm](create-farm.mdx).
+You can also create a farm for your token. For more information, see [Create a farm](create-farm.mdx).
 
 ## Edit a liquidity pool
 
