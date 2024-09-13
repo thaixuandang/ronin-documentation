@@ -72,6 +72,7 @@ Generate a private key for your validator node. For more information, see [Gener
          - ENABLE_FAST_FINALITY=${ENABLE_FAST_FINALITY}
          - ENABLE_FAST_FINALITY_SIGN=${ENABLE_FAST_FINALITY_SIGN}
          - BLS_SHOW_PRIVATE_KEY=${BLS_SHOW_PRIVATE_KEY}
+         - GENERATE_BLS_PROOF=${GENERATE_BLS_PROOF}
    ```
 
    This compose file defines the `node` service that pulls a Ronin node image from the GitHub Container Registry.
