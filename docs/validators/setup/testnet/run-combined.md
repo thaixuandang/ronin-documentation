@@ -91,6 +91,7 @@ For more information, see [Generate keys](../generate-keys.md).
          - ENABLE_FAST_FINALITY=${ENABLE_FAST_FINALITY}
          - ENABLE_FAST_FINALITY_SIGN=${ENABLE_FAST_FINALITY_SIGN}
          - BLS_SHOW_PRIVATE_KEY=${BLS_SHOW_PRIVATE_KEY}
+         - GENERATE_BLS_PROOF=${GENERATE_BLS_PROOF}
      db:
        image: postgres:14.3
        restart: always
