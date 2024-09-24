@@ -207,7 +207,7 @@ For more information, see [Generate keys](../generate-keys.md).
    CHAIN_STATS_WS_SECRET=WSyDMrhRBe111
    CHAIN_STATS_WS_SERVER=ronin-stats-ws.roninchain.com
  
-   RONIN_PARAMS=--http.api eth,net,web3,consortium --miner.gaslimit 100000000 --miner.gasreserve 10000000 --discovery.dns enrtree://AIGOFYDZH6BGVVALVJLRPHSOYJ434MPFVVQFXJDXHW5ZYORPTGKUI@nodes.roninchain.com
+   RONIN_PARAMS=--http.api eth,net,web3,consortium --miner.gaslimit 100000000 --miner.gasreserve 10000000 --cache 4096 --discovery.dns enrtree://AIGOFYDZH6BGVVALVJLRPHSOYJ434MPFVVQFXJDXHW5ZYORPTGKUI@nodes.roninchain.com
    
    LISTENERS__RONIN__STATS__NODE=<NODE_NAME>
    LISTENERS__RONIN__STATS__HOST=wss://ronin-stats-ws.roninchain.com/bridge
