@@ -183,6 +183,11 @@ const sidebars = {
                 'apps/katana/guides/stake-tokens',
               ],
             },
+            // {
+            //   type: 'link',
+            //   label: 'Katana Core SDK',
+            //   href: 'https://github.com/skymavis/katana-sdk/tree/main/packages/katana-core',
+            // },
           ],
         },
         // Ronin Explorer
