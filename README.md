@@ -27,7 +27,7 @@ Install the general dependencies:
 1. Clone this repository to create its copy on your local computer:
 
    ```bash
-   git clone git@github.com:axieinfinity/ronin-documentation.git
+   git clone git@github.com:ronin-chain/ronin-documentation.git
    ```
 
 2. Navigate to the `ronin-documentation` directory:
