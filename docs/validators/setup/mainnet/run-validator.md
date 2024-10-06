@@ -122,7 +122,7 @@ Generate a private key for your validator node. For more information, see [Gener
    RONIN_PARAMS=--http.api eth,net,web3,consortium --miner.gaslimit 100000000 --miner.gasreserve 10000000 --cache 4096 --discovery.dns enrtree://AIGOFYDZH6BGVVALVJLRPHSOYJ434MPFVVQFXJDXHW5ZYORPTGKUI@nodes.roninchain.com
    ```
 
-4. (Optional) Download the snapshot from the [ronin-snapshot](https://github.com/axieinfinity/ronin-snapshot) repo:
+4. (Optional) Download the snapshot from the [ronin-snapshot](https://github.com/axieinfinity/ronin-snapshot) repo (Prefer using Pebbledb):
 
    ```bash
    cd ~/ronin/chaindata/data/ronin/
@@ -132,7 +132,7 @@ Generate a private key for your validator node. For more information, see [Gener
 5. Start the node:
 
    ```bash
-   cd ~/ronin && docker-compose up -d
+   cd ~/ronin/docker && docker-compose up -d
    ```
 
    This command pulls a Ronin node image and starts the service you defined.

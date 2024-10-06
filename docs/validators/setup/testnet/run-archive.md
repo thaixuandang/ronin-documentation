@@ -94,7 +94,7 @@ Install Docker Engine and the Docker Compose plugin:
 4. Start the node:
 
    ```bash
-   cd ~/ronin && docker-compose up -d
+   cd ~/ronin/docker && docker-compose up -d
    ```
   
    This command pulls a Ronin node image and starts the service you defined.

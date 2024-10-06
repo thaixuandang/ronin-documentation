@@ -218,7 +218,7 @@ For more information, see [Generate keys](../generate-keys.md).
 5. Start the node:
 
    ```bash
-   cd ~/ronin && docker-compose up -d
+   cd ~/ronin/docker && docker-compose up -d
    ```
   
    This command pulls a Ronin node image, a bridge image, a Postgres database, and starts the services you defined.
