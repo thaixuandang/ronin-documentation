@@ -214,7 +214,7 @@ For more information, see [Generate keys](../generate-keys.md).
    LISTENERS__RONIN__STATS__SECRET=WSyDMrhRBe111
    ```
 
-5. (Optional) Download the snapshot from the [ronin-snapshot](https://github.com/axieinfinity/ronin-snapshot) repo:
+5. (Optional) Download the snapshot from the [ronin-snapshot](https://github.com/axieinfinity/ronin-snapshot) repo, preferably using PebbleDB:
 
    ```bash
    cd ~/ronin/chaindata/data/ronin/
@@ -224,7 +224,7 @@ For more information, see [Generate keys](../generate-keys.md).
 6. Start the node:
 
    ```bash
-   cd ~/ronin && docker-compose up -d
+   cd ~/ronin/docker && docker-compose up -d
    ```
 
    This command pulls a Ronin node image, a bridge image, a Postgres database, and starts the services you defined.
