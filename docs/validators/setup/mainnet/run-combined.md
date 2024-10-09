@@ -214,7 +214,7 @@ For more information, see [Generate keys](../generate-keys.md).
    LISTENERS__RONIN__STATS__SECRET=WSyDMrhRBe111
    ```
 
-5. (Optional) Download the snapshot from the [ronin-snapshot](https://github.com/axieinfinity/ronin-snapshot) repo (Prefer using Pebbledb):
+5. (Optional) Download the snapshot from the [ronin-snapshot](https://github.com/axieinfinity/ronin-snapshot) repo, preferably using PebbleDB:
 
    ```bash
    cd ~/ronin/chaindata/data/ronin/

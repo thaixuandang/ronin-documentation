@@ -88,7 +88,7 @@ Install Docker Engine and the Docker Compose plugin:
    RONIN_PARAMS=--http.api eth,net,web3,consortium --txpool.pricelimit 20000000000 --txpool.nolocals --cache 4096 --discovery.dns enrtree://AIGOFYDZH6BGVVALVJLRPHSOYJ434MPFVVQFXJDXHW5ZYORPTGKUI@nodes.roninchain.com
    ```
 
-4. (Optional) Download the snapshot from the [ronin-snapshot](https://github.com/axieinfinity/ronin-snapshot) repo (Prefer using Pebbledb):
+4. (Optional) Download the snapshot from the [ronin-snapshot](https://github.com/axieinfinity/ronin-snapshot) repo, preferably using PebbleDB:
 
    ```bash
    cd ~/ronin/chaindata/data/ronin/
