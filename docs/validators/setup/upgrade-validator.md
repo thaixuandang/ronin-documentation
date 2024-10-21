@@ -59,4 +59,4 @@ To download the latest image for your node, follow these steps:
 
 ## See also
 
-[Upgrade bridge version](./../../bridge-operators/setup/upgrade-bridge.md)
+[Upgrade bridge version](./../../bridge-operators/setup/upgrade-bridge.mdx)
