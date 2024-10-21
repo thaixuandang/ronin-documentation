@@ -17,7 +17,9 @@ This guide demonstrates how to compile a Ronin binary on your own using the Roni
 * Golang 1.20 or later (follow the instructions at [https://go.dev/doc/install](https://go.dev/doc/install))
 * C compiler
 
-## Step 1. Download Ronin source
+## Steps
+
+### Step 1. Download Ronin source
 
 To download the Ronin source code, clone the GitHub repository. We recommend that you create a home `ronin` directory first and download all the Ronin-related software there:
 
@@ -26,7 +28,7 @@ mkdir -p ~/roninchain && cd ~/roninchain
 git clone git@github.com:axieinfinity/ronin.git
 ```
 
-## Step 2. Build the binary
+### Step 2. Build the binary
 
 Create a `ronin` binary from source:
   
@@ -37,7 +39,7 @@ make ronin
 
 The `make ronin` command creates a `ronin` binary in the `./build/bin` directory.
 
-## Step 3. Add the binary to PATH
+### Step 3. Add the binary to PATH
 
 To run the `ronin` binary without specifying its location in each command, add the directory where the binary is located to your `$PATH` environment variable:
 
@@ -51,7 +53,7 @@ If run from the `ronin` directory that you cloned, then the command is as follow
 export PATH=$PATH:./build/bin/
 ```
 
-## Step 4. Initialize the genesis block
+### Step 4. Initialize the genesis block
 
 To set up the origin state of the chain, initialize the genesis block. In your command, include the path to the genesis files located in the repository's `genesis` directory, and the path where you store the node's data, such as `~/roninchain/data`.
 
@@ -74,9 +76,9 @@ To set up the origin state of the chain, initialize the genesis block. In your c
 
 Whenever you build the node or upgrade the software with a new hardfork, always initialize the genesis block by running the preceding command.
 
-## Step 5. Run the node
+### Step 5. Run the node
 
-To run a full (non-validator) Ronin node, use the following command:
+To run an RPC node, use the following command:
 
 <Tabs groupId="networks">
   <TabItem value="mainnet" label="Mainnet" default>
@@ -103,6 +105,8 @@ To run an archive node, modify the preceding command by adding the `--syncmode f
 ronin --syncmode full --gcmode archive --http.api ...
 ```
 
+## Reference
+
 ### Configuration
 
 Instead of passing numerous flags to the `ronin` binary, you can pass a configuration file as follows:
@@ -117,9 +121,9 @@ To get an idea of how the file should look like, use the `dumpconfig` subcommand
 ronin --your-favourite-flags dumpconfig
 ```
 
-## Command reference
+### Commands
 
-### Synopsis
+#### Synopsis
 
 ```bash
 ronin [options] [command] [command options] [arguments...]
@@ -127,7 +131,7 @@ ronin [options] [command] [command options] [arguments...]
 
 Use `ronin [command] help` for information on a specific command.
 
-### Available commands
+#### Available commands
 
 ```plaintext
 account                            Manage accounts
@@ -155,7 +159,7 @@ wallet                             Manage Ethereum presale wallets
 help, h                            Shows a list of commands or help for one command
 ```
 
-### Ethereum options
+#### Ethereum options
 
 ```plaintext
 --config value                      TOML configuration file
@@ -184,7 +188,7 @@ help, h                            Shows a list of commands or help for one comm
 --ronin.disable                     Disable ronin p2p protocol
 ```
   
-### Light client options
+#### Light client options
 
 ```plaintext
 --light.serve value                 Maximum percentage of time allowed for serving LES requests (multi-threaded processing allows values over 100) (default: 0)
@@ -198,7 +202,7 @@ help, h                            Shows a list of commands or help for one comm
 --light.nosyncserve                 Enables serving light clients before syncing
 ```
 
-### Developer chain options
+#### Developer chain options
 
 ```plaintext
 --dev                               Ephemeral proof-of-authority network with a pre-funded developer account, mining enabled
@@ -206,7 +210,7 @@ help, h                            Shows a list of commands or help for one comm
 --dev.gaslimit value                Initial block gas limit (default: 11500000)
 ```
 
-### Ethash options
+#### Ethash options
 
 ```plaintext
 --ethash.cachedir value             Directory to store the ethash verification caches (default = inside the datadir)
@@ -219,7 +223,7 @@ help, h                            Shows a list of commands or help for one comm
 --ethash.dagslockmmap               Lock memory maps for recent ethash mining DAGs
 ```
 
-### Transaction pool options
+#### Transaction pool options
 
 ```plaintext
 --txpool.locals value               Comma-separated accounts to treat as locals (no flush, priority inclusion)
@@ -235,7 +239,7 @@ help, h                            Shows a list of commands or help for one comm
 --txpool.lifetime value             Maximum amount of time non-executable transaction are queued (default: 3h0m0s)
 ```
 
-### Performance tuning options
+#### Performance tuning options
 
 ```plaintext
 --cache value                       Megabytes of memory allocated to internal caching (default = 4096 mainnet full node, 128 light mode) (default: 1024)
@@ -249,7 +253,7 @@ help, h                            Shows a list of commands or help for one comm
 --cache.preimages                   Enable recording the SHA3/keccak preimages of trie s
 ```
   
-### Account options
+#### Account options
 
 ```plaintext
 --unlock value                      Comma-separated list of accounts to unlock
@@ -259,7 +263,7 @@ help, h                            Shows a list of commands or help for one comm
 --enable-signing-methods            Enable RPC signing methods
 ```
 
-### API and console options
+#### API and console options
 
 ```plaintext
 --ipcdisable                        Disable the IPC-RPC server
@@ -291,7 +295,7 @@ help, h                            Shows a list of commands or help for one comm
 --preload value                     Comma separated list of JavaScript files to preload into the console
 ```
 
-### Networking options
+#### Networking options
 
 ```plaintext
 --bootnodes value                   Comma-separated enode URLs for P2P discovery bootstrap
@@ -307,7 +311,7 @@ help, h                            Shows a list of commands or help for one comm
 --nodehex value                     P2P node as hex (for testing)
 ```
 
-### Miner options
+#### Miner options
 
 ```plaintext
 --mine                              Enable mining
@@ -324,7 +328,7 @@ help, h                            Shows a list of commands or help for one comm
 --miner.blocksizereserve value      Reserved block size when committing transactions to block (default: 500000)
 ```
 
-### Gas price oracle options
+#### Gas price oracle options
 
 ```plaintext
 --gpo.blocks value                  Number of recent blocks to check for gas prices (default: 20)
@@ -333,13 +337,13 @@ help, h                            Shows a list of commands or help for one comm
 --gpo.ignoreprice value             Gas price below which gpo will ignore transactions (default: 2)
 ```
   
-### Virtual machine options
+#### Virtual machine options
 
 ```plaintext
 --vmdebug                           Record information useful for VM and contract debugging
 ```
 
-### Logging and debugging options
+#### Logging and debugging options
 
 ```plaintext
 --fakepow                           Disables proof-of-work verification
@@ -358,7 +362,7 @@ help, h                            Shows a list of commands or help for one comm
 --trace value                       Write execution trace to the given file
 ```
 
-### Metrics and stats options
+#### Metrics and stats options
 
 ```plaintext
 --metrics                              Enable metrics collection and reporting
@@ -377,7 +381,7 @@ help, h                            Shows a list of commands or help for one comm
 --metrics.influxdb.organization value  InfluxDB organization name (v2 only) (default: "geth")
 ```
 
-### Profiling options
+#### Profiling options
 
 ```plaintext
 --pyroscope.enabled                     Enable pyroscope - profiling tool
@@ -387,7 +391,7 @@ help, h                            Shows a list of commands or help for one comm
 --pyroscope.mutexprofilefraction value  Get the fraction of mutex contention events (default: 5)
 ```
 
-### Fast finality options
+#### Fast finality options
 
 ```plaintext
 --votepool.maxcurvoteperblock value  The maximum finality vote per current block (default: 22)
@@ -401,7 +405,7 @@ help, h                            Shows a list of commands or help for one comm
   --readiness.block.lag value          The block lag for deciding the readiness is success or fail (default: 5)
 ```
 
-### Other options
+#### Other options
 
 ```plaintext
 --snapshot                          Enables snapshot-database mode (default = enable)

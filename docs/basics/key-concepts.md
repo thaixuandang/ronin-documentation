@@ -157,11 +157,11 @@ On Ronin, the node types are as follows:
 * Ronin node
   * Full node
     * Validator node
-    * Non-validator node
+    * RPC node
   * Archive node
 * Bridge node
 
-For more information about nodes, see [Nodes](nodes.md).
+For more information about nodes, see [Nodes](nodes.mdx).
 
 ## P
 

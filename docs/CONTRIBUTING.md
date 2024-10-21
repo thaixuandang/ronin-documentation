@@ -454,7 +454,7 @@ the concepts covered in this topic.
 
 * [Slashing rules](./validators/slashing.mdx)
 * [Rewards](./basics/rewards.md)
-* [Nodes](./basics/nodes.md)
+* [Nodes](./basics/nodes.mdx)
 * Explanation topics within another page: [Bailout](./validators/slashing.mdx#bailout)
 
 #### How-to guide
@@ -522,7 +522,7 @@ this task and the concepts that it involves.
 ##### Examples of how-to guides
 
 * [Stake RON](./delegators/onboarding/become-delegator.mdx)
-* [Run a validator node](./validators/setup/mainnet/run-validator.md)
+* [Run a validator node](./validators/setup/mainnet/run-validator.mdx)
 * [Claim rewards](./validators/manage/claim-rewards.mdx)
 * Task topics within other pages:
   * [Check your credit score](./validators/slashing.mdx#check-your-credit-score)

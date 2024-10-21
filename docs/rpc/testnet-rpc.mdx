@@ -1,13 +1,13 @@
 ---
-description: Install a mainnet archive node using Docker.
-title: Run an archive node
+description: Set up and run an RPC node on the Saigon testnet using Docker.
+title: Run a testnet RPC node
 tags:
-  - docker-mainnet
+  - docker-testnet
 ---
 
 ## Overview
 
-This guide demonstrates how to run an archive node on the mainnet using Docker.
+This guide demonstrates how to run an RPC node on the Saigon testnet using Docker.
 
 ## Prerequisites
 
@@ -16,7 +16,7 @@ Install Docker Engine and the Docker Compose plugin:
 * [Docker Engine](https://docs.docker.com/engine/)
 * [Docker Compose](https://docs.docker.com/compose/)
 
-## Run the node
+## Steps
 
 1. Set up directories:
 
@@ -49,15 +49,16 @@ Install Docker Engine and the Docker Compose plugin:
          - 30303:30303/udp
          - 6060:6060
        volumes:
-         - ~/.ronin/chaindata:/ronin
+         - ~/ronin/chaindata:/ronin
        environment:
          - SYNC_MODE=full
          - PASSWORD=${PASSWORD}
          - NETWORK_ID=${NETWORK_ID}
          - RONIN_PARAMS=${RONIN_PARAMS}
          - VERBOSITY=${VERBOSITY}
-         - MINE=false
+         - MINE=${MINE}
          - GASPRICE=${GASPRICE}
+         - GENESIS_PATH=${GENESIS_PATH}
          - ETHSTATS_ENDPOINT=${INSTANCE_NAME}:${CHAIN_STATS_WS_SECRET}@${CHAIN_STATS_WS_SERVER}:443
    ```
 
@@ -67,30 +68,47 @@ Install Docker Engine and the Docker Compose plugin:
    ```text
    # The name of your node that you want displayed on https://ronin-stats.roninchain.com/
    INSTANCE_NAME=<INSTANCE_NAME>
- 
+   
    # The latest version of the node's image as listed in https://docs.roninchain.com/validators/setup/upgrade-validator
    NODE_IMAGE=<NODE_IMAGE>
  
    # The password used to encrypt the node's private key file
    PASSWORD=<PASSWORD>
  
-   NETWORK_ID=2020
-   GASPRICE=20000000000
+   MINE=false
  
-   CONFIG_PATH=config.mainnet.json
+   NETWORK_ID=2021
+   GASPRICE=20000000000
    VERBOSITY=3
  
-   CHAIN_STATS_WS_SECRET=WSyDMrhRBe111
+   CHAIN_STATS_WS_SECRET=xQj2MZPaN72
    CHAIN_STATS_WS_SERVER=ronin-stats-ws.roninchain.com
  
-   RONIN_PARAMS=--gcmode archive --http.api eth,net,web3 --txpool.pricelimit 20000000000 --txpool.nolocals --cache 4096 --discovery.dns enrtree://AIGOFYDZH6BGVVALVJLRPHSOYJ434MPFVVQFXJDXHW5ZYORPTGKUI@nodes.roninchain.com
+   CONFIG_PATH=config.testnet.json
+   GENESIS_PATH=testnet.json
+   DEPLOYMENT=test
+   
+   RONIN_PARAMS=--http.api eth,net,web3 --txpool.pricelimit 20000000000 --txpool.nolocals --discovery.dns enrtree://AJCNIAXQIPO55NW3QE2NUBBDMPYZDOQUCAEUS65NHQFMUUFES5KOW@saigon.nodes.roninchain.com
    ```
 
-4. Start the node:
+4. (Optional) Download the snapshot from the [ronin-snapshot](https://github.com/axieinfinity/ronin-snapshot) repo:
+
+   ```bash
+   cd ~/ronin/chaindata/data/ronin/
+   wget -q -O - <snapshot URL from the README file in the repo> | tar -I zstd -xvf -
+   ```
+
+5. Start the node:
 
    ```bash
    cd ~/ronin/docker && docker-compose up -d
    ```
 
    This command pulls a Ronin node image and starts the service you defined.
-5. After a few minutes, check the status of your node on the [Ronin Analytics](https://ronin-stats.roninchain.com/) page. If it's green, the node is connected and up to date with the network.
+6. Review the log:
+
+   ```bash
+   docker logs node -f --tail 100
+   ```
+
+7. After a few minutes, check the status of your node on the [Ronin Analytics](https://ronin-stats.roninchain.com/) page, the **Testnet** section. If it's green, the node is connected and up to date with the network.
