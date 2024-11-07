@@ -32,7 +32,7 @@ Generate private keys for operating the nodes:
 * One key for the validator
 * One key for the bridge
 
-For more information, see [Generate keys](../generate-keys.md).
+For more information, see [Generate keys](../generate-keys.mdx).
 
 ## Steps
 
@@ -152,14 +152,14 @@ For more information, see [Generate keys](../generate-keys.md).
    # Your bridge operator private key without the 0x prefix
    BRIDGE_OPERATOR_PRIVATE_KEY=<BRIDGE_OPERATOR_PRIVATE_KEY>
    
-   # Your validator private key without the 0x prefix
-   VALIDATOR_PRIVATE_KEY=<VALIDATOR_PRIVATE_KEY>
+   # Your ECDSA private key without the 0x prefix, see https://docs.roninchain.com/validators/setup/generate-keys#generate-an-ecdsa-key
+   VALIDATOR_PRIVATE_KEY=<ECDSA_PRIVATE_KEY>
  
    # The password used to encrypt the node's private key file
    PASSWORD=<PASSWORD>
  
    # BLS Wallet features
-   # Your BLS private key without the 0x prefix
+   # Your BLS private key without the 0x prefix, see https://docs.roninchain.com/validators/setup/generate-keys#generate-a-bls-key
    BLS_PRIVATE_KEY=<BLS_PRIVATE_KEY>
  
    # The password used to encrypt the BLS private key file

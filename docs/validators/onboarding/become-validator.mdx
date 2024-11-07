@@ -46,7 +46,8 @@ It's also highly recommended that you read the <a href="/basics/white-paper" tar
 3. Set up your validator node following the instructions in the [Validator Node Setup](/validators/setup/mainnet) guide.
     <img src={stepTwo} width={1000} />
 
-4. Fill in your addresses, the commission rate, the fast finality vote key, and the proof of possession. For more information, see [Add or change finality vote key](../manage/finality.mdx).
+4. Fill in your addresses, the commission rate, the fast finality vote key, and the proof of possession. For more information, see [Add or change finality vote key](../manage/finality.mdx). **Note:** The tool generating the keys produces them without the `0x` prefix. Before submitting the form, make sure to add the `0x` prefix to the keys.
+
     <img src={stepThree} width={1000} />
 
 5. Provide the initial stake of 250,000 RON from your connected Ronin Wallet.
