@@ -13,7 +13,6 @@ mainnet
 NFT
 node
 node operator
-non-validator node
 OIDC
 OpenID Connect
 RON

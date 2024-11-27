@@ -1,15 +1,15 @@
 ---
-description: Run validator and bridge nodes on the mainnet on one machine using Docker.
-title: Run a validator and bridge together
+description: Run a testnet validator and bridge operator on one machine using Docker.
+title: Run a validator and bridge operator together
 tags:
-- docker-mainnet
+- docker-testnet
 ---
 
 ## Overview
 
-This guide demonstrates how to run a mainnet validator node and a bridge node on one machine using Docker.
+This guide demonstrates how to run a testnet validator node and a bridge operator on one machine using Docker.
 
-## Before you start
+## Prerequisites
 
 ### Docker
 
@@ -22,19 +22,19 @@ Install Docker Engine and the Docker Compose plugin:
 
 Have two RPC endpoints ready:
 
-* Ronin RPC endpoint for listening and sending events on the mainnet: `https://api.roninchain.com/rpc`.
+* Ronin RPC endpoint for listening and sending events on the Saigon testnet: `https://saigon-testnet.roninchain.com/rpc`.
 * Ethereum RPC endpoint for listening and sending events on the Ethereum chain, such as [Alchemy](https://www.alchemy.com/overviews/private-rpc-endpoint) or Infura.
 
 ### Private keys
 
 Generate private keys for operating the nodes:
 
-* One key for the validator node
-* One key for the bridge operator
+* One key for the validator
+* One key for the bridge
 
-For more information, see [Generate keys](../generate-keys.md).
+For more information, see [Generate keys](../generate-keys.mdx).
 
-## Run the node
+## Steps
 
 1. Set up directories:
 
@@ -75,7 +75,7 @@ For more information, see [Generate keys](../generate-keys.md).
        volumes:
          - ~/ronin/chaindata:/ronin
        environment:
-         - SYNC_MODE=full
+         - SYNC_MODE=snap
          - PASSWORD=${PASSWORD}
          - PRIVATE_KEY=${VALIDATOR_PRIVATE_KEY}
          - NETWORK_ID=${NETWORK_ID}
@@ -83,6 +83,7 @@ For more information, see [Generate keys](../generate-keys.md).
          - VERBOSITY=${VERBOSITY}
          - MINE=${MINE}
          - GASPRICE=${GASPRICE}
+         - GENESIS_PATH=${GENESIS_PATH}
          - ETHSTATS_ENDPOINT=${INSTANCE_NAME}:${CHAIN_STATS_WS_SECRET}@${CHAIN_STATS_WS_SERVER}:443
          - BLS_PASSWORD=${BLS_PASSWORD}
          - BLS_PRIVATE_KEY=${BLS_PRIVATE_KEY}
@@ -90,6 +91,7 @@ For more information, see [Generate keys](../generate-keys.md).
          - ENABLE_FAST_FINALITY=${ENABLE_FAST_FINALITY}
          - ENABLE_FAST_FINALITY_SIGN=${ENABLE_FAST_FINALITY_SIGN}
          - BLS_SHOW_PRIVATE_KEY=${BLS_SHOW_PRIVATE_KEY}
+         - GENERATE_BLS_PROOF=${GENERATE_BLS_PROOF}
      db:
        image: postgres:14.3
        restart: always
@@ -101,68 +103,63 @@ For more information, see [Generate keys](../generate-keys.md).
        environment:
          POSTGRES_PASSWORD: ${DB_PASSWORD}
        volumes:
-         - ~/ronin/data:/var/lib/postgresql/data
+         - ~/bridgedata-v2:/var/lib/postgresql/data
      bridge:
        image: ${BRIDGE_IMAGE}
        restart: always
        container_name: bridge
        environment:
-         - LISTENERS__RONIN__RPCURL=${LISTENERS__RONIN__RPCURL}
-         - LISTENERS__RONIN__SECRET__BRIDGEOPERATOR__PLAINPRIVATEKEY=${LISTENERS__RONIN__SECRET__BRIDGEOPERATOR__PLAINPRIVATEKEY}
-         - LISTENERS__ETHEREUM__RPCURL=${LISTENERS__ETHEREUM__RPCURL}
-         - DATABASE__HOST=db
-         - DATABASE__DBNAME=${DATABASE__DBNAME}
-         - DATABASE__PORT=5432
-         - DATABASE__USER=${DATABASE__USER}
-         - DATABASE__PASSWORD=${DATABASE__PASSWORD}
+         - RONIN_RPC=${RPC_ENDPOINT}
+         - RONIN_BRIDGE_OPERATOR_KEY=${BRIDGE_OPERATOR_PRIVATE_KEY}
+         - ETHEREUM_RPC=${ETHEREUM_ENDPOINT}
+         - DB_HOST=db
+         - DB_NAME=${DB_NAME}
+         - DB_PORT=5432
+         - DB_USERNAME=${DB_USERNAME}
+         - DB_PASSWORD=${DB_PASSWORD}
          - VERBOSITY=${VERBOSITY}
          - CONFIG_PATH=${CONFIG_PATH}
-         - LISTENERS__RONIN__TASKINTERVAL=${LISTENERS__RONIN__TASKINTERVAL}
-         - LISTENERS__RONIN__TRANSACTIONCHECKPERIOD=${LISTENERS__RONIN__TRANSACTIONCHECKPERIOD}
-         - LISTENERS__RONIN__MAXPROCESSINGTASKS=${LISTENERS__RONIN__MAXPROCESSINGTASKS}
-         - LISTENERS__ETHEREUM__GETLOGSBATCHSIZE=${LISTENERS__ETHEREUM__GETLOGSBATCHSIZE}
-         - LISTENERS__RONIN__STATS__NODE=${LISTENERS__RONIN__STATS__NODE}
-         - LISTENERS__RONIN__STATS__HOST=${LISTENERS__RONIN__STATS__HOST}
-         - LISTENERS__RONIN__STATS__SECRET=${LISTENERS__RONIN__STATS__SECRET}
+         - RONIN_TASK_INTERVAL=${RONIN_TASK_INTERVAL}
+         - RONIN_TRANSACTION_CHECK_PERIOD=${RONIN_TRANSACTION_CHECK_PERIOD}
+         - RONIN_MAX_PROCESSING_TASKS=${RONIN_MAX_PROCESSING_TASKS}
+         - ETHEREUM_GET_LOGS_BATCH_SIZE=${ETHEREUM_GET_LOGS_BATCH_SIZE}
        depends_on:
          - db
          - node
    ```
 
    This compose file defines three services:
-     * `node` that pulls a Ronin node image from the GitHub Container Registry.
+  
+     * `node` that pulls a full Ronin node image from the GitHub Container Registry.
      * `bridge` that pulls a bridge image.
-     * `db`, which builds a Postgres database for the bridge.
+     * `db` that builds a Postgres database for the bridge.
 
 3. In the `docker` directory, create an `.env` file and add the following content, replacing the `<...>` placeholder values with your information:
 
    ```text
    # Your Ethereum RPC endpoint
-   LISTENERS__ETHEREUM__RPCURL=<ETHEREUM_RPC_ENDPOINT>
-
-   # Ronin RPC endpoint
-   LISTENERS__RONIN__RPCURL=<RONIN_RPC_ENDPOINT>
+   ETHEREUM_ENDPOINT=<ETHEREUM_ENDPOINT>
  
    # The name of your node that you want displayed on https://ronin-stats.roninchain.com/
    INSTANCE_NAME=<INSTANCE_NAME>
  
    # The latest version of the node's image as listed in https://docs.roninchain.com/validators/setup/upgrade-validator
    NODE_IMAGE=<NODE_IMAGE>
- 
+   
    # The latest version of the bridge's image as listed in https://docs.roninchain.com/bridge-operators/setup/upgrade-bridge
    BRIDGE_IMAGE=<BRIDGE_IMAGE>
  
    # Your bridge operator private key without the 0x prefix
-   LISTENERS__RONIN__SECRET__BRIDGEOPERATOR__PLAINPRIVATEKEY=<BRIDGE_OPERATOR_PRIVATE_KEY>
- 
-   # Your validator private key without the 0x prefix
-   VALIDATOR_PRIVATE_KEY=<VALIDATOR_PRIVATE_KEY>
+   BRIDGE_OPERATOR_PRIVATE_KEY=<BRIDGE_OPERATOR_PRIVATE_KEY>
+   
+   # Your ECDSA private key without the 0x prefix, see https://docs.roninchain.com/validators/setup/generate-keys#generate-an-ecdsa-key
+   VALIDATOR_PRIVATE_KEY=<ECDSA_PRIVATE_KEY>
  
    # The password used to encrypt the node's private key file
    PASSWORD=<PASSWORD>
  
    # BLS Wallet features
-   # Your BLS private key without the 0x prefix
+   # Your BLS private key without the 0x prefix, see https://docs.roninchain.com/validators/setup/generate-keys#generate-a-bls-key
    BLS_PRIVATE_KEY=<BLS_PRIVATE_KEY>
  
    # The password used to encrypt the BLS private key file
@@ -173,63 +170,61 @@ For more information, see [Generate keys](../generate-keys.md).
  
    # Whether to produce the finality vote
    ENABLE_FAST_FINALITY_SIGN=true
- 
+  
    # Whether to automatically generate BLS private key
    BLS_AUTO_GENERATE=false
  
    # Whether to show the raw BLS private key after decryption
    BLS_SHOW_PRIVATE_KEY=false
  
-   DATABASE__DBNAME=bridge
-   DATABASE__USER=postgres
+   DB_NAME=bridge
+   DB_USERNAME=postgres
  
    # The Postgres database password
-   DATABASE__PASSWORD=<DATABASE_PASSWORD>
+   DB_PASSWORD=<DB_PASSWORD>
  
-   LISTENERS__RONIN__RPCURL=http://node:8545
+   RPC_ENDPOINT=http://node:8545
  
-   CONFIG_PATH=config.mainnet.json
+   CONFIG_PATH=config.testnet.json
+   GENESIS_PATH=testnet.json
+   DEPLOYMENT=test
  
-   LISTENERS__RONIN__TASKINTERVAL=3s
-   LISTENERS__RONIN__TRANSACTIONCHECKPERIOD=50s
-   LISTENERS__RONIN__MAXPROCESSINGTASKS=200
-   LISTENERS__ETHEREUM__GETLOGSBATCHSIZE=100
- 
-   NETWORK_ID=2020
+   RONIN_TASK_INTERVAL=3
+   RONIN_TRANSACTION_CHECK_PERIOD=50
+   RONIN_MAX_PROCESSING_TASKS=200
+   ETHEREUM_GET_LOGS_BATCH_SIZE=100
+   
+   NETWORK_ID=2021
  
    GASPRICE=20000000000
- 
+   
    MINE=true
- 
+   
    VERBOSITY=3
- 
-   CHAIN_STATS_WS_SECRET=WSyDMrhRBe111
+
+   CHAIN_STATS_WS_SECRET=xQj2MZPaN72
    CHAIN_STATS_WS_SERVER=ronin-stats-ws.roninchain.com
  
-   RONIN_PARAMS=--http.api eth,net,web3,consortium --miner.gaslimit 100000000 --miner.gasreserve 10000000 --discovery.dns enrtree://AIGOFYDZH6BGVVALVJLRPHSOYJ434MPFVVQFXJDXHW5ZYORPTGKUI@nodes.roninchain.com
-   
-   LISTENERS__RONIN__STATS__NODE=<NODE_NAME>
-   LISTENERS__RONIN__STATS__HOST=wss://ronin-stats-ws.roninchain.com/bridge
-   LISTENERS__RONIN__STATS__SECRET=WSyDMrhRBe111
+   RONIN_PARAMS=--http.api eth,net,web3,consortium --miner.gaslimit 100000000 --miner.gasreserve 10000000 --discovery.dns enrtree://AJCNIAXQIPO55NW3QE2NUBBDMPYZDOQUCAEUS65NHQFMUUFES5KOW@saigon.nodes.roninchain.com
    ```
 
-5. (Optional) Download the snapshot from the [ronin-snapshot](https://github.com/axieinfinity/ronin-snapshot) repo:
+4. (Optional) Download the snapshot from the [ronin-snapshot](https://github.com/axieinfinity/ronin-snapshot) repo:
 
    ```bash
    cd ~/ronin/chaindata/data/ronin/
    wget -q -O - <snapshot URL from the README file in the repo> | tar -I zstd -xvf -
    ```
 
-6. Start the node:
+5. Start the node:
 
    ```bash
-   cd ~/ronin && docker-compose up -d
+   cd ~/ronin/docker && docker-compose up -d
    ```
-
+  
    This command pulls a Ronin node image, a bridge image, a Postgres database, and starts the services you defined.
-7. After a few minutes, check the status of your node on the [Ronin Analytics](https://ronin-stats.roninchain.com/) page. If it's green, the node is connected and up to date with the network.
+6. After a few minutes, check the status of your node on the [Ronin Analytics](https://ronin-stats.roninchain.com/) page, the **Testnet** section. If it's green, the node is connected and up to date with the network.
 
-8. Review the log for the validator and the bridge (the node should sync to the latest block for making the bridge work).
+7. Review the log for the validator and the bridge (the node should sync to the latest block for making the bridge work).
 
    ```bash
    docker logs node -f --tail 100

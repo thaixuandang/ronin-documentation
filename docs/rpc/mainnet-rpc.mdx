@@ -1,24 +1,22 @@
 ---
-description: Install a mainnet non-validator node using Docker.
-title: Run a non-validator node
+description: Set up and run an RPC node (non-validator node) on the Ronin mainnet using Docker.
+title: Run a mainnet RPC node
 tags:
   - docker-mainnet
 ---
 
 ## Overview
 
-This guide demonstrates how to run a non-validator node on the mainnet
-using Docker. A non-validator node is also known as an RPC (remote
-procedure call) node.
+This guide demonstrates how to run an RPC node (non-validator node) on the Ronin mainnet using Docker.
 
-## Before you start
+## Prerequisites
 
 Install Docker Engine and the Docker Compose plugin:
 
 * [Docker Engine](https://docs.docker.com/engine/)
 * [Docker Compose](https://docs.docker.com/compose/)
 
-## Run the node
+## Steps
 
 1. Set up directories:
 
@@ -85,10 +83,10 @@ Install Docker Engine and the Docker Compose plugin:
    CHAIN_STATS_WS_SECRET=WSyDMrhRBe111
    CHAIN_STATS_WS_SERVER=ronin-stats-ws.roninchain.com
  
-   RONIN_PARAMS=--http.api eth,net,web3,consortium --txpool.pricelimit 20000000000 --txpool.nolocals --discovery.dns enrtree://AIGOFYDZH6BGVVALVJLRPHSOYJ434MPFVVQFXJDXHW5ZYORPTGKUI@nodes.roninchain.com
+   RONIN_PARAMS=--http.api eth,net,web3,consortium --txpool.pricelimit 20000000000 --txpool.nolocals --cache 4096 --discovery.dns enrtree://AIGOFYDZH6BGVVALVJLRPHSOYJ434MPFVVQFXJDXHW5ZYORPTGKUI@nodes.roninchain.com
    ```
 
-4. (Optional) Download the snapshot from the [ronin-snapshot](https://github.com/axieinfinity/ronin-snapshot) repo:
+4. (Optional) Download the snapshot from the [ronin-snapshot](https://github.com/axieinfinity/ronin-snapshot) repo, preferably using PebbleDB:
 
    ```bash
    cd ~/ronin/chaindata/data/ronin/
@@ -98,7 +96,7 @@ Install Docker Engine and the Docker Compose plugin:
 5. Start the node:
 
    ```bash
-   cd ~/ronin && docker-compose up -d
+   cd ~/ronin/docker && docker-compose up -d
    ```
 
    This command pulls a Ronin node image and starts the service you defined.

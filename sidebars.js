@@ -198,6 +198,20 @@ const sidebars = {
         'apps/multisig',
       ],
     },
+    // RPC nodes
+    {
+      type: 'category',
+      label: 'RPC nodes',
+      link: {
+        type: 'generated-index',
+        slug: '/rpc',
+        description: 'Guides for setting up and using an RPC node.',        
+      },
+      items: [
+        'rpc/mainnet-rpc',
+        'rpc/testnet-rpc',
+      ],
+    },
     // Delegators
     {
       type: 'category',
@@ -249,8 +263,6 @@ const sidebars = {
                 'validators/setup/mainnet/run-combined',
                 // Run a validator
                 'validators/setup/mainnet/run-validator',
-                // Run a full node
-                'validators/setup/mainnet/run-non-validator',
                 // Run an archive node
                 'validators/setup/mainnet/run-archive',
               ],
@@ -267,8 +279,6 @@ const sidebars = {
               items: [
                 // Run a validator and bridge together
                 'validators/setup/testnet/run-combined',
-                // Run a non-validator-node
-                'validators/setup/testnet/run-non-validator',
                 // Run a full archive node
                 'validators/setup/testnet/run-archive',
               ],

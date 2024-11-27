@@ -28,13 +28,12 @@ terms and their usage.
 | bridge operator      | A bridge operator is a type of node used for acknowledging events on Ronin Bridge.                                                  |
 | bridge node | Each validator is expected to run two nodes—a validator node and a bridge node node.                                            |
 | delegator            | To become a delegator, go to **RON Staking > All validators > Delegate**.                                                           |
-| full node            | Validator and non-validator are considered _full_ nodes—they store full blockchain data.                                            |
+| full node            | Validator node and RPC node are considered _full_ nodes—they store full blockchain data.                                            |
 | Governing Validator  | Beside the 12 Governing Validators, top 10 Validator Candidates with the highest staked amount are selected as Standard Validators. |
 | Katana               | Katana, also known as the Katana DEX, is a decentralized exchange for Ronin.                                                        |
 | mainnet              | To run a node on the mainnet, make sure to comply with the minimum hardware requirements.                                           |
 | node                 | Each validator is expected to run two nodes—a validator node and a bridge node.                                            |
 | node operator        | A node operator is an individual or institution that sets up and configure nodes for the validator.                                 |
-| non-validator node   | A non-validator node is also known as an RPC node.                                                                                  |
 | RON                  | Deposit 50 RON to your bridge address.                                                                                              |
 | RON Staking          | RON Staking is an app where token holders can choose validators.                                                                    |
 | Ronin                | Ronin is an EVM blockchain forged for gaming.                                                                                       |

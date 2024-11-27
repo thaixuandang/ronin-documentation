@@ -23,7 +23,7 @@ To run a reliable, performant node, we suggest that the node’s hardware profil
 
 ### Ronin mainnet
 
-|   Validator node          |   Non-validator node      |   Archive node         |   Bridge node         |
+|   Validator node          |   RPC node      |   Archive node         |   Bridge node         |
 |---------------------------|---------------------------|------------------------|---------------------------|
 |   8-core CPU              |   6-core CPU              |   8-core CPU           |   4-core CPU              |
 |   32 GB RAM               |   25 GB RAM               |   32 GB RAM            |   8 GB RAM                |
@@ -32,7 +32,7 @@ To run a reliable, performant node, we suggest that the node’s hardware profil
 
 ### Saigon testnet
 
-|   Validator node          |   Non-validator node      |   Archive node         |   Bridge node         |
+|   Validator node          |   RPC node      |   Archive node         |   Bridge node         |
 |---------------------------|---------------------------|------------------------|---------------------------|
 |   2-core CPU              |   6-core CPU              |   4-core CPU           |   -              |
 |   8 GB RAM               |   8 GB RAM               |   8 GB RAM            |   -                |

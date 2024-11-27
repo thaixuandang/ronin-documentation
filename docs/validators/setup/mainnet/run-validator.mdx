@@ -9,7 +9,7 @@ tags:
 
 This guide demonstrates how to run a validator node on the mainnet using Docker.
 
-## Before you start
+## Prerequisites
 
 ### Docker
 
@@ -20,9 +20,9 @@ Install Docker Engine and the Docker Compose plugin:
 
 ### Private key
 
-Generate a private key for your validator node. For more information, see [Generate keys](../generate-keys.md).
+Generate a private key for your validator node. For more information, see [Generate keys](../generate-keys.mdx).
 
-## Run the node
+## Steps
 
 1. Set up directories:
 
@@ -72,6 +72,7 @@ Generate a private key for your validator node. For more information, see [Gener
          - ENABLE_FAST_FINALITY=${ENABLE_FAST_FINALITY}
          - ENABLE_FAST_FINALITY_SIGN=${ENABLE_FAST_FINALITY_SIGN}
          - BLS_SHOW_PRIVATE_KEY=${BLS_SHOW_PRIVATE_KEY}
+         - GENERATE_BLS_PROOF=${GENERATE_BLS_PROOF}
    ```
 
    This compose file defines the `node` service that pulls a Ronin node image from the GitHub Container Registry.
@@ -84,14 +85,14 @@ Generate a private key for your validator node. For more information, see [Gener
    # The latest version of the node's image as listed in https://docs.roninchain.com/validators/setup/upgrade-validator
    NODE_IMAGE=<NODE_IMAGE>
  
-   # Your validator private key without the 0x prefix
-   VALIDATOR_PRIVATE_KEY=<VALIDATOR_PRIVATE_KEY>
+   # Your ECDSA private key without the 0x prefix, see https://docs.roninchain.com/validators/setup/generate-keys#generate-an-ecdsa-key
+   VALIDATOR_PRIVATE_KEY=<ECDSA_PRIVATE_KEY>
  
    # The password used to encrypt the node's private key file
    PASSWORD=<PASSWORD>
  
    # BLS Wallet features
-   # Your BLS private key without the 0x prefix
+   # Your BLS private key without the 0x prefix, see https://docs.roninchain.com/validators/setup/generate-keys#generate-a-bls-key
    BLS_PRIVATE_KEY=<BLS_PRIVATE_KEY>
  
    # The password used to encrypt the BLS private key file
@@ -118,10 +119,10 @@ Generate a private key for your validator node. For more information, see [Gener
    CHAIN_STATS_WS_SECRET=WSyDMrhRBe111
    CHAIN_STATS_WS_SERVER=ronin-stats-ws.roninchain.com
  
-   RONIN_PARAMS=--http.api eth,net,web3,consortium --miner.gaslimit 100000000 --miner.gasreserve 10000000 --discovery.dns enrtree://AIGOFYDZH6BGVVALVJLRPHSOYJ434MPFVVQFXJDXHW5ZYORPTGKUI@nodes.roninchain.com
+   RONIN_PARAMS=--http.api eth,net,web3,consortium --miner.gaslimit 100000000 --miner.gasreserve 10000000 --cache 4096 --discovery.dns enrtree://AIGOFYDZH6BGVVALVJLRPHSOYJ434MPFVVQFXJDXHW5ZYORPTGKUI@nodes.roninchain.com
    ```
 
-4. (Optional) Download the snapshot from the [ronin-snapshot](https://github.com/axieinfinity/ronin-snapshot) repo:
+4. (Optional) Download the snapshot from the [ronin-snapshot](https://github.com/axieinfinity/ronin-snapshot) repo, preferably using PebbleDB:
 
    ```bash
    cd ~/ronin/chaindata/data/ronin/
@@ -131,7 +132,7 @@ Generate a private key for your validator node. For more information, see [Gener
 5. Start the node:
 
    ```bash
-   cd ~/ronin && docker-compose up -d
+   cd ~/ronin/docker && docker-compose up -d
    ```
 
    This command pulls a Ronin node image and starts the service you defined.
@@ -142,6 +143,7 @@ Generate a private key for your validator node. For more information, see [Gener
    ```
 
 7. After a few minutes, check the status of your node on the [Ronin Analytics](https://ronin-stats.roninchain.com/) page. If it's green, the node is connected and up to date with the network.
+8. 
 
 ## Verify the node is working
 

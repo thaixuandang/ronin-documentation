@@ -125,7 +125,7 @@ docker logs ronin-random-beacon-chain  -f –tail 100
 
 ## Run Random Beacon Service in combined mode
 
-1. Setup directory for postgres db data (assume that your node directory is as same as setting in [here](./mainnet/run-validator.md))
+1. Setup directory for postgres db data (assume that your node directory is as same as setting in [here](./mainnet/run-validator.mdx))
 
 ```
 cd ~/ronin
