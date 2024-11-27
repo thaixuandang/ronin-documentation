@@ -23,23 +23,24 @@ There are two ways to swap on Ronin: the [Swap](https://app.roninchain.com/swap)
 
 ### Swap fees in Katana v2 vs v3
 
-The fees for swapping tokens on Katana vary depending on the version of the AMM protocol being used: Katana v2 or Katana v3.
+The fees for swapping tokens will be applied in each pool that the swap path passes through. Depending on whether the pool is Katana V2 or Katana V3, there will be different corresponding fee rates. This swap fee is always paid in the *input token*.
 
-#### Katana v2
+#### Katana V2 pools
 
 | Fee amount | Fee breakdown |
 | --- | --- |
 | 0.3% | 0.25% LP fee + 0.05% Ronin Treasury fee |
 
-When using Wallet Swap, a development fee of 0.5% is added to the total fee, making it 0.8%.
 
-#### Katana v3
+#### Katana V3 pools
 
 | Fee tier | Fee breakdown | Used for |
 | --- | --- | --- |
 | 0.01% | 0.005% LP fee + 0.005% Ronin Treasury fee | Stablecoin pairs |
 | 0.3% | 0.25% LP fee + 0.05% Ronin Treasury fee | Most trading pairs |
 | 1% | 0.85% LP fee + 0.15% Ronin Treasury fee | High-volatility pairs |
+
+When using Wallet Swap, a development fee of 0.5% is added to the total fee in the *output token*.
 
 ## Prerequisites
 
@@ -116,3 +117,13 @@ Your transaction is now submitted to the blockchain. When it completes, Katana d
 <img src={roninWalletSwapCompleted} width={250} />
 
 Congratulations. You just swapped your tokens using Wallet Swap.
+
+
+## Routing
+The new algorithm, combined with the updated router smart contract, enables you to leverage more liquidity sources for your swaps, including both Katana V2 pools and Katana V3 pools. This allows you to receive more output tokens compared to the old router, which only sourced liquidity from Katana V2 pools.
+
+    ![Routing path](../assets/katana-routing-path.png)
+
+This feature will be enabled by default. If you prefer to use the old router, navigate to **Transaction Settings** and set the **Default trade options** to **V2**.
+
+    ![Transaction Settings](../assets/katana-transactions-settings.png)
