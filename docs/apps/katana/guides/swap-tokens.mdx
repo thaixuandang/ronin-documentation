@@ -119,11 +119,11 @@ Your transaction is now submitted to the blockchain. When it completes, Katana d
 Congratulations. You just swapped your tokens using Wallet Swap.
 
 
-## Routing
-The new algorithm, combined with the updated router smart contract, enables you to leverage more liquidity sources for your swaps, including both Katana V2 pools and Katana V3 pools. This allows you to receive more output tokens compared to the old router, which only sourced liquidity from Katana V2 pools.
+## Smart order router
+We use a smart order router combined with the updated router smart contract, which acts as an aggregator to provide access to a broader range of liquidity sources (including both Katana V2 pools and Katana V3 pools) for your swaps. This enable swap ratios compared to the previous router, which was limited to Katana V2 pools. 
 
     ![Routing path](../assets/katana-routing-path.png)
 
-This feature will be enabled by default. If you prefer to use the old router, navigate to **Transaction Settings** and set the **Default trade options** to **Legacy**.
+This feature will be enabled by default as the  **Default trade options** is set as **Aggregator**. If you prefer to use the old router, navigate to **Transaction Settings** and set the **Default trade options** to **Legacy**.
 
     ![Transaction Settings](../assets/katana-transactions-settings.png)
